@@ -1,5 +1,8 @@
 # V-Pad — website
 
+[![Deploy](https://github.com/svolkancav/vpad-site/actions/workflows/deploy.yml/badge.svg)](https://github.com/svolkancav/vpad-site/actions/workflows/deploy.yml) [![License: MIT](https://img.shields.io/github/license/svolkancav/vpad-site)](LICENSE)
+
+
 Static site for **V-Pad: Virtual Gamepad**: what it is, the download for the
 free desktop helper, setup instructions, privacy policy and support.
 
