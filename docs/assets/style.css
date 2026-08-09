@@ -340,6 +340,30 @@ table.map { width: 100%; border-collapse: collapse; font-size: 15.5px; }
 table.map th, table.map td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); }
 table.map th { color: var(--text-mute); font-weight: 650; }
 
+/* ── studio strip ──────────────────────────────────────────── */
+
+/* Shorter than a section on purpose: it closes the page rather than
+   competing with the product sections above it. Its own card rather than a
+   `tint` band — the footer is already --bg-alt, so a tinted strip directly
+   above it would melt into one shapeless block. */
+/* No top padding: the preceding section's bottom padding already provides the
+   gap, and doubling them left an awkward void above the card. */
+.studio { padding: 0 0 clamp(38px, 5vw, 56px); }
+.studio-card {
+  display: flex; align-items: center; gap: clamp(20px, 4vw, 48px);
+  flex-wrap: wrap;
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 36px);
+}
+.studio-card > div { flex: 1 1 380px; }
+.studio h2 { font-size: clamp(22px, 2.6vw, 28px); }
+.studio .eyebrow { margin-bottom: 14px; }
+.studio p {
+  color: var(--text-soft); font-size: 16px; margin: 10px 0 0; max-width: 62ch;
+}
+.studio p strong { color: var(--text); font-weight: 650; }
+.studio .btn { flex: 0 0 auto; }
+
 footer {
   border-top: 1px solid var(--line); background: var(--bg-alt);
   padding: 40px 0 56px; color: var(--text-mute); font-size: 15px;
