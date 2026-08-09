@@ -1,0 +1,18 @@
+# Cloudflare Workers — static assets deployment for vpadcontroller.com.
+#
+# The site is plain files, so no Worker script is needed: Workers serves the
+# directory directly and Cloudflare handles TLS and the CDN. Deploy with
+#   wrangler deploy
+# or let CI do it (.github/workflows/deploy.yml).
+#
+# Files stay at the repo ROOT rather than in a public/ subfolder so the same
+# layout also works for GitHub Pages, which is kept as a fallback URL.
+# `.assetsignore` keeps this config, the README and CI out of the upload.
+
+name = "vpadcontroller"
+compatibility_date = "2026-08-01"
+
+[assets]
+directory = "./"
+# A missing path serves 404.html instead of a bare Workers error page.
+not_found_handling = "404-page"

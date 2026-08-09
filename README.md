@@ -18,5 +18,13 @@ on `<html data-lang>`. The page therefore renders correctly with JavaScript
 disabled, and `assets/site.js` only flips the attribute (honouring `?lang=tr`,
 then a stored choice, then the browser language).
 
-**Deployment.** GitHub Pages from `main`. To attach a custom domain, put it in
-a `CNAME` file at the repo root and point DNS at GitHub.
+**Deployment.** <https://vpadcontroller.com> is served by **Cloudflare Workers**
+(static assets — no Worker script, the files are uploaded to the edge).
+`.github/workflows/deploy.yml` publishes on every push to `main` and needs two
+repository secrets: `CLOUDFLARE_API_TOKEN` (Workers Scripts: Edit) and
+`CLOUDFLARE_ACCOUNT_ID`.
+
+GitHub Pages stays enabled as a fallback/staging URL
+(<https://svolkancav.github.io/vpad-site/>). There is deliberately **no**
+`CNAME` file: adding one would make Pages claim the domain too and fight
+Cloudflare for it.

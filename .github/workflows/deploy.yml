@@ -1,0 +1,26 @@
+name: Deploy to Cloudflare
+
+# CI/CD for vpadcontroller.com: every push to main publishes the site to
+# Cloudflare Workers (static assets). No build step — the site is plain
+# files — so this is upload-only and takes seconds.
+#
+# Two repository secrets are required:
+#   CLOUDFLARE_API_TOKEN   — token with "Workers Scripts: Edit"
+#   CLOUDFLARE_ACCOUNT_ID  — from the Cloudflare dashboard URL
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
