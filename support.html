@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V-Pad — Support</title>
+<meta name="description" content="V-Pad support: setup help, troubleshooting for Windows and macOS, and how to reach us.">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="assets/icon.png" alt=""> V-Pad</a>
+    <nav>
+      <a href="./"><span lang="en">Home</span><span lang="tr">Ana sayfa</span></a>
+      <a href="privacy.html"><span lang="en">Privacy</span><span lang="tr">Gizlilik</span></a>
+      <div class="langs">
+        <button data-lang="en" aria-pressed="true">EN</button>
+        <button data-lang="tr" aria-pressed="false">TR</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<article class="doc wrap">
+  <h1><span lang="en">Support</span><span lang="tr">Destek</span></h1>
+  <p class="updated">
+    <span lang="en">Most problems are one of the five below. If none of them fit, write to us — the form goes straight to the developer.</span>
+    <span lang="tr">Sorunların çoğu aşağıdaki beşten biri. Hiçbiri uymuyorsa bize yaz — form doğrudan geliştiriciye gidiyor.</span>
+  </p>
+
+  <h2><span lang="en">Contact</span><span lang="tr">İletişim</span></h2>
+  <p>
+    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc1y3_2mH6MNbhffLwuKSNb5i9ykpjdBplUWf9En8KvGXrw_Q/viewform">
+      <span lang="en">Report a problem</span><span lang="tr">Sorun bildir</span>
+    </a>
+  </p>
+  <p>
+    <span lang="en">Please include: your phone model and OS version, whether the computer is Windows or macOS, and — if the helper is involved — the log file (its tray menu has <strong>Open log folder</strong>). The log says exactly which step failed and saves a lot of back and forth.</span>
+    <span lang="tr">Lütfen şunları ekle: telefon modeli ve işletim sistemi sürümü, bilgisayar Windows mı macOS mu, ve yardımcı program konuysa log dosyası (tepsi menüsünde <strong>Open log folder</strong> var). Log hangi adımda takıldığını tam olarak yazıyor ve karşılıklı yazışmadan çok zaman kazandırıyor.</span>
+  </p>
+
+  <h2><span lang="en">Troubleshooting</span><span lang="tr">Sorun giderme</span></h2>
+
+  <details open>
+    <summary><span lang="en">The phone doesn't find my computer</span><span lang="tr">Telefon bilgisayarımı bulamıyor</span></summary>
+    <p>
+      <span lang="en">Both must be on the same Wi-Fi network. The single most common cause is a <strong>VPN running on the computer</strong>: it hands out an address on a different network than the phone's. The helper's tray menu lists the addresses it published — the phone must be on one of those. Guest and corporate networks often block the discovery protocol (mDNS) entirely; a normal home network does not.</span>
+      <span lang="tr">İkisi de aynı Wi-Fi ağında olmalı. En sık sebep <strong>bilgisayarda açık olan bir VPN</strong>: telefondan farklı bir ağda adres veriyor. Yardımcı programın tepsi menüsü yayınladığı adresleri gösteriyor — telefonun o adreslerden birinin ağında olması lazım. Misafir ve kurumsal ağlar keşif protokolünü (mDNS) tamamen engelliyor olabilir; normal bir ev ağı engellemez.</span>
+    </p>
+  </details>
+
+  <details>
+    <summary><span lang="en">It's listed but connecting fails</span><span lang="tr">Listede çıkıyor ama bağlanmıyor</span></summary>
+    <p>
+      <span lang="en">The Windows firewall prompt was most likely declined. Open Windows Defender Firewall → <em>Allow an app through firewall</em> and tick <strong>V-Pad Helper</strong> for private networks. Then quit and reopen the helper.</span>
+      <span lang="tr">Büyük olasılıkla Windows güvenlik duvarı istemi reddedilmiş. Windows Defender Güvenlik Duvarı → <em>Uygulamaya izin ver</em> bölümünden <strong>V-Pad Helper</strong>'ı özel ağlar için işaretle. Sonra yardımcıyı kapat ve yeniden aç.</span>
+    </p>
+  </details>
+
+  <details>
+    <summary><span lang="en">Connected, but the game sees no controller</span><span lang="tr">Bağlandı ama oyun kumandayı görmüyor</span></summary>
+    <p>
+      <span lang="en"><strong>Windows:</strong> the gamepad driver (ViGEmBus) is missing. The helper offers it on first run; you can also install it any time from the tray menu, and it says so plainly when it is absent. After installing, check <em>Win+R → joy.cpl</em>: an "Xbox 360 Controller for Windows" should be listed. If the driver was just installed, quit and reopen the helper. In Steam, also enable <em>Settings → Controller → Generic Gamepad Configuration Support</em>.</span>
+      <span lang="tr"><strong>Windows:</strong> gamepad sürücüsü (ViGEmBus) eksik. Yardımcı program ilk açılışta öneriyor; tepsi menüsünden de her zaman kurabilirsin ve eksikse bunu açıkça yazıyor. Kurduktan sonra <em>Win+R → joy.cpl</em>'e bak: listede "Xbox 360 Controller for Windows" görünmeli. Sürücüyü yeni kurduysan yardımcıyı kapat-aç. Steam'de ayrıca <em>Ayarlar → Kontrolcü → Genel Gamepad Yapılandırma Desteği</em>'ni aç.</span>
+    </p>
+    <p>
+      <span lang="en"><strong>macOS:</strong> grant Accessibility permission to the helper (System Settings → Privacy &amp; Security → Accessibility), otherwise macOS accepts the input and silently discards it. Note that on macOS the pad is mapped to keyboard and mouse, not to a real controller — games that require a gamepad will not see one.</span>
+      <span lang="tr"><strong>macOS:</strong> yardımcıya Erişilebilirlik izni ver (Sistem Ayarları → Gizlilik ve Güvenlik → Erişilebilirlik), yoksa macOS girdiyi kabul edip sessizce çöpe atıyor. Ayrıca macOS'ta pad klavye ve fareye eşleniyor, gerçek bir kumandaya değil — kumanda zorunlu olan oyunlar bir kumanda görmez.</span>
+    </p>
+  </details>
+
+  <details>
+    <summary><span lang="en">Windows says the file isn't safe</span><span lang="tr">Windows dosyanın güvenli olmadığını söylüyor</span></summary>
+    <p>
+      <span lang="en">The helper is not code-signed yet, so SmartScreen shows "Windows protected your PC" for any new file it has not seen before. Choose <em>More info → Run anyway</em>. The source is public if you want to check it first.</span>
+      <span lang="tr">Yardımcı program henüz kod imzalı değil; SmartScreen daha önce görmediği her yeni dosya için "Windows bu PC'yi korudu" uyarısını gösteriyor. <em>Daha fazla bilgi → Yine de çalıştır</em>'ı seç. Önce incelemek istersen kaynağı herkese açık.</span>
+    </p>
+  </details>
+
+  <details>
+    <summary><span lang="en">I ran the helper and no window opened</span><span lang="tr">Yardımcıyı çalıştırdım, hiç pencere açılmadı</span></summary>
+    <p>
+      <span lang="en">That is normal — it is a tray app, not a window. Look next to the clock; on Windows 11 new tray icons start out hidden behind the <strong>^</strong> arrow. A notification on first run confirms it started.</span>
+      <span lang="tr">Bu normal — pencereli bir uygulama değil, tepsi uygulaması. Saatin yanına bak; Windows 11'de yeni tepsi ikonları başlangıçta <strong>^</strong> okunun arkasında saklı olur. İlk açılışta çıkan bildirim başladığını doğruluyor.</span>
+    </p>
+  </details>
+
+  <h2><span lang="en">macOS key map</span><span lang="tr">macOS tuş eşlemesi</span></h2>
+  <p>
+    <span lang="en">On macOS the gamepad is translated into keyboard and mouse input:</span>
+    <span lang="tr">macOS'ta gamepad, klavye ve fare girdisine çevriliyor:</span>
+  </p>
+  <table class="map">
+    <tr><th><span lang="en">Gamepad</span><span lang="tr">Gamepad</span></th><th><span lang="en">Mac</span><span lang="tr">Mac</span></th></tr>
+    <tr><td><span lang="en">Left stick</span><span lang="tr">Sol analog</span></td><td>W A S D</td></tr>
+    <tr><td><span lang="en">D-pad</span><span lang="tr">Yön tuşları</span></td><td><span lang="en">Arrow keys</span><span lang="tr">Ok tuşları</span></td></tr>
+    <tr><td><span lang="en">Right stick</span><span lang="tr">Sağ analog</span></td><td><span lang="en">Mouse movement</span><span lang="tr">Fare hareketi</span></td></tr>
+    <tr><td>RT / LT</td><td><span lang="en">Left / right click</span><span lang="tr">Sol / sağ tık</span></td></tr>
+    <tr><td>A · B · X · Y</td><td>Space · Ctrl · E · R</td></tr>
+    <tr><td>L1 · R1 · L3 · R3</td><td>Q · F · Shift · C</td></tr>
+    <tr><td>Select · Start</td><td>Tab · Return</td></tr>
+  </table>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="./"><span lang="en">Home</span><span lang="tr">Ana sayfa</span></a>
+      <a href="privacy.html"><span lang="en">Privacy</span><span lang="tr">Gizlilik</span></a>
+      <a href="https://github.com/svolkancav/vpad-helper"><span lang="en">Helper source</span><span lang="tr">Yardımcının kaynağı</span></a>
+    </div>
+    <p style="margin:0">© 2026 DolceFarNiente Mondo · V-Pad</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
