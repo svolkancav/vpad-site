@@ -6,14 +6,16 @@
 <title>V-Pad — turn your phone into a gamepad</title>
 <meta name="description" content="V-Pad turns your phone into a gamepad for your PC. On Android it pairs over Bluetooth; on iPhone it connects over Wi-Fi with a free helper app for your computer.">
 <link rel="icon" href="assets/icon.png">
+<link rel="preload" href="assets/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="canonical" href="https://vpadcontroller.com/">
 <meta property="og:url" content="https://vpadcontroller.com/">
-
 <meta property="og:title" content="V-Pad — turn your phone into a gamepad">
 <meta property="og:description" content="Your phone becomes a gamepad for your PC. Free helper app for Windows.">
 <meta property="og:image" content="https://vpadcontroller.com/assets/icon.png">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f1a" media="(prefers-color-scheme: dark)">
 </head>
 <body>
 
@@ -33,37 +35,99 @@
   </div>
 </header>
 
-<div class="wrap hero">
-  <h1>
-    <span lang="en">Your phone is the gamepad.</span>
-    <span lang="tr">Telefonun artık gamepad.</span>
-  </h1>
-  <p class="lead">
-    <span lang="en">V-Pad turns the phone in your pocket into a controller for your PC — customizable layouts, analog sticks, triggers and haptics. No extra hardware to buy.</span>
-    <span lang="tr">V-Pad, cebindeki telefonu bilgisayarın için bir kumandaya çevirir — özelleştirilebilir düzenler, analog çubuklar, tetikler ve titreşim. Ekstra donanım almana gerek yok.</span>
-  </p>
-  <div class="cta">
-    <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/latest/download/V-Pad.Helper.exe">
-      <span lang="en">⬇ Download helper for Windows</span>
-      <span lang="tr">⬇ Windows için yardımcıyı indir</span>
-    </a>
-    <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.dfnmondo.gamepad.app">
-      <span lang="en">Get the app on Google Play</span>
-      <span lang="tr">Uygulamayı Google Play'den al</span>
-    </a>
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>
+        <span lang="en">Free helper for Windows</span>
+        <span lang="tr">Windows için ücretsiz yardımcı</span>
+      </span>
+      <h1>
+        <span lang="en">Your phone is the gamepad.</span>
+        <span lang="tr">Telefonun artık gamepad.</span>
+      </h1>
+      <p class="lead">
+        <span lang="en">Analog sticks, triggers and haptics — on a layout you design yourself. No controller to buy, nothing else to carry.</span>
+        <span lang="tr">Analog çubuklar, tetikler ve titreşim — hem de kendi tasarladığın bir düzende. Kumanda almana gerek yok, taşıyacak bir şey de yok.</span>
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/latest/download/V-Pad.Helper.exe">
+          <span lang="en">Download for Windows</span>
+          <span lang="tr">Windows için indir</span>
+        </a>
+        <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.dfnmondo.gamepad.app">
+          <span lang="en">Get the app on Google Play</span>
+          <span lang="tr">Uygulamayı Google Play'den al</span>
+        </a>
+      </div>
+      <p class="hint">
+        <span lang="en">The helper is only needed for iPhone — on Android nothing extra is required. The iOS app is in beta testing.</span>
+        <span lang="tr">Yardımcı program yalnız iPhone için gerekli — Android'de hiçbir ek şey gerekmiyor. iOS uygulaması beta testinde.</span>
+      </p>
+    </div>
+
+    <!-- Phone → Wi-Fi → PC, drawn rather than filmed: sharp at any size, no
+         download, and it survives a theme switch. Device *chassis* follows the
+         theme tokens; anything drawn inside a screen uses fixed bright colours,
+         because a screen is dark in both themes and a token would sink into it.
+         The phone is landscape because that is how the pad is held. -->
+    <div class="stage" role="img"
+         aria-label="A phone held sideways as a gamepad, sending input over Wi-Fi to a computer">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+        <!-- computer -->
+        <g>
+          <rect x="252" y="86" width="206" height="132" rx="12"
+                fill="var(--surface-2)" stroke="var(--line-strong)" stroke-width="2"/>
+          <rect x="264" y="98" width="182" height="108" rx="7" fill="#0e1220"/>
+          <!-- a suggestion of a game scene -->
+          <path d="M264 176 L310 146 L352 176 L400 138 L446 176 L446 206 L264 206 Z"
+                fill="#5aa9ff" opacity=".3"/>
+          <circle cx="418" cy="122" r="11" fill="#ffd600" opacity=".6"/>
+          <g class="cursor">
+            <path d="M330 150 l0 22 l6 -6 l5 11 l5 -3 l-5 -10 l8 0 z"
+                  fill="#ffffff" opacity=".92"/>
+          </g>
+          <rect x="336" y="218" width="38" height="26" fill="var(--line-strong)"/>
+          <rect x="308" y="244" width="94" height="9" rx="4.5" fill="var(--line-strong)"/>
+        </g>
+
+        <!-- wifi waves, travelling from the phone toward the screen -->
+        <g fill="none" stroke="var(--good)" stroke-width="3.4" stroke-linecap="round"
+           transform-origin="196 168">
+          <path class="wave" d="M198 146 a30 30 0 0 1 0 44"/>
+          <path class="wave" d="M208 132 a48 48 0 0 1 0 72"/>
+          <path class="wave" d="M218 118 a66 66 0 0 1 0 100"/>
+        </g>
+
+        <!-- phone, held sideways -->
+        <g>
+          <rect x="22" y="112" width="168" height="112" rx="17"
+                fill="var(--surface)" stroke="var(--line-strong)" stroke-width="2"/>
+          <rect x="31" y="121" width="150" height="94" rx="11" fill="#12172a"/>
+          <!-- left stick -->
+          <circle cx="66" cy="168" r="19" fill="none" stroke="#ffd600"
+                  stroke-width="2.6" opacity=".45"/>
+          <circle cx="66" cy="168" r="9" fill="#ffd600"/>
+          <!-- face buttons -->
+          <circle class="press a" cx="150" cy="152" r="7.5" fill="#ffd600"/>
+          <circle class="press b" cx="164" cy="170" r="7.5" fill="#5aa9ff"/>
+          <circle class="press c" cx="136" cy="170" r="7.5" fill="#8bc34a"/>
+          <circle cx="150" cy="188" r="7.5" fill="#ffffff" opacity=".22"/>
+          <!-- triggers -->
+          <rect x="44" y="121" width="26" height="7" rx="3.5" fill="var(--line-strong)"/>
+          <rect x="142" y="121" width="26" height="7" rx="3.5" fill="var(--line-strong)"/>
+        </g>
+      </svg>
+    </div>
   </div>
-  <p class="hint">
-    <span lang="en">The helper is free and only needed for iPhone. On Android nothing extra is required. iOS version is in beta — see below.</span>
-    <span lang="tr">Yardımcı program ücretsiz ve yalnız iPhone için gerekli. Android'de hiçbir ek şey gerekmiyor. iOS sürümü beta aşamasında — aşağıya bak.</span>
-  </p>
 </div>
 
-<section id="how">
+<section id="how" class="tint">
   <div class="wrap">
     <h2><span lang="en">Two phones, two paths</span><span lang="tr">İki telefon, iki yol</span></h2>
     <p class="sub">
-      <span lang="en">How V-Pad reaches your computer depends on the platform — and this is the one thing worth understanding before you start.</span>
-      <span lang="tr">V-Pad'in bilgisayarına nasıl ulaştığı platforma göre değişiyor — başlamadan önce anlaşılması gereken tek şey bu.</span>
+      <span lang="en">How V-Pad reaches your computer depends on the platform — the one thing worth knowing before you start.</span>
+      <span lang="tr">V-Pad'in bilgisayarına nasıl ulaştığı platforma göre değişiyor — başlamadan önce bilinmesi gereken tek şey bu.</span>
     </p>
     <div class="grid two">
       <div class="card">
@@ -76,14 +140,14 @@
       <div class="card">
         <h3>iPhone <span class="tag wifi">Wi-Fi</span></h3>
         <p>
-          <span lang="en">Apple reserves the Bluetooth gamepad role for the system, so no iPhone app can appear in your computer's Bluetooth list. V-Pad reaches your PC over your own Wi-Fi instead, through a small free helper app that runs there.</span>
-          <span lang="tr">Apple, Bluetooth gamepad rolünü sisteme ayırmış; bu yüzden hiçbir iPhone uygulaması bilgisayarının Bluetooth listesinde görünemez. V-Pad bunun yerine bilgisayarına kendi Wi-Fi ağın üzerinden, orada çalışan küçük ve ücretsiz bir yardımcı programla ulaşır.</span>
+          <span lang="en">Apple reserves the Bluetooth gamepad role for the system, so no iPhone app can appear in your computer's Bluetooth list. V-Pad reaches your PC over your own Wi-Fi instead, through a small free helper that runs there.</span>
+          <span lang="tr">Apple, Bluetooth gamepad rolünü sisteme ayırmış; bu yüzden hiçbir iPhone uygulaması bilgisayarının Bluetooth listesinde görünemez. V-Pad bunun yerine bilgisayarına kendi Wi-Fi ağın üzerinden, orada çalışan küçük ve ücretsiz bir yardımcıyla ulaşır.</span>
         </p>
       </div>
     </div>
-    <p class="note" style="margin-top:18px">
-      <span lang="en"><strong>Why not Bluetooth on iPhone?</strong> It is a platform restriction, not a missing feature: iOS refuses to let third-party apps advertise the Bluetooth HID service. Every iPhone app in this category ships a desktop companion for the same reason.</span>
-      <span lang="tr"><strong>iPhone'da neden Bluetooth yok?</strong> Bu eksik bir özellik değil, platform kısıtı: iOS üçüncü taraf uygulamaların Bluetooth HID servisini yayınlamasına izin vermiyor. Bu kategorideki bütün iPhone uygulamalarının bilgisayara bir yardımcı program kurdurmasının sebebi de aynı.</span>
+    <p class="note" style="margin-top:20px">
+      <span lang="en"><strong>Why not Bluetooth on iPhone?</strong> A platform restriction, not a missing feature: iOS refuses to let third-party apps advertise the Bluetooth HID service. Every iPhone app in this category ships a desktop companion for the same reason.</span>
+      <span lang="tr"><strong>iPhone'da neden Bluetooth yok?</strong> Eksik bir özellik değil, platform kısıtı: iOS üçüncü taraf uygulamaların Bluetooth HID servisini yayınlamasına izin vermiyor. Bu kategorideki bütün iPhone uygulamalarının bilgisayara bir yardımcı program kurdurmasının sebebi de aynı.</span>
     </p>
   </div>
 </section>
@@ -99,8 +163,8 @@
       <li>
         <strong><span lang="en">Install the helper on your PC</span><span lang="tr">Bilgisayarına yardımcıyı kur</span></strong>
         <p>
-          <span lang="en">Download it above and run it — no installer, it lives in the system tray. Windows will warn that the file is unsigned (<em>More info → Run anyway</em>), then ask about network access: allow it on <strong>private networks</strong>. On first run it offers a one-time gamepad driver — accept it, that is what makes games see a real controller.</span>
-          <span lang="tr">Yukarıdan indir ve çalıştır — kurulum sihirbazı yok, sistem tepsisinde yaşıyor. Windows dosyanın imzasız olduğu konusunda uyaracak (<em>Daha fazla bilgi → Yine de çalıştır</em>), sonra ağ erişimini soracak: <strong>özel ağlar</strong> için izin ver. İlk açılışta bir kerelik gamepad sürücüsü önerir — kabul et, oyunların gerçek bir kumanda görmesini sağlayan şey o.</span>
+          <span lang="en">Download it above and run it — no installer, it lives in the system tray. Windows warns that the file is unsigned (<em>More info → Run anyway</em>), then asks about network access: allow it on <strong>private networks</strong>. On first run it offers a one-time gamepad driver — accept it, that is what makes games see a real controller.</span>
+          <span lang="tr">Yukarıdan indir ve çalıştır — kurulum sihirbazı yok, sistem tepsisinde yaşıyor. Windows dosyanın imzasız olduğunu söyleyip uyarır (<em>Daha fazla bilgi → Yine de çalıştır</em>), sonra ağ erişimini sorar: <strong>özel ağlar</strong> için izin ver. İlk açılışta bir kerelik gamepad sürücüsü önerir — kabul et, oyunların gerçek bir kumanda görmesini sağlayan şey o.</span>
         </p>
       </li>
       <li>
@@ -121,33 +185,36 @@
   </div>
 </section>
 
-<section id="shots">
+<section id="shots" class="tint">
   <div class="wrap">
     <h2><span lang="en">Built to be yours</span><span lang="tr">Senin olacak şekilde</span></h2>
     <p class="sub">
-      <span lang="en">Move, resize and recolor every control, pick a backdrop, save your own layouts.</span>
+      <span lang="en">Move, resize and recolour every control, pick a backdrop, save your own layouts.</span>
       <span lang="tr">Her kontrolü taşı, boyutlandır, rengini değiştir; arka plan seç, kendi düzenlerini kaydet.</span>
     </p>
+    <!-- Layouts in use, not settings screens: the gallery should show the thing
+         being played with. Screens from before the V-Pad rename are excluded —
+         the old name in a screenshot reads as a different product. -->
     <div class="shots">
       <figure>
-        <img src="assets/7inch-ana-ekran.jpg" alt="V-Pad layout picker" loading="lazy">
-        <figcaption><span lang="en">Pick a layout</span><span lang="tr">Düzen seç</span></figcaption>
+        <img src="assets/7inch-skin-pro-phoenix.jpg" alt="V-Pad Pro layout over a phoenix backdrop" loading="lazy" decoding="async">
+        <figcaption><span lang="en">Pro — twin sticks, full triggers</span><span lang="tr">Pro — çift çubuk, tam tetikler</span></figcaption>
       </figure>
       <figure>
-        <img src="assets/7inch-skin-pro-phoenix.jpg" alt="V-Pad Pro layout" loading="lazy">
-        <figcaption><span lang="en">Analog sticks, triggers, haptics</span><span lang="tr">Analog çubuklar, tetikler, titreşim</span></figcaption>
+        <img src="assets/7inch-skin-compact-wolf.jpg" alt="V-Pad Compact layout over a wolf backdrop" loading="lazy" decoding="async">
+        <figcaption><span lang="en">Compact — for one-handed reach</span><span lang="tr">Compact — tek elle erişim için</span></figcaption>
       </figure>
       <figure>
-        <img src="assets/7inch-skin-edge-knight-ozel.jpg" alt="Customized layout" loading="lazy">
-        <figcaption><span lang="en">Customize every control</span><span lang="tr">Her kontrolü özelleştir</span></figcaption>
+        <img src="assets/7inch-skin-pro-lion.jpg" alt="V-Pad Pro layout over a lion backdrop" loading="lazy" decoding="async">
+        <figcaption><span lang="en">Any backdrop you like</span><span lang="tr">İstediğin arka plan</span></figcaption>
       </figure>
       <figure>
-        <img src="assets/7inch-backdrop-secici.jpg" alt="Backdrop picker" loading="lazy">
-        <figcaption><span lang="en">Choose a backdrop</span><span lang="tr">Arka planı seç</span></figcaption>
+        <img src="assets/7inch-skin-edge-knight-ozel.jpg" alt="Recoloured and rearranged V-Pad layout" loading="lazy" decoding="async">
+        <figcaption><span lang="en">Recoloured and rearranged</span><span lang="tr">Rengi ve yerleşimi değiştirilmiş</span></figcaption>
       </figure>
       <figure>
-        <img src="assets/7inch-baglanti-ayarlari.jpg" alt="Connection screen" loading="lazy">
-        <figcaption><span lang="en">Connection, in one place</span><span lang="tr">Bağlantı, tek yerde</span></figcaption>
+        <img src="assets/7inch-backdrop-secici.jpg" alt="V-Pad backdrop picker" loading="lazy" decoding="async">
+        <figcaption><span lang="en">Backdrops, built in</span><span lang="tr">Arka planlar, hazır gelir</span></figcaption>
       </figure>
     </div>
   </div>
@@ -156,26 +223,30 @@
 <section id="download">
   <div class="wrap">
     <h2><span lang="en">Downloads</span><span lang="tr">İndirmeler</span></h2>
+    <p class="sub">
+      <span lang="en">The helper is free on every platform it supports.</span>
+      <span lang="tr">Yardımcı program desteklediği her platformda ücretsiz.</span>
+    </p>
     <div class="grid three">
       <div class="card">
         <h3><span lang="en">Helper for Windows</span><span lang="tr">Windows yardımcısı</span></h3>
-        <p style="margin-bottom:14px">
-          <span lang="en">Free. Creates a real virtual Xbox 360 controller, so games need no special support.</span>
-          <span lang="tr">Ücretsiz. Gerçek bir sanal Xbox 360 kumandası oluşturur, yani oyunların özel bir desteğe ihtiyacı olmaz.</span>
+        <p style="margin-bottom:18px">
+          <span lang="en">Creates a real virtual Xbox 360 controller, so games need no special support.</span>
+          <span lang="tr">Gerçek bir sanal Xbox 360 kumandası oluşturur, yani oyunların özel bir desteğe ihtiyacı olmaz.</span>
         </p>
         <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/latest/download/V-Pad.Helper.exe"><span lang="en">Download</span><span lang="tr">İndir</span></a>
       </div>
       <div class="card">
         <h3><span lang="en">Helper for macOS</span><span lang="tr">macOS yardımcısı</span></h3>
-        <p style="margin-bottom:14px">
-          <span lang="en">Coming shortly. macOS gives no app a virtual gamepad, so it maps the pad onto keyboard and mouse instead.</span>
+        <p style="margin-bottom:18px">
+          <span lang="en">Coming shortly. macOS gives no app a virtual gamepad, so the pad maps onto keyboard and mouse instead.</span>
           <span lang="tr">Yakında. macOS hiçbir uygulamaya sanal gamepad yolu vermiyor; bu yüzden pad klavye ve fareye eşlenir.</span>
         </p>
         <span class="btn btn-ghost" aria-disabled="true"><span lang="en">Soon</span><span lang="tr">Yakında</span></span>
       </div>
       <div class="card">
         <h3><span lang="en">The app</span><span lang="tr">Uygulama</span></h3>
-        <p style="margin-bottom:14px">
+        <p style="margin-bottom:18px">
           <span lang="en">Android is on Google Play now. The iPhone version is in beta testing and comes to the App Store next.</span>
           <span lang="tr">Android şu anda Google Play'de. iPhone sürümü beta testinde ve sırada App Store var.</span>
         </p>
