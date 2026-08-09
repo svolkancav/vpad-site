@@ -23,4 +23,8 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Pin the major: the action defaults to an old wrangler (3.90 warns
+          # it is out of date), and custom-domain routes plus the assets
+          # config are exactly the areas that moved in v4.
+          wranglerVersion: "4"
           command: deploy

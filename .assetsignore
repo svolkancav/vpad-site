@@ -1,6 +1,0 @@
-# Not part of the website — never upload these to the edge.
-wrangler.toml
-.assetsignore
-README.md
-.github
-.git

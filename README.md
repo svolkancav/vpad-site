@@ -7,11 +7,17 @@ No build step, no dependencies, no external requests (no CDN, no web fonts,
 no analytics) — three HTML files, one stylesheet, one small script.
 
 ```
-index.html     landing page: how it works, setup, screenshots, downloads
-support.html   troubleshooting + contact  → the App Store "Support URL"
-privacy.html   privacy policy             → the store "Privacy Policy URL"
-assets/        stylesheet, language switch, icon, screenshots
+docs/index.html     landing page: how it works, setup, screenshots, downloads
+docs/support.html   troubleshooting + contact  → the App Store "Support URL"
+docs/privacy.html   privacy policy             → the store "Privacy Policy URL"
+docs/404.html       not-found page (both languages)
+docs/assets/        stylesheet, language switch, icon, screenshots
+wrangler.toml       Cloudflare Workers config (assets = ./docs)
 ```
+
+Everything served lives under `docs/` and nothing else is uploaded — an
+allowlist, so a tool that writes into the repo root can never end up on the
+CDN.
 
 **Languages.** English and Turkish both live in the DOM; CSS hides one based
 on `<html data-lang>`. The page therefore renders correctly with JavaScript
