@@ -12,6 +12,15 @@
 name = "vpadcontroller"
 compatibility_date = "2026-08-01"
 
+# Declaring the custom domains here means `wrangler deploy` attaches them and
+# writes the DNS records itself — no dashboard clicking, and the mapping is
+# reviewable in git. It also REPLACES whatever the records point at today
+# (the registrar's parked page), which is the intended effect.
+routes = [
+  { pattern = "vpadcontroller.com", custom_domain = true },
+  { pattern = "www.vpadcontroller.com", custom_domain = true },
+]
+
 [assets]
 directory = "./"
 # A missing path serves 404.html instead of a bare Workers error page.
