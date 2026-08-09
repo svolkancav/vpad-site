@@ -19,14 +19,124 @@
 </head>
 <body>
 
+<!-- ICONS:BEGIN -->
+<!-- ============================================================
+     Icon sprite. Inlined into each page rather than fetched: a strict
+     "no third-party requests" promise sits in our privacy policy, and
+     external <use href="file.svg#id"> is still unreliable across
+     browsers. Each symbol carries its own viewBox, so a caller is just
+     <svg class="ico"><use href="#i-name"/></svg>.
+
+     Colour comes from `currentColor` in every symbol — an icon inherits
+     the text colour of whatever it sits next to, in either theme.
+     ============================================================ -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <symbol id="i-windows" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 4.7 10.5 3.7v7.4H3V4.7Zm9 .8L21 2.2v8.9h-9V5.5ZM3 12.9h7.5v7.4L3 19.3v-6.4Zm9 0h9v8.9L12 20.3v-7.4Z"/>
+    </symbol>
+
+    <symbol id="i-apple" viewBox="0 0 384 512">
+      <path fill="currentColor" d="M318.7 268c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C71.2 141.6 24 184.4 24 269.7c0 25.2 4.6 51.2 13.8 78 12.3 35.2 56.6 121.5 102.8 120.1 24.1-.6 41.1-17.1 72.5-17.1 30.5 0 46.2 17.1 76.4 17.1 46.6-.7 86.7-79.1 98.4-114.4-62.6-29.5-59.2-86.4-59.2-88.4zm-51.1-155.2c24.7-29.3 22.5-56 21.8-65.6-21.9 1.3-47.2 15-61.6 31.9-15.9 18.2-25.2 40.7-23.2 64.7 23.7 1.8 45.3-10.4 63-30.9z"/>
+    </symbol>
+
+    <!-- The eyes are holes punched with evenodd, so the icon works on any ground. -->
+    <symbol id="i-android" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M7.6 3.6 9 6M16.4 3.6 15 6"/>
+      <path fill="currentColor" fill-rule="evenodd" d="M4 13.4a8 8 0 0 1 16 0v.7H4v-.7Zm5.1-2.5a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1Zm5.8 0a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1Z"/>
+      <rect fill="currentColor" x="4" y="15.6" width="16" height="4.8" rx="2.2"/>
+    </symbol>
+
+    <symbol id="i-play" viewBox="0 0 512 512">
+      <path fill="currentColor" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 65.5 65.7 65.5 60.1-34.1c18-14.3 18-46.5-1.2-62.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+    </symbol>
+
+    <symbol id="i-bluetooth" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+            d="M6.8 6.8 17.2 17.2 12 22.4V1.6l5.2 5.2L6.8 17.2"/>
+    </symbol>
+
+    <symbol id="i-wifi" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"
+            d="M1.6 8.6a16 16 0 0 1 20.8 0M5.1 12.5a11 11 0 0 1 13.8 0M8.6 16.3a6 6 0 0 1 6.8 0"/>
+      <circle fill="currentColor" cx="12" cy="20" r="1.3"/>
+    </symbol>
+
+    <symbol id="i-download" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+            d="M12 3v11m0 0 4.2-4.2M12 14l-4.2-4.2M4 20h16"/>
+    </symbol>
+
+    <symbol id="i-apps" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z"/>
+    </symbol>
+
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+            d="M12 2.6 4.5 5.4v5.9c0 4.8 3.1 8.9 7.5 10.5 4.4-1.6 7.5-5.7 7.5-10.5V5.4L12 2.6Z"/>
+    </symbol>
+
+    <symbol id="i-help" viewBox="0 0 24 24">
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" cx="12" cy="12" r="9.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            d="M9.4 9.1a2.7 2.7 0 1 1 3.6 2.6c-.7.3-1 .9-1 1.6v.3"/>
+      <circle fill="currentColor" cx="12" cy="17" r="1.2"/>
+    </symbol>
+
+    <symbol id="i-code" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+            d="M8.5 5.5 3 12l5.5 6.5M15.5 5.5 21 12l-5.5 6.5"/>
+    </symbol>
+
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" cx="12" cy="12" r="9.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 7.2V12l3.4 2.1"/>
+    </symbol>
+
+    <symbol id="i-gamepad" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+            d="M7.6 8.4h8.8a4.6 4.6 0 0 1 4.5 5.5l-.7 3.7a2.2 2.2 0 0 1-3.8 1.1L14.9 16H9.1l-1.5 2.7a2.2 2.2 0 0 1-3.8-1.1l-.7-3.7a4.6 4.6 0 0 1 4.5-5.5Z"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M7.4 11v2.6M6.1 12.3h2.6"/>
+      <circle fill="currentColor" cx="15.6" cy="11.7" r="1.05"/>
+      <circle fill="currentColor" cx="17.6" cy="13.7" r="1.05"/>
+    </symbol>
+
+    <symbol id="i-sliders" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            d="M3 7h5M13 7h8M3 17h9M17 17h4"/>
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" cx="10.5" cy="7" r="2.4"/>
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" cx="14.5" cy="17" r="2.4"/>
+    </symbol>
+
+    <symbol id="i-route" viewBox="0 0 24 24">
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" cx="5.5" cy="5.5" r="2.6"/>
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" cx="18.5" cy="18.5" r="2.6"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="1.6 3"
+            d="M5.5 8.1v5.4a3 3 0 0 0 3 3h7.4"/>
+    </symbol>
+
+    <symbol id="i-info" viewBox="0 0 24 24">
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" cx="12" cy="12" r="9.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M12 11.2v5.4"/>
+      <circle fill="currentColor" cx="12" cy="7.9" r="1.2"/>
+    </symbol>
+
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"
+            d="M4 12h15m0 0-5.2-5.2M19 12l-5.2 5.2"/>
+    </symbol>
+  </defs>
+</svg>
+<!-- ICONS:END -->
+
 <header>
   <div class="wrap bar">
     <a class="brand" href="./"><img src="assets/icon.png" alt=""> V-Pad</a>
     <nav>
-      <a href="#how"><span lang="en">How it works</span><span lang="tr">Nasıl çalışır</span></a>
-      <a href="#setup"><span lang="en">Setup</span><span lang="tr">Kurulum</span></a>
-      <a href="#download"><span lang="en">Download</span><span lang="tr">İndir</span></a>
-      <a href="/support"><span lang="en">Support</span><span lang="tr">Destek</span></a>
+      <a href="#how"><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span lang="en">How it works</span><span lang="tr">Nasıl çalışır</span></a>
+      <a href="#setup"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg><span lang="en">Setup</span><span lang="tr">Kurulum</span></a>
+      <a href="#download"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span lang="en">Download</span><span lang="tr">İndir</span></a>
+      <a href="/support"><svg class="ico" aria-hidden="true"><use href="#i-help"/></svg><span lang="en">Support</span><span lang="tr">Destek</span></a>
       <div class="langs">
         <button data-lang="en" aria-pressed="true">EN</button>
         <button data-lang="tr" aria-pressed="false">TR</button>
@@ -38,7 +148,8 @@
 <div class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span>
+      <span class="eyebrow">
+        <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
         <span lang="en">Free helper for Windows</span>
         <span lang="tr">Windows için ücretsiz yardımcı</span>
       </span>
@@ -52,70 +163,115 @@
       </p>
       <div class="cta">
         <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/latest/download/V-Pad.Helper.exe">
+          <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
           <span lang="en">Download for Windows</span>
           <span lang="tr">Windows için indir</span>
         </a>
         <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.dfnmondo.gamepad.app">
-          <span lang="en">Get the app on Google Play</span>
-          <span lang="tr">Uygulamayı Google Play'den al</span>
+          <svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>
+          <span lang="en">Get it on Google Play</span>
+          <span lang="tr">Google Play'den al</span>
         </a>
       </div>
-      <p class="hint">
-        <span lang="en">The helper is only needed for iPhone — on Android nothing extra is required. The iOS app is in beta testing.</span>
-        <span lang="tr">Yardımcı program yalnız iPhone için gerekli — Android'de hiçbir ek şey gerekmiyor. iOS uygulaması beta testinde.</span>
-      </p>
+      <!-- The three facts a visitor needs before deciding, as a scannable row
+           rather than a paragraph they have to read to find their platform. -->
+      <ul class="platforms">
+        <li>
+          <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
+          <span lang="en">Windows helper — free</span>
+          <span lang="tr">Windows yardımcısı — ücretsiz</span>
+        </li>
+        <li>
+          <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg>
+          <span lang="en">Android — Bluetooth, nothing to install</span>
+          <span lang="tr">Android — Bluetooth, kurulum yok</span>
+        </li>
+        <li>
+          <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
+          <span lang="en">iPhone — Wi-Fi, beta testing now</span>
+          <span lang="tr">iPhone — Wi-Fi, şu an beta testinde</span>
+        </li>
+      </ul>
     </div>
 
     <!-- Phone → Wi-Fi → PC, drawn rather than filmed: sharp at any size, no
          download, and it survives a theme switch. Device *chassis* follows the
          theme tokens; anything drawn inside a screen uses fixed bright colours,
          because a screen is dark in both themes and a token would sink into it.
-         The phone is landscape because that is how the pad is held. -->
+         The phone is landscape because that is how the pad is held.
+
+         One 5s story drives it: the left stick moves, the ship on the monitor
+         repeats that move 130ms later, and the waves carry it across. The delay
+         is the point — it is what makes the picture read as *input travelling*
+         rather than three unrelated things wiggling. -->
     <div class="stage" role="img"
-         aria-label="A phone held sideways as a gamepad, sending input over Wi-Fi to a computer">
-      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+         aria-label="A phone held sideways as a gamepad; its stick movement travels over Wi-Fi and steers a ship on the computer screen">
+      <svg viewBox="0 40 480 260" xmlns="http://www.w3.org/2000/svg">
         <!-- computer -->
         <g>
           <rect x="252" y="86" width="206" height="132" rx="12"
                 fill="var(--surface-2)" stroke="var(--line-strong)" stroke-width="2"/>
           <rect x="264" y="98" width="182" height="108" rx="7" fill="#0e1220"/>
           <!-- a suggestion of a game scene -->
-          <path d="M264 176 L310 146 L352 176 L400 138 L446 176 L446 206 L264 206 Z"
-                fill="#5aa9ff" opacity=".3"/>
-          <circle cx="418" cy="122" r="11" fill="#ffd600" opacity=".6"/>
-          <g class="cursor">
-            <path d="M330 150 l0 22 l6 -6 l5 11 l5 -3 l-5 -10 l8 0 z"
-                  fill="#ffffff" opacity=".92"/>
+          <path d="M264 178 L306 150 L346 178 L392 142 L446 180 L446 206 L264 206 Z"
+                fill="#5aa9ff" opacity=".28"/>
+          <circle cx="420" cy="120" r="10" fill="#ffd600" opacity=".55"/>
+          <!-- The ship, and one ghost trailing it. Outer <g> holds the position,
+               inner <g> is animated: a CSS transform would otherwise *replace*
+               the transform attribute, not compose with it. The trail is the
+               same motion a little later — it is what makes the movement legible
+               at this size, where the ship itself is barely 17px across. -->
+          <g transform="translate(352,176)">
+            <g class="ship trail">
+              <path d="M0 -11 L8.5 8 L0 4 L-8.5 8 Z" fill="#ffd600"/>
+            </g>
+            <g class="ship">
+              <path d="M0 -11 L8.5 8 L0 4 L-8.5 8 Z" fill="#ffffff" opacity=".95"/>
+              <path d="M0 -11 L8.5 8 L0 4 L-8.5 8 Z" fill="none" stroke="#ffd600"
+                    stroke-width="1.3" opacity=".85"/>
+            </g>
           </g>
           <rect x="336" y="218" width="38" height="26" fill="var(--line-strong)"/>
           <rect x="308" y="244" width="94" height="9" rx="4.5" fill="var(--line-strong)"/>
         </g>
 
         <!-- wifi waves, travelling from the phone toward the screen -->
-        <g fill="none" stroke="var(--good)" stroke-width="3.4" stroke-linecap="round"
-           transform-origin="196 168">
-          <path class="wave" d="M198 146 a30 30 0 0 1 0 44"/>
-          <path class="wave" d="M208 132 a48 48 0 0 1 0 72"/>
-          <path class="wave" d="M218 118 a66 66 0 0 1 0 100"/>
+        <g fill="none" stroke="#8bc34a" stroke-width="3.6" stroke-linecap="round">
+          <path class="wave" d="M206 146 a30 30 0 0 1 0 44"/>
+          <path class="wave" d="M216 132 a48 48 0 0 1 0 72"/>
+          <path class="wave" d="M226 118 a66 66 0 0 1 0 100"/>
         </g>
 
-        <!-- phone, held sideways -->
+        <!-- The phone, held sideways. Drawn large and with only the controls a
+             glance can resolve: at this size a full layout turns into confetti. -->
         <g>
-          <rect x="22" y="112" width="168" height="112" rx="17"
+          <rect x="14" y="106" width="182" height="124" rx="19"
                 fill="var(--surface)" stroke="var(--line-strong)" stroke-width="2"/>
-          <rect x="31" y="121" width="150" height="94" rx="11" fill="#12172a"/>
-          <!-- left stick -->
-          <circle cx="66" cy="168" r="19" fill="none" stroke="#ffd600"
-                  stroke-width="2.6" opacity=".45"/>
-          <circle cx="66" cy="168" r="9" fill="#ffd600"/>
+          <rect x="23" y="115" width="164" height="106" rx="12" fill="#12172a"/>
+
+          <!-- shoulder triggers -->
+          <rect class="trigger" x="36" y="119" width="30" height="8" rx="4" fill="#ffffff"/>
+          <rect class="trigger r" x="144" y="119" width="30" height="8" rx="4" fill="#ffffff"/>
+
+          <!-- d-pad -->
+          <g fill="#ffffff" opacity=".2">
+            <rect x="47.5" y="140" width="9" height="24" rx="2.5"/>
+            <rect x="40" y="147.5" width="24" height="9" rx="2.5"/>
+          </g>
+
+          <!-- left stick: the one thing actually being driven -->
+          <circle cx="52" cy="196" r="17" fill="none" stroke="#ffd600" stroke-width="2.6" opacity=".38"/>
+          <circle class="nub" cx="52" cy="196" r="8" fill="#ffd600"/>
+
           <!-- face buttons -->
-          <circle class="press a" cx="150" cy="152" r="7.5" fill="#ffd600"/>
-          <circle class="press b" cx="164" cy="170" r="7.5" fill="#5aa9ff"/>
-          <circle class="press c" cx="136" cy="170" r="7.5" fill="#8bc34a"/>
-          <circle cx="150" cy="188" r="7.5" fill="#ffffff" opacity=".22"/>
-          <!-- triggers -->
-          <rect x="44" y="121" width="26" height="7" rx="3.5" fill="var(--line-strong)"/>
-          <rect x="142" y="121" width="26" height="7" rx="3.5" fill="var(--line-strong)"/>
+          <circle class="press" cx="158" cy="135" r="7" fill="#8bc34a"/>
+          <circle class="press b" cx="173" cy="150" r="7" fill="#ff5f56"/>
+          <circle class="press c" cx="158" cy="165" r="7" fill="#5aa9ff"/>
+          <circle class="press d" cx="143" cy="150" r="7" fill="#ffd600"/>
+
+          <!-- right stick -->
+          <circle cx="158" cy="196" r="15" fill="none" stroke="#ffffff" stroke-width="2.2" opacity=".18"/>
+          <circle cx="158" cy="196" r="7" fill="#ffffff" opacity=".26"/>
         </g>
       </svg>
     </div>
@@ -124,21 +280,27 @@
 
 <section id="how" class="tint">
   <div class="wrap">
-    <h2><span lang="en">Two phones, two paths</span><span lang="tr">İki telefon, iki yol</span></h2>
+    <h2><svg class="ico h-ico" aria-hidden="true"><use href="#i-route"/></svg><span lang="en">Two phones, two paths</span><span lang="tr">İki telefon, iki yol</span></h2>
     <p class="sub">
       <span lang="en">How V-Pad reaches your computer depends on the platform — the one thing worth knowing before you start.</span>
       <span lang="tr">V-Pad'in bilgisayarına nasıl ulaştığı platforma göre değişiyor — başlamadan önce bilinmesi gereken tek şey bu.</span>
     </p>
     <div class="grid two">
       <div class="card">
-        <h3>Android <span class="tag bt">Bluetooth</span></h3>
+        <h3>
+          <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg> Android
+          <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-bluetooth"/></svg> Bluetooth</span>
+        </h3>
         <p>
           <span lang="en">The phone presents itself as a real Bluetooth gamepad and pairs with your PC or console directly. Nothing to install on the computer — pair it like any controller and play.</span>
           <span lang="tr">Telefon kendini gerçek bir Bluetooth gamepad'i olarak tanıtır ve bilgisayarına ya da konsoluna doğrudan eşlenir. Bilgisayara hiçbir şey kurmana gerek yok — herhangi bir kumanda gibi eşle ve oyna.</span>
         </p>
       </div>
       <div class="card">
-        <h3>iPhone <span class="tag wifi">Wi-Fi</span></h3>
+        <h3>
+          <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg> iPhone
+          <span class="tag wifi"><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</span>
+        </h3>
         <p>
           <span lang="en">Apple reserves the Bluetooth gamepad role for the system, so no iPhone app can appear in your computer's Bluetooth list. V-Pad reaches your PC over your own Wi-Fi instead, through a small free helper that runs there.</span>
           <span lang="tr">Apple, Bluetooth gamepad rolünü sisteme ayırmış; bu yüzden hiçbir iPhone uygulaması bilgisayarının Bluetooth listesinde görünemez. V-Pad bunun yerine bilgisayarına kendi Wi-Fi ağın üzerinden, orada çalışan küçük ve ücretsiz bir yardımcıyla ulaşır.</span>
@@ -146,6 +308,7 @@
       </div>
     </div>
     <p class="note" style="margin-top:20px">
+      <svg class="ico" aria-hidden="true"><use href="#i-info"/></svg>
       <span lang="en"><strong>Why not Bluetooth on iPhone?</strong> A platform restriction, not a missing feature: iOS refuses to let third-party apps advertise the Bluetooth HID service. Every iPhone app in this category ships a desktop companion for the same reason.</span>
       <span lang="tr"><strong>iPhone'da neden Bluetooth yok?</strong> Eksik bir özellik değil, platform kısıtı: iOS üçüncü taraf uygulamaların Bluetooth HID servisini yayınlamasına izin vermiyor. Bu kategorideki bütün iPhone uygulamalarının bilgisayara bir yardımcı program kurdurmasının sebebi de aynı.</span>
     </p>
@@ -154,28 +317,37 @@
 
 <section id="setup">
   <div class="wrap">
-    <h2><span lang="en">Setup on iPhone — three steps</span><span lang="tr">iPhone'da kurulum — üç adım</span></h2>
+    <h2><svg class="ico h-ico" aria-hidden="true"><use href="#i-sliders"/></svg><span lang="en">Setup on iPhone — three steps</span><span lang="tr">iPhone'da kurulum — üç adım</span></h2>
     <p class="sub">
       <span lang="en">One-time setup on the computer, then it just works.</span>
       <span lang="tr">Bilgisayarda bir kerelik kurulum, sonrası kendiliğinden.</span>
     </p>
     <ol class="steps">
       <li>
-        <strong><span lang="en">Install the helper on your PC</span><span lang="tr">Bilgisayarına yardımcıyı kur</span></strong>
+        <strong>
+          <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
+          <span lang="en">Install the helper on your PC</span><span lang="tr">Bilgisayarına yardımcıyı kur</span>
+        </strong>
         <p>
           <span lang="en">Download it above and run it — no installer, it lives in the system tray. Windows warns that the file is unsigned (<em>More info → Run anyway</em>), then asks about network access: allow it on <strong>private networks</strong>. On first run it offers a one-time gamepad driver — accept it, that is what makes games see a real controller.</span>
           <span lang="tr">Yukarıdan indir ve çalıştır — kurulum sihirbazı yok, sistem tepsisinde yaşıyor. Windows dosyanın imzasız olduğunu söyleyip uyarır (<em>Daha fazla bilgi → Yine de çalıştır</em>), sonra ağ erişimini sorar: <strong>özel ağlar</strong> için izin ver. İlk açılışta bir kerelik gamepad sürücüsü önerir — kabul et, oyunların gerçek bir kumanda görmesini sağlayan şey o.</span>
         </p>
       </li>
       <li>
-        <strong><span lang="en">Same Wi-Fi</span><span lang="tr">Aynı Wi-Fi</span></strong>
+        <strong>
+          <svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg>
+          <span lang="en">Same Wi-Fi</span><span lang="tr">Aynı Wi-Fi</span>
+        </strong>
         <p>
           <span lang="en">Keep the phone and the computer on the same network. A VPN running on the computer is the usual reason the phone cannot find it.</span>
           <span lang="tr">Telefon ve bilgisayar aynı ağda olsun. Telefonun bilgisayarı bulamamasının en sık sebebi, bilgisayarda açık olan bir VPN'dir.</span>
         </p>
       </li>
       <li>
-        <strong><span lang="en">Connect and play</span><span lang="tr">Bağlan ve oyna</span></strong>
+        <strong>
+          <svg class="ico" aria-hidden="true"><use href="#i-gamepad"/></svg>
+          <span lang="en">Connect and play</span><span lang="tr">Bağlan ve oyna</span>
+        </strong>
         <p>
           <span lang="en">In V-Pad open <em>Connection</em>, allow Local Network access when iOS asks, tap your computer, then open any layout. In Steam also turn on <em>Settings → Controller → Generic Gamepad Configuration Support</em>.</span>
           <span lang="tr">V-Pad'de <em>Bağlantı</em>'yı aç, iOS Yerel Ağ izni isteyince izin ver, bilgisayarına dokun ve bir düzen aç. Steam'de ayrıca <em>Ayarlar → Kontrolcü → Genel Gamepad Yapılandırma Desteği</em>'ni aç.</span>
@@ -187,7 +359,7 @@
 
 <section id="shots" class="tint">
   <div class="wrap">
-    <h2><span lang="en">Built to be yours</span><span lang="tr">Senin olacak şekilde</span></h2>
+    <h2><svg class="ico h-ico" aria-hidden="true"><use href="#i-gamepad"/></svg><span lang="en">Built to be yours</span><span lang="tr">Senin olacak şekilde</span></h2>
     <p class="sub">
       <span lang="en">Move, resize and recolour every control, pick a backdrop, save your own layouts.</span>
       <span lang="tr">Her kontrolü taşı, boyutlandır, rengini değiştir; arka plan seç, kendi düzenlerini kaydet.</span>
@@ -222,35 +394,43 @@
 
 <section id="download">
   <div class="wrap">
-    <h2><span lang="en">Downloads</span><span lang="tr">İndirmeler</span></h2>
+    <h2><svg class="ico h-ico" aria-hidden="true"><use href="#i-download"/></svg><span lang="en">Downloads</span><span lang="tr">İndirmeler</span></h2>
     <p class="sub">
       <span lang="en">The helper is free on every platform it supports.</span>
       <span lang="tr">Yardımcı program desteklediği her platformda ücretsiz.</span>
     </p>
     <div class="grid three">
       <div class="card">
-        <h3><span lang="en">Helper for Windows</span><span lang="tr">Windows yardımcısı</span></h3>
+        <h3><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg><span lang="en">Helper for Windows</span><span lang="tr">Windows yardımcısı</span></h3>
         <p style="margin-bottom:18px">
           <span lang="en">Creates a real virtual Xbox 360 controller, so games need no special support.</span>
           <span lang="tr">Gerçek bir sanal Xbox 360 kumandası oluşturur, yani oyunların özel bir desteğe ihtiyacı olmaz.</span>
         </p>
-        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/latest/download/V-Pad.Helper.exe"><span lang="en">Download</span><span lang="tr">İndir</span></a>
+        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/latest/download/V-Pad.Helper.exe">
+          <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+          <span lang="en">Download</span><span lang="tr">İndir</span>
+        </a>
       </div>
       <div class="card">
-        <h3><span lang="en">Helper for macOS</span><span lang="tr">macOS yardımcısı</span></h3>
+        <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">Helper for macOS</span><span lang="tr">macOS yardımcısı</span></h3>
         <p style="margin-bottom:18px">
           <span lang="en">Coming shortly. macOS gives no app a virtual gamepad, so the pad maps onto keyboard and mouse instead.</span>
           <span lang="tr">Yakında. macOS hiçbir uygulamaya sanal gamepad yolu vermiyor; bu yüzden pad klavye ve fareye eşlenir.</span>
         </p>
-        <span class="btn btn-ghost" aria-disabled="true"><span lang="en">Soon</span><span lang="tr">Yakında</span></span>
+        <span class="btn btn-ghost" aria-disabled="true">
+          <svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>
+          <span lang="en">Soon</span><span lang="tr">Yakında</span>
+        </span>
       </div>
       <div class="card">
-        <h3><span lang="en">The app</span><span lang="tr">Uygulama</span></h3>
+        <h3><svg class="ico" aria-hidden="true"><use href="#i-gamepad"/></svg><span lang="en">The app</span><span lang="tr">Uygulama</span></h3>
         <p style="margin-bottom:18px">
           <span lang="en">Android is on Google Play now. The iPhone version is in beta testing and comes to the App Store next.</span>
           <span lang="tr">Android şu anda Google Play'de. iPhone sürümü beta testinde ve sırada App Store var.</span>
         </p>
-        <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.dfnmondo.gamepad.app">Google Play</a>
+        <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.dfnmondo.gamepad.app">
+          <svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Google Play
+        </a>
       </div>
     </div>
   </div>
@@ -263,7 +443,10 @@
 <section class="studio">
   <div class="wrap"><div class="studio-card">
     <div>
-      <span class="eyebrow"><span lang="en">The studio</span><span lang="tr">Stüdyo</span></span>
+      <span class="eyebrow">
+        <svg class="ico" aria-hidden="true"><use href="#i-apps"/></svg>
+        <span lang="en">The studio</span><span lang="tr">Stüdyo</span>
+      </span>
       <h2>
         <span lang="en">V-Pad is made by DolceFarNiente Mondo</span>
         <span lang="tr">V-Pad'i DolceFarNiente Mondo yapıyor</span>
@@ -276,6 +459,7 @@
     <a class="btn btn-ghost" href="https://dolcefarnientemondo.com/">
       <span lang="en">See all our apps &amp; games</span>
       <span lang="tr">Tüm uygulama ve oyunlarımız</span>
+      <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
     </a>
   </div></div>
 </section>
@@ -283,12 +467,12 @@
 <footer>
   <div class="wrap">
     <div class="links">
-      <a href="/privacy"><span lang="en">Privacy</span><span lang="tr">Gizlilik</span></a>
-      <a href="/support"><span lang="en">Support</span><span lang="tr">Destek</span></a>
-      <a href="https://github.com/svolkancav/vpad-helper"><span lang="en">Helper source</span><span lang="tr">Yardımcının kaynağı</span></a>
+      <a href="/privacy"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><span lang="en">Privacy</span><span lang="tr">Gizlilik</span></a>
+      <a href="/support"><svg class="ico" aria-hidden="true"><use href="#i-help"/></svg><span lang="en">Support</span><span lang="tr">Destek</span></a>
+      <a href="https://github.com/svolkancav/vpad-helper"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg><span lang="en">Helper source</span><span lang="tr">Yardımcının kaynağı</span></a>
       <!-- Descriptive anchor text, not a bare URL: it tells both a reader and a
            crawler what is on the other end. Same studio, so no rel="nofollow". -->
-      <a href="https://dolcefarnientemondo.com/"><span lang="en">Our other apps &amp; games</span><span lang="tr">Diğer uygulama ve oyunlarımız</span></a>
+      <a href="https://dolcefarnientemondo.com/"><svg class="ico" aria-hidden="true"><use href="#i-apps"/></svg><span lang="en">Our other apps &amp; games</span><span lang="tr">Diğer uygulama ve oyunlarımız</span></a>
     </div>
     <p style="margin:0">© 2026 <a href="https://dolcefarnientemondo.com/">DolceFarNiente Mondo</a> · V-Pad</p>
   </div>

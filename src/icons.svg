@@ -1,15 +1,3 @@
-<!doctype html>
-<html lang="en" data-lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>V-Pad — page not found</title>
-<link rel="icon" href="/assets/icon.png">
-<link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-
-<!-- ICONS:BEGIN -->
 <!-- ============================================================
      Icon sprite. Inlined into each page rather than fetched: a strict
      "no third-party requests" promise sits in our privacy policy, and
@@ -117,25 +105,3 @@
     </symbol>
   </defs>
 </svg>
-<!-- ICONS:END -->
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="/"><img src="/assets/icon.png" alt=""> V-Pad</a>
-    <nav>
-      <div class="langs">
-        <button data-lang="en" aria-pressed="true">EN</button>
-        <button data-lang="tr" aria-pressed="false">TR</button>
-      </div>
-    </nav>
-  </div>
-</header>
-<article class="doc wrap">
-  <h1>404</h1>
-  <p>
-    <span lang="en">That page isn't here. Try the <a href="/">home page</a>, the <a href="/support">support page</a>, or the <a href="/privacy">privacy policy</a>.</span>
-    <span lang="tr">Bu sayfa burada değil. <a href="/">Ana sayfayı</a>, <a href="/support">destek sayfasını</a> ya da <a href="/privacy">gizlilik politikasını</a> dene.</span>
-  </p>
-</article>
-<script src="/assets/site.js"></script>
-</body>
-</html>

@@ -131,6 +131,32 @@ h1 { font-size: clamp(34px, 5.6vw, 60px); font-weight: 700; }
 h2 { font-size: clamp(25px, 3.4vw, 36px); font-weight: 700; }
 h3 { font-size: 18px; font-weight: 650; }
 
+/* ── icons ─────────────────────────────────────────────────── */
+
+/* One sprite, inlined per page (see tools/inline-icons.py). Sized in em so an
+   icon tracks the type it sits beside, and coloured by `currentColor` so it
+   needs no per-theme rule of its own. */
+.ico {
+  width: 1.06em; height: 1.06em;
+  flex: 0 0 auto;
+  vertical-align: -.14em;
+  color: inherit;
+}
+/* Section headings: a touch larger, and tinted so the icon reads as an
+   ornament rather than the first letter of the sentence. */
+.h-ico {
+  width: 1em; height: 1em;
+  color: var(--brand);
+  margin-right: .45em;
+  vertical-align: -.08em;
+}
+h2 .h-ico { color: color-mix(in srgb, var(--brand) 82%, var(--text)); }
+/* No margin: every h3 that carries an icon is a flex row, so `gap` owns the
+   spacing and a margin here would silently double it. */
+h3 .ico { color: var(--text-mute); }
+.btn .ico { width: 19px; height: 19px; }
+.tag .ico { width: 12px; height: 12px; vertical-align: -.1em; margin-right: 3px; }
+
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 650; letter-spacing: .04em;
@@ -141,9 +167,18 @@ h3 { font-size: 18px; font-weight: 650; }
   padding: 6px 12px; border-radius: 999px;
   margin-bottom: 20px;
 }
-.eyebrow .dot {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--good);
+.eyebrow .ico { color: var(--text-soft); }
+
+/* platform facts under the hero CTAs */
+.platforms {
+  list-style: none; padding: 0; margin: 22px 0 0;
+  display: flex; flex-direction: column; gap: 9px;
 }
+.platforms li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 15px; color: var(--text-soft);
+}
+.platforms .ico { width: 17px; height: 17px; color: var(--text-mute); }
 
 /* ── header ────────────────────────────────────────────────── */
 
@@ -162,7 +197,11 @@ header {
 .brand:hover { text-decoration: none; }
 .brand img { width: 30px; height: 30px; border-radius: 8px; box-shadow: var(--shadow-sm); }
 .bar nav { margin-left: auto; display: flex; gap: 20px; align-items: center; }
-.bar nav a { color: var(--text-soft); font-size: 15px; font-weight: 500; }
+.bar nav a {
+  display: inline-flex; align-items: center; gap: 7px;
+  color: var(--text-soft); font-size: 15px; font-weight: 500;
+}
+.bar nav a .ico { width: 15px; height: 15px; color: var(--text-mute); }
 .bar nav a:hover { color: var(--text); text-decoration: none; }
 
 .langs {
@@ -185,6 +224,10 @@ header {
   font: inherit; font-size: 16px; font-weight: 650;
   padding: 14px 22px; border-radius: 12px;
   border: 1px solid transparent; cursor: pointer;
+  /* Never wider than its container: once an icon joined the label, the longest
+     button outgrew a 320px viewport and pushed the page sideways. It wraps
+     instead. */
+  max-width: 100%; text-align: center;
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
 .btn:hover { text-decoration: none; transform: translateY(-1px); }
@@ -228,42 +271,94 @@ header {
 /* ── animated hero illustration ────────────────────────────── */
 
 .stage {
-  position: relative; aspect-ratio: 4 / 3; width: 100%;
+  /* Matched to the artwork rather than the other way round: the drawing is
+     ~2.7:1, so a 4:3 frame just added dead space under it. */
+  position: relative; aspect-ratio: 480 / 260; width: 100%;
   background: linear-gradient(160deg, var(--surface), var(--bg-alt));
   border: 1px solid var(--line); border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg); overflow: hidden;
 }
 .stage svg { width: 100%; height: 100%; display: block; }
 
-.wave { opacity: 0; animation: pulse 2.4s ease-out infinite; }
-.wave:nth-of-type(2) { animation-delay: .5s; }
-.wave:nth-of-type(3) { animation-delay: 1s; }
-@keyframes pulse {
-  0%   { opacity: 0;   transform: scale(.72); }
-  22%  { opacity: .85; }
-  100% { opacity: 0;   transform: scale(1.18); }
-}
+/* The illustration runs one 5s story on a shared clock: the stick moves, and
+   130ms later the ship on the monitor repeats the same path. That lag is the
+   whole idea — without it the parts look like three unrelated things wiggling;
+   with it, the picture reads as input travelling down a wire.
 
-.press { animation: press 3.2s ease-in-out infinite; transform-origin: center; }
-.press.b { animation-delay: .45s; }
-.press.c { animation-delay: 1.5s; }
-@keyframes press {
-  0%, 72%, 100% { opacity: .42; transform: scale(1); }
-  78%           { opacity: 1;   transform: scale(1.22); }
-}
+   Every scaled element needs `transform-box: fill-box`, otherwise SVG resolves
+   `transform-origin: center` against the *viewBox* centre and the shape flies
+   across the frame instead of growing in place. */
 
-.cursor { animation: glide 5s ease-in-out infinite; }
-@keyframes glide {
+/* Travel is capped by the ring: base r17 minus nub r8 leaves 9px before the
+   nub would climb out of its own socket. */
+@keyframes stick-nub {
   0%, 100% { transform: translate(0, 0); }
-  35%      { transform: translate(26px, -14px); }
-  65%      { transform: translate(8px, 12px); }
+  18%      { transform: translate(8px, -5px); }
+  42%      { transform: translate(6px, 7px); }
+  68%      { transform: translate(-8px, 3px); }
 }
+/* The same path in the monitor's coordinate space, plus a bank into each turn —
+   a ship that leans reads as *being steered* rather than sliding. */
+@keyframes ship-follow {
+  0%, 100% { transform: translate(0, 0)      rotate(0deg); }
+  18%      { transform: translate(38px, -14px) rotate(15deg); }
+  42%      { transform: translate(30px, 17px)  rotate(-7deg); }
+  68%      { transform: translate(-38px, 8px)  rotate(-17deg); }
+}
+.nub  { animation: stick-nub 5s ease-in-out infinite; }
+.ship {
+  animation: ship-follow 5s ease-in-out infinite .13s;   /* .13s = the wire */
+  /* fill-box so the bank turns the ship on its own axis; without it SVG would
+     rotate it around the viewBox origin and fling it off-frame. */
+  transform-box: fill-box; transform-origin: center;
+}
+.ship.trail { animation-delay: .3s; opacity: .28; }
 
-/* Motion is decoration here; honour the OS request to stop it. */
+/* Buttons tap on their own beats so the pad never looks frozen. */
+@keyframes tap {
+  0%, 84%, 100% { opacity: .5; transform: scale(1); }
+  90%           { opacity: 1;   transform: scale(1.28); }
+}
+.press {
+  animation: tap 5s ease-in-out infinite;
+  transform-box: fill-box; transform-origin: center;
+}
+.press.b { animation-delay: 1.15s; }
+.press.c { animation-delay: 2.4s; }
+.press.d { animation-delay: 3.6s; }
+
+@keyframes trigger-press {
+  0%, 26%, 100% { transform: translateY(0);   opacity: .3; }
+  32%           { transform: translateY(2px); opacity: .95; }
+}
+.trigger { animation: trigger-press 5s ease-in-out infinite; }
+.trigger.r { animation-delay: 2.5s; }
+
+/* A steady stream rather than a matched set: the waves keep their own 1.9s
+   cadence so the link reads as always-on, not as one packet per gesture. */
+@keyframes emit {
+  0%   { opacity: 0;   transform: scale(.66); }
+  18%  { opacity: .9; }
+  100% { opacity: 0;   transform: scale(1.24); }
+}
+.wave {
+  opacity: 0;
+  transform-origin: 204px 168px;    /* the phone's edge — arcs grow away from it */
+  animation: emit 1.9s ease-out infinite;
+}
+.wave:nth-of-type(2) { animation-delay: .63s; }
+.wave:nth-of-type(3) { animation-delay: 1.26s; }
+
+/* Motion is decoration here; honour the OS request to stop it. Frozen mid-move
+   rather than at rest, so the still frame still shows a pad in use. */
 @media (prefers-reduced-motion: reduce) {
-  .wave, .press, .cursor { animation: none; }
-  .wave { opacity: .5; }
+  .wave, .press, .trigger, .nub, .ship { animation: none; }
+  .wave { opacity: .45; }
   .press { opacity: .8; }
+  .trigger { opacity: .55; }
+  .nub { transform: translate(5px, -3px); }
+  .ship { transform: translate(32px, -12px) rotate(13deg); }
+  .ship.trail { display: none; }   /* a trail with no motion is just a smudge */
   html { scroll-behavior: auto; }
 }
 
@@ -283,7 +378,7 @@ section .sub {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm);
 }
-.card h3 { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.card h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
 .card p { margin: 0; color: var(--text-soft); font-size: 15.5px; }
 .card .tag {
   margin-left: auto; font-size: 11px; font-weight: 700;
@@ -307,14 +402,20 @@ ol.steps li::before {
   font-weight: 700; font-size: 15px; display: grid; place-items: center;
 }
 /* Direct child only — a <strong> inside the step's paragraph must stay inline. */
-ol.steps > li > strong { display: block; margin-bottom: 4px; font-weight: 650; }
+ol.steps > li > strong {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 4px; font-weight: 650;
+}
+ol.steps > li > strong .ico { width: 17px; height: 17px; color: var(--text-mute); }
 ol.steps p { margin: 0; color: var(--text-soft); font-size: 15.5px; }
 
 .note {
+  display: flex; align-items: flex-start; gap: 12px;
   border-left: 3px solid var(--brand); background: var(--brand-soft);
   padding: 16px 20px; border-radius: 0 12px 12px 0;
   font-size: 15.5px; color: var(--text-soft);
 }
+.note .ico { width: 19px; height: 19px; margin-top: 2px; color: var(--brand); }
 .note strong { color: var(--text); }
 
 /* screenshots — framed, because a dark app UI needs an edge on a light page */
@@ -332,7 +433,10 @@ details {
   border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px;
   box-shadow: var(--shadow-sm);
 }
+/* summary stays display:list-item so the browser keeps its disclosure
+   triangle; the icon just sits inline after it. */
 details summary { cursor: pointer; font-weight: 650; }
+details summary .ico { color: var(--text-mute); margin-right: 8px; }
 details[open] summary { margin-bottom: 10px; }
 details p { color: var(--text-soft); font-size: 15.5px; }
 
@@ -370,6 +474,8 @@ footer {
 }
 footer .links { display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 16px; }
 footer a { color: var(--text-soft); }
+footer .links a { display: inline-flex; align-items: center; gap: 7px; }
+footer .links .ico { width: 15px; height: 15px; color: var(--text-mute); }
 
 /* long-form legal / support pages */
 /* Also carries .wrap, but a narrower measure reads better for prose. The
