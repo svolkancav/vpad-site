@@ -418,6 +418,15 @@ ol.steps p { margin: 0; color: var(--text-soft); font-size: 15.5px; }
 .note .ico { width: 19px; height: 19px; margin-top: 2px; color: var(--brand); }
 .note strong { color: var(--text); }
 
+/* Wide illustration above the screenshot grid. No dark plate behind it: unlike
+   the app captures this artwork is light-backed and would look pasted on. */
+.showcase { margin: 0 0 22px; }
+.showcase img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
 /* screenshots — framed, because a dark app UI needs an edge on a light page */
 .shots { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
 .shots figure { margin: 0; }
