@@ -240,6 +240,15 @@ header {
   background: var(--surface); color: var(--text); border-color: var(--line-strong);
   box-shadow: var(--shadow-sm);
 }
+/* Third in a row of three: the two helper downloads are the errand people came
+   for, the app store is a different one. Same shape, less ink. */
+.btn-quiet {
+  background: transparent; box-shadow: none;
+  border-color: var(--line);
+  color: var(--text-soft); font-weight: 600;
+}
+.btn-quiet:hover { color: var(--text); border-color: var(--line-strong); }
+
 .btn[aria-disabled="true"] { opacity: .55; pointer-events: none; box-shadow: none; }
 .btn .sub { font-weight: 500; font-size: 13px; opacity: .75; }
 
