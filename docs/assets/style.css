@@ -526,12 +526,16 @@ table.map th { color: var(--text-mute); font-weight: 650; }
   border: 0; padding: 0; max-width: 100vw; max-height: 100vh;
   width: 100vw; height: 100vh;
   background: transparent;
-  display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'prev img next';
   align-items: center;
   place-content: center;
 }
+/* `display` belongs on [open] only. Setting it unconditionally overrides the UA
+   rule `dialog:not([open]) { display: none }`, and the closed dialog then keeps a
+   real 100vw x 100vh box at the end of the body — a screenful of dead space under
+   the footer — while its position:fixed arrows sit on the page. */
+.lightbox[open] { display: grid; }
 .lightbox::backdrop { background: rgba(6, 8, 14, .88); }
 .lightbox img {
   grid-area: img;
