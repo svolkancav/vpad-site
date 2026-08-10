@@ -418,6 +418,37 @@ ol.steps p { margin: 0; color: var(--text-soft); font-size: 15.5px; }
 .note .ico { width: 19px; height: 19px; margin-top: 2px; color: var(--brand); }
 .note strong { color: var(--text); }
 
+/* Phone-shaped shots in a horizontal scroller. Deliberately not the grid used
+   below: these are portrait and would each eat a whole row, and swiping a strip
+   is how people already look at store screenshots. Snap so a swipe lands on an
+   image rather than between two. */
+.reel {
+  display: flex; gap: 14px;
+  margin: 0 0 26px;
+  padding-bottom: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+.reel img {
+  flex: 0 0 auto;
+  width: 252px; max-width: 68vw; height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
+  background: #0e1220;
+  scroll-snap-align: start;
+}
+.reel:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.reel::-webkit-scrollbar { height: 8px; }
+.reel::-webkit-scrollbar-track { background: transparent; }
+.reel::-webkit-scrollbar-thumb {
+  background: var(--line-strong); border-radius: 999px;
+}
+
 /* Wide illustration above the screenshot grid. No dark plate behind it: unlike
    the app captures this artwork is light-backed and would look pasted on. */
 .showcase { margin: 0 0 22px; }
