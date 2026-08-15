@@ -424,8 +424,8 @@
   <div class="wrap">
     <h2><svg class="ico h-ico" aria-hidden="true"><use href="#i-download"/></svg><span lang="en">Downloads</span><span lang="tr">İndirmeler</span></h2>
     <p class="sub">
-      <span lang="en">The helper is free on every platform it supports.</span>
-      <span lang="tr">Yardımcı program desteklediği her platformda ücretsiz.</span>
+      <span lang="en">One helper, free, for the computer. Which phone you hold decides whether you need it.</span>
+      <span lang="tr">Bilgisayar için tek bir yardımcı, ücretsiz. İhtiyacın olup olmadığını elindeki telefon belirliyor.</span>
     </p>
     <div class="grid three">
       <div class="card">
@@ -461,6 +461,34 @@
         </a>
       </div>
     </div>
+
+    <!-- Who actually needs the download. Android over Bluetooth needs nothing on
+         the computer, which is worth saying plainly: otherwise an Android owner
+         reads "helper" and assumes a chore that is not theirs. The Wi-Fi row is
+         listed because it is coming and it uses this same helper — there will be
+         no second file to fetch. -->
+    <table class="map matrix">
+      <tr>
+        <th><span lang="en">Your phone</span><span lang="tr">Telefonun</span></th>
+        <th><span lang="en">How it reaches the computer</span><span lang="tr">Bilgisayara nasıl ulaşır</span></th>
+        <th><span lang="en">Helper needed?</span><span lang="tr">Yardımcı gerekir mi?</span></th>
+      </tr>
+      <tr>
+        <td><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg> iPhone</td>
+        <td><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</td>
+        <td><strong><span lang="en">Yes, always</span><span lang="tr">Evet, her zaman</span></strong></td>
+      </tr>
+      <tr>
+        <td><svg class="ico" aria-hidden="true"><use href="#i-android"/></svg> Android</td>
+        <td><svg class="ico" aria-hidden="true"><use href="#i-bluetooth"/></svg> Bluetooth</td>
+        <td><span lang="en">No — nothing to install</span><span lang="tr">Hayır — kurulacak bir şey yok</span></td>
+      </tr>
+      <tr>
+        <td><svg class="ico" aria-hidden="true"><use href="#i-android"/></svg> Android</td>
+        <td><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi <span class="tag soon"><span lang="en">soon</span><span lang="tr">yakında</span></span></td>
+        <td><span lang="en">Yes — the same helper, no second download</span><span lang="tr">Evet — aynı yardımcı, ikinci bir indirme yok</span></td>
+      </tr>
+    </table>
   </div>
 </section>
 

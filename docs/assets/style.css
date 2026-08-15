@@ -490,6 +490,30 @@ details[open] summary { margin-bottom: 10px; }
 details p { color: var(--text-soft); font-size: 15.5px; }
 
 table.map { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+/* The download matrix sits on the landing page rather than in a doc, so it
+   needs the card treatment the prose tables do not. */
+table.matrix {
+  margin-top: 26px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+table.matrix th, table.matrix td { padding: 13px 16px; }
+table.matrix tr:last-child td { border-bottom: 0; }
+table.matrix .ico { color: var(--text-mute); margin-right: 4px; }
+table.matrix strong { color: var(--text); font-weight: 650; }
+/* Three columns of prose on a 320px screen: Turkish runs longer than English
+   and was pushing the table past its own margins. Tighten rather than let it
+   graze the edge. */
+@media (max-width: 420px) {
+  table.matrix { font-size: 13px; }
+  table.matrix th, table.matrix td { padding: 10px 8px; }
+  table.matrix .ico { margin-right: 2px; }
+}
+.tag.soon {
+  background: var(--surface-2); color: var(--text-mute);
+  margin-left: 6px;
+}
 table.map th, table.map td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); }
 table.map th { color: var(--text-mute); font-weight: 650; }
 
