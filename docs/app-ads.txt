@@ -1,0 +1,21 @@
+# app-ads.txt -- vpadcontroller.com
+#
+# IAB Tech Lab Authorized Sellers for Apps (app-ads.txt v1.0). Declares who may
+# sell V-Pad's ad inventory. A network that finds no matching line treats the
+# requests as unauthorised and stops bidding, which is why this file has to be
+# in place BEFORE the store listing goes live rather than after ads look wrong.
+#
+# Crawlers reach it from the developer URL on the store listing -- the App Store
+# Marketing URL for the iOS build. It must stay at the domain root, be served as
+# text/plain, and never redirect to HTML.
+#
+# One line, because V-Pad runs one network: AdMob, no mediation, no resellers.
+# (dolcefarnientemondo.com carries a longer list for the studio's other apps;
+# copying that here would authorise sellers this app does not use.)
+#
+# ASCII only, on purpose. The record line is trivially ASCII either way, but a
+# stray smart quote or a BOM in the comments is a needless way to upset a strict
+# parser on a file whose whole job is to be machine-read.
+
+# AdMob -- DIRECT, our own publisher account
+google.com, pub-5398027060352897, DIRECT, f08c47fec0942fa0
