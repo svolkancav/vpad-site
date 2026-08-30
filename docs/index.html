@@ -284,20 +284,36 @@
 
 <section id="how" class="tint">
   <div class="wrap">
-    <h2><svg class="ico h-ico" aria-hidden="true"><use href="#i-route"/></svg><span lang="en">Two phones, two paths</span><span lang="tr">İki telefon, iki yol</span></h2>
+    <h2><svg class="ico h-ico" aria-hidden="true"><use href="#i-route"/></svg><span lang="en">Two phones, three paths</span><span lang="tr">İki telefon, üç yol</span></h2>
     <p class="sub">
-      <span lang="en">How V-Pad reaches your computer depends on the platform — the one thing worth knowing before you start.</span>
-      <span lang="tr">V-Pad'in bilgisayarına nasıl ulaştığı platforma göre değişiyor — başlamadan önce bilinmesi gereken tek şey bu.</span>
+      <span lang="en">How V-Pad reaches your computer depends on your phone — and on whether you want to install anything over there. This is the one thing worth knowing before you start.</span>
+      <span lang="tr">V-Pad'in bilgisayarına nasıl ulaştığı telefonuna ve oraya bir şey kurmak isteyip istemediğine bağlı. Başlamadan önce bilinmesi gereken tek şey bu.</span>
     </p>
-    <div class="grid two">
+    <div class="grid three">
       <div class="card">
         <h3>
           <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg> Android
           <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-bluetooth"/></svg> Bluetooth</span>
         </h3>
         <p>
-          <span lang="en">The phone presents itself as a real Bluetooth gamepad and pairs with your PC or console directly. Nothing to install on the computer — pair it like any controller and play.</span>
-          <span lang="tr">Telefon kendini gerçek bir Bluetooth gamepad'i olarak tanıtır ve bilgisayarına ya da konsoluna doğrudan eşlenir. Bilgisayara hiçbir şey kurmana gerek yok — herhangi bir kumanda gibi eşle ve oyna.</span>
+          <span lang="en">The phone presents itself as a real Bluetooth gamepad and pairs with your PC or console directly. Nothing to install on the computer &mdash; no driver, no helper. Pair it like any controller and play.</span>
+          <span lang="tr">Telefon kendini gerçek bir Bluetooth gamepad'i olarak tanıtır ve bilgisayarına ya da konsoluna doğrudan eşlenir. Bilgisayara hiçbir şey kurulmaz &mdash; ne sürücü ne yardımcı program. Herhangi bir kumanda gibi eşle ve oyna.</span>
+        </p>
+      </div>
+      <div class="card">
+        <h3>
+          <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg> Android
+          <span class="tag wifi"><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</span>
+        </h3>
+        <p>
+          <span lang="en">The same gamepad, carried over your own Wi-Fi instead. This is the path when your PC has no Bluetooth &mdash; or when you want more than one phone in the game, up to four at once. It asks for two free installs on Windows, once: the <b>ViGEmBus</b> driver, then <b>V-Pad Helper</b>.</span>
+          <span lang="tr">Aynı gamepad, bu kez kendi Wi-Fi ağın üzerinden. Bilgisayarında Bluetooth yoksa &mdash; ya da oyuna birden fazla telefon sokmak istiyorsan, aynı anda dörde kadar &mdash; yol budur. Windows'ta bir kereye mahsus iki ücretsiz kurulum ister: önce <b>ViGEmBus</b> sürücüsü, sonra <b>V-Pad Helper</b>.</span>
+        </p>
+        <p>
+          <a class="btn btn-quiet" href="#csharp-host">
+            <span lang="en">Downloads and steps</span><span lang="tr">İndirmeler ve adımlar</span>
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
         </p>
       </div>
       <div class="card">
@@ -306,15 +322,26 @@
           <span class="tag wifi"><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</span>
         </h3>
         <p>
-          <span lang="en">Apple reserves the Bluetooth gamepad role for the system, so no iPhone app can appear in your computer's Bluetooth list. V-Pad reaches your PC over your own Wi-Fi instead, through a small free helper that runs there.</span>
-          <span lang="tr">Apple, Bluetooth gamepad rolünü sisteme ayırmış; bu yüzden hiçbir iPhone uygulaması bilgisayarının Bluetooth listesinde görünemez. V-Pad bunun yerine bilgisayarına kendi Wi-Fi ağın üzerinden, orada çalışan küçük ve ücretsiz bir yardımcıyla ulaşır.</span>
+          <span lang="en">Apple reserves the Bluetooth gamepad role for the system, so no iPhone app can appear in your computer's Bluetooth list. Wi-Fi is the only path: a small free helper runs on your PC, and the two find each other on your own network.</span>
+          <span lang="tr">Apple, Bluetooth gamepad rolünü sisteme ayırmış; bu yüzden hiçbir iPhone uygulaması bilgisayarının Bluetooth listesinde görünemez. Tek yol Wi-Fi: bilgisayarında küçük ve ücretsiz bir yardımcı çalışır, ikisi kendi ağında birbirini bulur.</span>
+        </p>
+        <p>
+          <a class="btn btn-quiet" href="#download">
+            <span lang="en">The iPhone helper</span><span lang="tr">iPhone yardımcısı</span>
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
         </p>
       </div>
     </div>
     <p class="note" style="margin-top:20px">
       <svg class="ico" aria-hidden="true"><use href="#i-info"/></svg>
+      <span lang="en"><strong>What is the driver for?</strong> Over Bluetooth, Windows already has the driver it needs built in. Over Wi-Fi your presses arrive as network traffic, so something has to present a controller to Windows &mdash; that is the only thing ViGEmBus does. It is made and signed by its own author, installed once, and removable from Settings like any other program.</span>
+      <span lang="tr"><strong>Sürücü ne işe yarıyor?</strong> Bluetooth'ta Windows'un ihtiyaç duyduğu sürücü zaten içinde geliyor. Wi-Fi'da ise bastığın tuşlar ağ trafiği olarak ulaşır; bu yüzden Windows'a bir kumanda sunacak bir şey gerekir &mdash; ViGEmBus'ın yaptığı tek şey bu. Kendi yazarı tarafından üretilip imzalanır, bir kez kurulur, istediğin an Ayarlar'dan herhangi bir program gibi kaldırılır.</span>
+    </p>
+    <p class="note">
+      <svg class="ico" aria-hidden="true"><use href="#i-info"/></svg>
       <span lang="en"><strong>Why not Bluetooth on iPhone?</strong> A platform restriction, not a missing feature: iOS refuses to let third-party apps advertise the Bluetooth HID service. Every iPhone app in this category ships a desktop companion for the same reason.</span>
-      <span lang="tr"><strong>iPhone'da neden Bluetooth yok?</strong> Eksik bir özellik değil, platform kısıtı: iOS üçüncü taraf uygulamaların Bluetooth HID servisini yayınlamasına izin vermiyor. Bu kategorideki bütün iPhone uygulamalarının bilgisayara bir yardımcı program kurdurmasının sebebi de aynı.</span>
+      <span lang="tr"><strong>iPhone'da neden Bluetooth yok?</strong> Eksik bir ozellik degil, platform kisiti: iOS ucuncu taraf uygulamalarin Bluetooth HID servisini yayinlamasina izin vermiyor. Bu kategorideki butun iPhone uygulamalarinin bilgisayara bir yardimci program kurdurmasinin sebebi de ayni.</span>
     </p>
   </div>
 </section>
