@@ -163,7 +163,7 @@
         <span lang="tr">Analog çubuklar, tetikler ve titreşim — hem de kendi tasarladığın bir düzende. Kumanda almana gerek yok, taşıyacak bir şey de yok.</span>
       </p>
       <div class="cta">
-        <a class="btn btn-primary" href="https://raw.githubusercontent.com/svolkancav/vpad-helper/sole-file/V-Pad-Helper-Setup.exe">
+        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/download/v0.2.1/V-Pad.Helper.exe">
           <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
           <span lang="en">Download for Windows</span>
           <span lang="tr">Windows için indir</span>
@@ -434,16 +434,31 @@
           <span lang="en">Creates a standard XInput controller — an Xbox 360 pad, as far as games are concerned — so nothing needs special support.</span>
           <span lang="tr">Standart bir XInput kumandası oluşturur — oyunlar açısından bir Xbox 360 pad'i — yani hiçbir şeyin özel desteğe ihtiyacı olmaz.</span>
         </p>
-        <!-- The macOS card explains its own friction (drag to Applications), so
-             this one should too. The installer carries no code signature yet, so
-             SmartScreen shows a blue warning with the "Run anyway" button hidden
-             behind "More info" — a user who was not told expects a virus, not a
-             missing certificate. -->
+        <!-- ⏸ HELD AT v0.2.1 ON PURPOSE (2026-08-30). Restore the 0.4.x
+             installer — sole-file/V-Pad-Helper-Setup.exe — the day the iOS
+             update is RELEASED, not the day it is approved.
+
+             Why: 0.4.x forces `--pair` on (a product default in vpad_helper.py,
+             overriding the engine's pairing-off default), so it will only talk
+             to a phone that has scanned its code. The App Store is still
+             serving 1.0 = build 27, which predates pairing entirely and is
+             refused at the door. Android is unaffected — its client waits
+             briefly for a CHALLENGE and falls back when none arrives.
+
+             Note the URL is PINNED, not `releases/latest`: latest is v0.4.0,
+             which has the same problem. v0.2.1 is the last release with no
+             pairing in it at all (verified: zero traces in vpad_helper.py and
+             vpad_daemon.py at that tag).
+
+             The macOS card explains its own friction, so this one should too:
+             the file is unsigned, so SmartScreen shows a blue warning with
+             "Run anyway" hidden behind "More info". A user who was not told
+             reads that as a virus, not as a missing certificate. -->
         <p style="margin-bottom:18px;font-size:13px;opacity:.72">
-          <span lang="en">An installer. It is not code-signed yet, so Windows shows a warning the first time — choose <b>More info</b>, then <b>Run anyway</b>.</span>
-          <span lang="tr">Bir kurulum dosyası. Henüz imzalı olmadığı için Windows ilk seferde uyarı gösteriyor — <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a dokun.</span>
+          <span lang="en">It is not code-signed yet, so Windows shows a warning the first time — choose <b>More info</b>, then <b>Run anyway</b>.</span>
+          <span lang="tr">Henüz imzalı olmadığı için Windows ilk seferde uyarı gösteriyor — <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a dokun.</span>
         </p>
-        <a class="btn btn-primary" href="https://raw.githubusercontent.com/svolkancav/vpad-helper/sole-file/V-Pad-Helper-Setup.exe">
+        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/download/v0.2.1/V-Pad.Helper.exe">
           <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
           <span lang="en">Download</span><span lang="tr">İndir</span>
         </a>
