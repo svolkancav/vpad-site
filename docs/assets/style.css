@@ -374,6 +374,11 @@ header {
 /* ── sections ──────────────────────────────────────────────── */
 
 section { padding: var(--step) 0; }
+
+/* Bagimsiz sayfalarin basligi. h1'in 60px'lik olcegi HERO icin: orada genis
+   bir bloğun ve bir illustrasyonun yaninda duruyor. Duz bir bolumun tepesinde
+   ayni olcek, altindaki metinle iliskisini kaybediyor. */
+section > .wrap > h1 { font-size: clamp(30px, 4.2vw, 44px); margin-bottom: 10px; }
 section.tint { background: var(--bg-alt); border-block: 1px solid var(--line); }
 section .sub {
   color: var(--text-soft); margin: 12px 0 34px; max-width: 66ch; font-size: 17px;
