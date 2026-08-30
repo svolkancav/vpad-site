@@ -640,3 +640,13 @@ article.doc code {
   body { font-size: 16px; }
   .bar nav a { display: none; }
 }
+
+/* The download sequence (#csharp-host). An action belongs to the step that
+   needs it, so the button lives INSIDE the <li> rather than in a tray at the
+   bottom — the reader never has to map "button 1" back onto "step 1". These
+   are the only rules the block needs; everything else it borrows from
+   ol.steps, which is the point. */
+#csharp-host { margin-top: 56px; }
+#csharp-host > h3 { font-size: 22px; letter-spacing: -.01em; margin: 0 0 6px; }
+#csharp-host > .sub { margin: 0 0 26px; }
+#csharp-host ol.steps .btn { margin-top: 16px; }

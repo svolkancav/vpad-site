@@ -493,60 +493,68 @@
          host from the C#_file branch — and it must not disturb that card.
          The branch name contains '#', which is a URL fragment marker, so the
          href carries it as %23. -->
-    <div class="card" id="csharp-host" style="margin-top:28px">
+    <!-- The Android path. Written as a SEQUENCE, not a card with a button
+         tray: each download sits inside the step that needs it, so the eye
+         reads 1 → 2 → 3 and never has to map "button 1" back onto "step 1".
+         No wrapper card either — a card holding cards is noise, and the
+         numbered rail plus whitespace already carry the structure. -->
+    <div id="csharp-host">
       <h3>
-        <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
-        <span lang="en">New: the V-Pad Host for Windows — step by step</span>
-        <span lang="tr">Yeni: Windows için V-Pad Host — adım adım</span>
+        <span lang="en">Android over Wi-Fi — the new host</span>
+        <span lang="tr">Wi-Fi ile Android — yeni host</span>
       </h3>
-      <p style="margin-bottom:18px">
-        <span lang="en">The next-generation host — this is the path for the <b>Android</b> app's Wi-Fi connection. Two small downloads, five minutes, and your phone shows up in games as a real controller.</span>
-        <span lang="tr">Yeni nesil host — burası <b>Android</b> uygulamasının Wi-Fi yolu. İki küçük indirme, beş dakika — telefonun oyunlarda gerçek bir kumanda olarak görünür.</span>
+      <p class="sub">
+        <span lang="en">Two downloads, once. Then your phone is a controller every game already understands.</span>
+        <span lang="tr">İki indirme, bir kereye mahsus. Sonrası: telefonun, her oyunun zaten tanıdığı bir kumanda.</span>
       </p>
+
       <ol class="steps">
         <li>
           <strong>
-            <span lang="en">Install the gamepad driver (one time)</span>
-            <span lang="tr">Gamepad sürücüsünü kur (bir kere)</span>
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+            <span lang="en">Install the driver</span>
+            <span lang="tr">Sürücüyü kur</span>
           </strong>
           <p>
-            <span lang="en">Click the driver button below — a file called <b>ViGEmBus_1.22.0…exe</b> lands in your Downloads. Double-click it, click <b>Yes</b> when Windows asks for permission, then <b>Next → Install → Finish</b>. This driver is made by its own author (Nefarius) and is signed, so Windows will not complain. It is what lets games believe a real controller is plugged in.</span>
-            <span lang="tr">Aşağıdaki sürücü düğmesine tıkla — İndirilenler klasörüne <b>ViGEmBus_1.22.0…exe</b> diye bir dosya iner. Çift tıkla, Windows izin sorunca <b>Evet</b> de, sonra <b>Next → Install → Finish</b>. Bu sürücü kendi yazarının (Nefarius) imzalı kurulumudur, Windows itiraz etmez. Oyunların gerçek bir kumanda takılı sanmasını sağlayan şey budur.</span>
+            <span lang="en">This is what lets a game believe a real controller is plugged in. It is made and signed by its own author, so Windows will not complain. Download it, double-click, answer <b>Yes</b>, then <b>Next → Install → Finish</b>. You only ever do this once.</span>
+            <span lang="tr">Oyunun gerçek bir kumanda takılı sanmasını sağlayan şey bu. Kendi yazarı tarafından üretilip imzalanmıştır, Windows itiraz etmez. İndir, çift tıkla, <b>Evet</b> de, sonra <b>Next → Install → Finish</b>. Bunu ömründe bir kez yaparsın.</span>
           </p>
+          <a class="btn btn-primary" href="https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+            <span lang="en">ViGEmBus 1.22.0 — signed</span>
+            <span lang="tr">ViGEmBus 1.22.0 — imzalı</span>
+          </a>
         </li>
+
         <li>
           <strong>
-            <span lang="en">Download the host and run it</span>
-            <span lang="tr">Host'u indir ve çalıştır</span>
+            <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
+            <span lang="en">Run the host</span>
+            <span lang="tr">Host'u çalıştır</span>
           </strong>
           <p>
-            <span lang="en">Click the host button below — you get <b>vpad-host.exe</b>. Double-click it. Windows shows a blue warning the first time because the file is not signed yet: click <b>More info</b>, then <b>Run anyway</b>. Nothing seems to happen — that is normal! Look at the <b>bottom-right corner</b> of your screen, next to the clock: a V-Pad icon is now sitting there (click the little <b>^</b> arrow if you do not see it).</span>
-            <span lang="tr">Aşağıdaki host düğmesine tıkla — <b>vpad-host.exe</b> iner. Çift tıkla. Dosya henüz imzalı olmadığı için Windows ilk seferde mavi bir uyarı gösterir: <b>Ek bilgi</b>ye, sonra <b>Yine de çalıştır</b>a tıkla. Hiçbir şey olmamış gibi görünür — bu normal! Ekranın <b>sağ alt köşesine</b>, saatin yanına bak: V-Pad simgesi oraya yerleşti (görmüyorsan küçük <b>^</b> okuna tıkla).</span>
+            <span lang="en">Double-click <b>vpad-host.exe</b>. Windows shows a blue warning the first time because the file is not signed yet — choose <b>More info</b>, then <b>Run anyway</b>. A window opens with a <b>QR code</b> and a <b>6-digit number</b>: leave it there, the phone needs it in a moment.</span>
+            <span lang="tr"><b>vpad-host.exe</b>'ye çift tıkla. Dosya henüz imzalı olmadığı için Windows ilk seferde mavi bir uyarı gösterir — <b>Ek bilgi</b>, sonra <b>Yine de çalıştır</b>. Açılan pencerede bir <b>QR kod</b> ve <b>6 haneli sayı</b> göreceksin: kapatma, birazdan telefon isteyecek.</span>
           </p>
+          <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/raw/C%23_file/vpad-host.exe">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+            <span lang="en">vpad-host.exe</span>
+            <span lang="tr">vpad-host.exe</span>
+          </a>
         </li>
+
         <li>
           <strong>
-            <span lang="en">Connect your phone</span>
-            <span lang="tr">Telefonunu bağla</span>
+            <svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg>
+            <span lang="en">Point the phone at it</span>
+            <span lang="tr">Telefonu ona yönelt</span>
           </strong>
           <p>
-            <span lang="en">Make sure the phone and the computer are on the <b>same Wi-Fi</b>. Open V-Pad on the phone and choose the Wi-Fi connection — your computer appears in the list <b>by itself</b> after a few seconds. Tap it, and you are connected. Now open your game and check that your controller inputs line up; if the driver is missing, the host pops up a message telling you so.</span>
-            <span lang="tr">Telefonla bilgisayarın <b>aynı Wi-Fi</b>de olduğundan emin ol. Telefonda V-Pad'i aç ve Wi-Fi bağlantısını seç — birkaç saniye içinde bilgisayarın listede <b>kendiliğinden</b> belirir. Dokun, bağlandın. Şimdi oyununu aç ve kumanda girişlerinin doğru geldiğini kontrol et; sürücü eksikse host bunu söyleyen bir baloncuk gösterir.</span>
+            <span lang="en">Phone and computer on the <b>same Wi-Fi</b>. Open V-Pad, choose Wi-Fi, and either scan that QR code or type the six digits. If Windows is blocking the way in, the host says so and offers a one-click fix from its notification-area icon — bottom-right, behind the <b>^</b> arrow.</span>
+            <span lang="tr">Telefon ve bilgisayar <b>aynı Wi-Fi</b>'de olsun. V-Pad'i aç, Wi-Fi'yi seç ve ya QR kodu tara ya da altı haneyi yaz. Windows yolu kapatıyorsa host bunu söyler ve bildirim alanındaki simgesinden tek tıkla açmayı önerir — sağ altta, <b>^</b> okunun arkasında.</span>
           </p>
         </li>
       </ol>
-      <div class="cta" style="margin-top:18px">
-        <a class="btn btn-primary" href="https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe">
-          <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-          <span lang="en">1 — Driver (ViGEmBus, signed)</span>
-          <span lang="tr">1 — Sürücü (ViGEmBus, imzalı)</span>
-        </a>
-        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/raw/C%23_file/vpad-host.exe">
-          <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-          <span lang="en">2 — V-Pad Host (vpad-host.exe)</span>
-          <span lang="tr">2 — V-Pad Host (vpad-host.exe)</span>
-        </a>
-      </div>
     </div>
   </div>
 </section>
