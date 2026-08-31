@@ -481,31 +481,30 @@
           <span lang="en">Creates a standard XInput controller — an Xbox 360 pad, as far as games are concerned — so nothing needs special support.</span>
           <span lang="tr">Standart bir XInput kumandası oluşturur — oyunlar açısından bir Xbox 360 pad'i — yani hiçbir şeyin özel desteğe ihtiyacı olmaz.</span>
         </p>
-        <!-- ⏸ HELD AT v0.2.1 ON PURPOSE (2026-08-30). Restore the 0.4.x
-             installer — sole-file/V-Pad-Helper-Setup.exe — the day the iOS
-             update is RELEASED, not the day it is approved.
+        <!-- Back on the 0.4.x installer (2026-08-31), now that iOS 2.0.3 is
+             READY_FOR_SALE — the store serves a client that speaks the v2
+             pairing this helper requires.
 
-             Why: 0.4.x forces `--pair` on (a product default in vpad_helper.py,
-             overriding the engine's pairing-off default), so it will only talk
-             to a phone that has scanned its code. The App Store is still
-             serving 1.0 = build 27, which predates pairing entirely and is
-             refused at the door. Android is unaffected — its client waits
-             briefly for a CHALLENGE and falls back when none arrives.
+             It was pinned to v0.2.1 from 2026-08-30 for one reason: 0.4.x
+             forces `--pair` on, and the App Store was still serving build 27,
+             which predates pairing and was refused at the door. If a future
+             helper ever hard-requires something the shipping app lacks, pin
+             back the same way — and mind that `releases/latest` is NOT a safe
+             target, since latest is v0.4.0 and carries the same requirement.
 
-             Note the URL is PINNED, not `releases/latest`: latest is v0.4.0,
-             which has the same problem. v0.2.1 is the last release with no
-             pairing in it at all (verified: zero traces in vpad_helper.py and
-             vpad_daemon.py at that tag).
+             Residual, and deliberate: 2.0.3 needs iOS 15, so anyone on iOS
+             13/14 stays on build 27 permanently and cannot pair with this
+             file. They are not covered by the switch.
 
              The macOS card explains its own friction, so this one should too:
-             the file is unsigned, so SmartScreen shows a blue warning with
-             "Run anyway" hidden behind "More info". A user who was not told
-             reads that as a virus, not as a missing certificate. -->
+             the installer is unsigned, so SmartScreen shows a blue warning
+             with "Run anyway" hidden behind "More info". A user who was not
+             told reads that as a virus, not as a missing certificate. -->
         <p style="margin-bottom:18px;font-size:13px;opacity:.72">
-          <span lang="en">It is not code-signed yet, so Windows shows a warning the first time — choose <b>More info</b>, then <b>Run anyway</b>.</span>
-          <span lang="tr">Henüz imzalı olmadığı için Windows ilk seferde uyarı gösteriyor — <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a dokun.</span>
+          <span lang="en">An installer. It is not code-signed yet, so Windows shows a warning the first time — choose <b>More info</b>, then <b>Run anyway</b>.</span>
+          <span lang="tr">Bir kurulum dosyası. Henüz imzalı olmadığı için Windows ilk seferde uyarı gösteriyor — <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a dokun.</span>
         </p>
-        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/download/v0.2.1/V-Pad.Helper.exe">
+        <a class="btn btn-primary" href="https://raw.githubusercontent.com/svolkancav/vpad-helper/sole-file/V-Pad-Helper-Setup.exe">
           <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
           <span lang="en">Download for Windows</span><span lang="tr">Windows için indir</span>
         </a>
