@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>V-Pad — the iPhone helper</title>
-<meta name="description" content="The free V-Pad helper for Windows and macOS, for the iPhone app over Wi-Fi. Why iPhone cannot use Bluetooth, and what to install.">
+<meta name="description" content="The free V-Pad helper for Windows and macOS, for the iPhone app over Wi-Fi: install the ViGEmBus driver once, run vpad-host.exe, scan the code. Why iPhone cannot use Bluetooth.">
 <link rel="icon" href="assets/icon.png">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="canonical" href="https://vpadcontroller.com/downloads-ios">
@@ -149,37 +149,58 @@
       <div class="card">
         <h3><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg><span lang="en">Helper for Windows — for iPhone</span><span lang="tr">Windows yardımcısı — iPhone için</span></h3>
         <p style="margin-bottom:18px">
-          <span lang="en">Creates a standard XInput controller — an Xbox 360 pad, as far as games are concerned — so nothing needs special support.</span>
-          <span lang="tr">Standart bir XInput kumandası oluşturur — oyunlar açısından bir Xbox 360 pad'i — yani hiçbir şeyin özel desteğe ihtiyacı olmaz.</span>
+          <span lang="en">The same helper that serves Android: it creates a standard XInput controller — an Xbox 360 pad, as far as games are concerned — so nothing needs special support. Two downloads, in this order.</span>
+          <span lang="tr">Android'e hizmet eden yardımcının aynısı: standart bir XInput kumandası oluşturur — oyunlar açısından bir Xbox 360 pad'i — yani hiçbir şeyin özel desteğe ihtiyacı olmaz. İki indirme, bu sırayla.</span>
         </p>
-        <!-- ⏸ HELD AT v0.2.1 ON PURPOSE (2026-08-30). Restore the 0.4.x
-             installer — sole-file/V-Pad-Helper-Setup.exe — the day the iOS
-             update is RELEASED, not the day it is approved.
+        <!-- 2026-09-02: the installer (sole-file/V-Pad-Helper-Setup.exe) is
+             GONE from this page. Three engines on VirusTotal flag it — the
+             Inno container plus the driver setup it carried — while the bare
+             host exe scans clean (owner decision). So the iPhone path now
+             takes the same two downloads as Android: the signed driver once,
+             then vpad-host.exe. One binary serves both phones.
 
-             Why: 0.4.x forces `--pair` on (a product default in vpad_helper.py,
-             overriding the engine's pairing-off default), so it will only talk
-             to a phone that has scanned its code. The App Store is still
-             serving 1.0 = build 27, which predates pairing entirely and is
-             refused at the door. Android is unaffected — its client waits
-             briefly for a CHALLENGE and falls back when none arrives.
+             The build line under the host button is the only signal a
+             returning user has that a new host shipped (the file name never
+             changes), so bump it with every publish of the C#_file branch. -->
+        <ol class="steps">
+          <li>
+            <strong>
+              <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+              <span lang="en">Install the ViGEmBus driver — once</span>
+              <span lang="tr">ViGEmBus sürücüsünü kur — bir kez</span>
+            </strong>
+            <p>
+              <span lang="en">This is what lets a game believe a real controller is plugged in. It is made and signed by its own author, so Windows will not complain. Download it, double-click, answer <b>Yes</b>, then <b>Next → Install → Finish</b>. You only ever do this once — a new helper version never needs the driver again; keep the one you have.</span>
+              <span lang="tr">Oyunun gerçek bir kumanda takılı sanmasını sağlayan şey bu. Kendi yazarı tarafından üretilip imzalanmıştır, Windows itiraz etmez. İndir, çift tıkla, <b>Evet</b> de, sonra <b>Next → Install → Finish</b>. Bunu ömründe bir kez yaparsın — yeni bir yardımcı sürümü sürücüyü yeniden istemez; olanı koru.</span>
+            </p>
+            <a class="btn btn-primary" href="https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe">
+              <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+              <span lang="en">ViGEmBus 1.22.0 — signed</span>
+              <span lang="tr">ViGEmBus 1.22.0 — imzalı</span>
+            </a>
+          </li>
 
-             Note the URL is PINNED, not `releases/latest`: latest is v0.4.0,
-             which has the same problem. v0.2.1 is the last release with no
-             pairing in it at all (verified: zero traces in vpad_helper.py and
-             vpad_daemon.py at that tag).
-
-             The macOS card explains its own friction, so this one should too:
-             the file is unsigned, so SmartScreen shows a blue warning with
-             "Run anyway" hidden behind "More info". A user who was not told
-             reads that as a virus, not as a missing certificate. -->
-        <p style="margin-bottom:18px;font-size:13px;opacity:.72">
-          <span lang="en">It is not code-signed yet, so Windows shows a warning the first time — choose <b>More info</b>, then <b>Run anyway</b>.</span>
-          <span lang="tr">Henüz imzalı olmadığı için Windows ilk seferde uyarı gösteriyor — <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a dokun.</span>
-        </p>
-        <a class="btn btn-primary" href="https://raw.githubusercontent.com/svolkancav/vpad-helper/sole-file/V-Pad-Helper-Setup.exe">
-          <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
-          <span lang="en">Download for Windows</span><span lang="tr">Windows için indir</span>
-        </a>
+          <li>
+            <strong>
+              <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
+              <span lang="en">Run V-Pad Helper and leave it open</span>
+              <span lang="tr">V-Pad Helper'ı çalıştır ve açık bırak</span>
+            </strong>
+            <p>
+              <span lang="en">Double-click <b>vpad-host.exe</b>. Windows shows a blue warning the first time because the file is not signed yet — choose <b>More info</b>, then <b>Run anyway</b>. No black console window appears; instead you get a window with a <b>QR code</b> and a <b>6-digit number</b>. Leave it open, your iPhone needs it in a moment. A small V-Pad icon also appears by the clock, bottom-right — that is the helper, and it keeps running after you close the window. <b>It has to stay running while you play.</b></span>
+              <span lang="tr"><b>vpad-host.exe</b>'ye çift tıkla. Dosya henüz imzalı olmadığı için Windows ilk seferde mavi bir uyarı gösterir — <b>Ek bilgi</b>, sonra <b>Yine de çalıştır</b>. Siyah bir komut penceresi açılmaz; onun yerine <b>QR kod</b> ve <b>6 haneli sayı</b> taşıyan bir pencere gelir. Kapatma, birazdan iPhone isteyecek. Sağ altta, saatin yanında küçük bir V-Pad simgesi de belirir — yardımcı odur ve pencereyi kapatsan da çalışmaya devam eder. <b>Oynarken çalışır durumda kalması gerekiyor.</b></span>
+            </p>
+            <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/raw/C%23_file/vpad-host.exe">
+              <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+              <span lang="en">vpad-host.exe</span>
+              <span lang="tr">vpad-host.exe</span>
+            </a>
+            <p style="margin-top:10px;font-size:13px;opacity:.72">
+              <span lang="en">Current build <b>1.0.2</b> (a2f0654), 2 September 2026. Already have an older one? Download this file again and replace it — the driver stays as it is.</span>
+              <span lang="tr">Güncel sürüm <b>1.0.2</b> (a2f0654), 2 Eylül 2026. Eskisi sende varsa bu dosyayı yeniden indirip üstüne yaz — sürücüye dokunma.</span>
+            </p>
+          </li>
+        </ol>
       </div>
       <div class="card">
         <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">Helper for macOS — for iPhone</span><span lang="tr">macOS yardımcısı — iPhone için</span></h3>

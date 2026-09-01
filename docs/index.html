@@ -489,33 +489,29 @@
           <span lang="en">Creates a standard XInput controller — an Xbox 360 pad, as far as games are concerned — so nothing needs special support.</span>
           <span lang="tr">Standart bir XInput kumandası oluşturur — oyunlar açısından bir Xbox 360 pad'i — yani hiçbir şeyin özel desteğe ihtiyacı olmaz.</span>
         </p>
-        <!-- Back on the 0.4.x installer (2026-08-31), now that iOS 2.0.3 is
-             READY_FOR_SALE — the store serves a client that speaks the v2
-             pairing this helper requires.
+        <!-- 2026-09-02: OFF the installer for good. The Inno package
+             (sole-file/V-Pad-Helper-Setup.exe) is flagged by three engines
+             on VirusTotal — the container plus the driver setup it carried —
+             while the bare host exe scans clean (owner decision). This is
+             the same single binary the Android path downloads; the driver
+             is a separate, signed, once-only install and the full steps
+             sit further down the page (#csharp-host).
 
-             It was pinned to v0.2.1 from 2026-08-30 for one reason: 0.4.x
-             forces `--pair` on, and the App Store was still serving build 27,
-             which predates pairing and was refused at the door. If a future
-             helper ever hard-requires something the shipping app lacks, pin
-             back the same way — and mind that `releases/latest` is NOT a safe
-             target, since latest is v0.4.0 and carries the same requirement.
-
-             Residual, and deliberate: 2.0.3 needs iOS 15, so anyone on iOS
-             13/14 stays on build 27 permanently and cannot pair with this
-             file. They are not covered by the switch.
-
-             The macOS card explains its own friction, so this one should too:
-             the installer is unsigned, so SmartScreen shows a blue warning
-             with "Run anyway" hidden behind "More info". A user who was not
-             told reads that as a virus, not as a missing certificate. -->
+             The build line under the button is the only signal a returning
+             user has that a new host shipped (the file name never changes),
+             so bump it with every publish of the C#_file branch. -->
         <p style="margin-bottom:18px;font-size:13px;opacity:.72">
-          <span lang="en">An installer. It is not code-signed yet, so Windows shows a warning the first time — choose <b>More info</b>, then <b>Run anyway</b>.</span>
-          <span lang="tr">Bir kurulum dosyası. Henüz imzalı olmadığı için Windows ilk seferde uyarı gösteriyor — <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a dokun.</span>
+          <span lang="en">One file, no installer — the same helper the Android path uses. It is not code-signed yet, so Windows shows a blue warning the first time — choose <b>More info</b>, then <b>Run anyway</b>. It needs the ViGEmBus driver, installed once; the steps are further down this page.</span>
+          <span lang="tr">Tek dosya, kurulum programı yok — Android yolunun kullandığı yardımcının aynısı. Henüz imzalı olmadığı için Windows ilk seferde mavi bir uyarı gösteriyor — <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a dokun. Bir kez kurulan ViGEmBus sürücüsünü ister; adımlar bu sayfanın aşağısında.</span>
         </p>
-        <a class="btn btn-primary" href="https://raw.githubusercontent.com/svolkancav/vpad-helper/sole-file/V-Pad-Helper-Setup.exe">
+        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/raw/C%23_file/vpad-host.exe">
           <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
-          <span lang="en">Download for Windows</span><span lang="tr">Windows için indir</span>
+          <span lang="en">Download for Windows — vpad-host.exe</span><span lang="tr">Windows için indir — vpad-host.exe</span>
         </a>
+        <p style="margin-top:10px;font-size:13px;opacity:.72">
+          <span lang="en">Current build <b>1.0.2</b> (a2f0654), 2 September 2026. Already have an older one? Download this file again and replace it — the driver stays as it is.</span>
+          <span lang="tr">Güncel sürüm <b>1.0.2</b> (a2f0654), 2 Eylül 2026. Eskisi sende varsa bu dosyayı yeniden indirip üstüne yaz — sürücüye dokunma.</span>
+        </p>
       </div>
       <div class="card">
         <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">Helper for macOS — for iPhone</span><span lang="tr">macOS yardımcısı — iPhone için</span></h3>
@@ -578,8 +574,8 @@
             <span lang="tr">Sürücüyü kur</span>
           </strong>
           <p>
-            <span lang="en">This is what lets a game believe a real controller is plugged in. It is made and signed by its own author, so Windows will not complain. Download it, double-click, answer <b>Yes</b>, then <b>Next → Install → Finish</b>. You only ever do this once.</span>
-            <span lang="tr">Oyunun gerçek bir kumanda takılı sanmasını sağlayan şey bu. Kendi yazarı tarafından üretilip imzalanmıştır, Windows itiraz etmez. İndir, çift tıkla, <b>Evet</b> de, sonra <b>Next → Install → Finish</b>. Bunu ömründe bir kez yaparsın.</span>
+            <span lang="en">This is what lets a game believe a real controller is plugged in. It is made and signed by its own author, so Windows will not complain. Download it, double-click, answer <b>Yes</b>, then <b>Next → Install → Finish</b>. You only ever do this once — a new helper version never needs the driver again; keep the one you have.</span>
+            <span lang="tr">Oyunun gerçek bir kumanda takılı sanmasını sağlayan şey bu. Kendi yazarı tarafından üretilip imzalanmıştır, Windows itiraz etmez. İndir, çift tıkla, <b>Evet</b> de, sonra <b>Next → Install → Finish</b>. Bunu ömründe bir kez yaparsın — yeni bir yardımcı sürümü sürücüyü yeniden istemez; olanı koru.</span>
           </p>
           <a class="btn btn-primary" href="https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe">
             <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
@@ -603,6 +599,10 @@
             <span lang="en">vpad-host.exe</span>
             <span lang="tr">vpad-host.exe</span>
           </a>
+<p style="margin-top:10px;font-size:13px;opacity:.72">
+  <span lang="en">Current build <b>1.0.2</b> (a2f0654), 2 September 2026. Already have an older one? Download this file again and replace it — the driver stays as it is.</span>
+  <span lang="tr">Güncel sürüm <b>1.0.2</b> (a2f0654), 2 Eylül 2026. Eskisi sende varsa bu dosyayı yeniden indirip üstüne yaz — sürücüye dokunma.</span>
+</p>
         </li>
 
         <li>
