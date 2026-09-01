@@ -145,64 +145,86 @@
       <span lang="tr">iPhone bilgisayarına kendi Wi-Fi ağın üzerinden, orada çalışan küçük ve ücretsiz bir yardımcıyla ulaşır.</span>
     </p>
 
-<div class="grid three">
-      <div class="card">
-        <h3><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg><span lang="en">Helper for Windows — for iPhone</span><span lang="tr">Windows yardımcısı — iPhone için</span></h3>
-        <p style="margin-bottom:18px">
-          <span lang="en">The free helper for your computer: it creates a standard XInput controller — an Xbox 360 pad, as far as games are concerned — so nothing needs special support. Two downloads, in this order.</span>
-          <span lang="tr">Bilgisayarın için ücretsiz yardımcı: standart bir XInput kumandası oluşturur — oyunlar açısından bir Xbox 360 pad'i — yani hiçbir şeyin özel desteğe ihtiyacı olmaz. İki indirme, bu sırayla.</span>
-        </p>
-        <!-- 2026-09-02: the installer (sole-file/V-Pad-Helper-Setup.exe) is
-             GONE from this page. Three engines on VirusTotal flag it — the
-             Inno container plus the driver setup it carried — while the bare
-             host exe scans clean (owner decision). So the iPhone path now
-             takes two downloads: the signed driver once, then vpad-host.exe.
-             One binary serves every phone. No other platform is named on
-             this page (owner, 2026-09-02): each phone reads only its own.
+<!-- 2026-09-02: the installer (sole-file/V-Pad-Helper-Setup.exe) is GONE
+         from this page. Three engines on VirusTotal flag it — the Inno
+         container plus the driver setup it carried — while the bare host
+         exe scans clean (owner decision). The Windows path is therefore the
+         same two downloads every phone takes: the signed driver once, then
+         vpad-host.exe — laid out as full-width steps, not a card, because a
+         card column is too narrow to read a procedure in. No other platform
+         is named on this page (owner): each phone reads only its own.
 
-             The build line under the host button is the only signal a
-             returning user has that a new host shipped (the file name never
-             changes), so bump it with every publish of the C#_file branch. -->
-        <ol class="steps">
-          <li>
-            <strong>
-              <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-              <span lang="en">Install the ViGEmBus driver — once</span>
-              <span lang="tr">ViGEmBus sürücüsünü kur — bir kez</span>
-            </strong>
-            <p>
-              <span lang="en">This is what lets a game believe a real controller is plugged in. It is made and signed by its own author, so Windows will not complain. Download it, double-click, answer <b>Yes</b>, then <b>Next → Install → Finish</b>. You only ever do this once — a new helper version never needs the driver again; keep the one you have.</span>
-              <span lang="tr">Oyunun gerçek bir kumanda takılı sanmasını sağlayan şey bu. Kendi yazarı tarafından üretilip imzalanmıştır, Windows itiraz etmez. İndir, çift tıkla, <b>Evet</b> de, sonra <b>Next → Install → Finish</b>. Bunu ömründe bir kez yaparsın — yeni bir yardımcı sürümü sürücüyü yeniden istemez; olanı koru.</span>
-            </p>
-            <a class="btn btn-primary" href="https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe">
-              <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-              <span lang="en">ViGEmBus 1.22.0 — signed</span>
-              <span lang="tr">ViGEmBus 1.22.0 — imzalı</span>
-            </a>
-          </li>
+         macOS keeps a plain card below: its build is signed and notarised,
+         so "open the image, drag to Applications" is the whole procedure.
 
-          <li>
-            <strong>
-              <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
-              <span lang="en">Run V-Pad Helper and leave it open</span>
-              <span lang="tr">V-Pad Helper'ı çalıştır ve açık bırak</span>
-            </strong>
-            <p>
-              <span lang="en">Double-click <b>vpad-host.exe</b>. Windows shows a blue warning the first time because the file is not signed yet — choose <b>More info</b>, then <b>Run anyway</b>. No black console window appears; instead you get a window with a <b>QR code</b> and a <b>6-digit number</b>. Leave it open, your iPhone needs it in a moment. A small V-Pad icon also appears by the clock, bottom-right — that is the helper, and it keeps running after you close the window. <b>It has to stay running while you play.</b></span>
-              <span lang="tr"><b>vpad-host.exe</b>'ye çift tıkla. Dosya henüz imzalı olmadığı için Windows ilk seferde mavi bir uyarı gösterir — <b>Ek bilgi</b>, sonra <b>Yine de çalıştır</b>. Siyah bir komut penceresi açılmaz; onun yerine <b>QR kod</b> ve <b>6 haneli sayı</b> taşıyan bir pencere gelir. Kapatma, birazdan iPhone isteyecek. Sağ altta, saatin yanında küçük bir V-Pad simgesi de belirir — yardımcı odur ve pencereyi kapatsan da çalışmaya devam eder. <b>Oynarken çalışır durumda kalması gerekiyor.</b></span>
-            </p>
-            <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/raw/C%23_file/vpad-host.exe">
-              <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-              <span lang="en">vpad-host.exe</span>
-              <span lang="tr">vpad-host.exe</span>
-            </a>
-            <p style="margin-top:10px;font-size:13px;opacity:.72">
-              <span lang="en">Current build <b>1.0.2</b> (a2f0654), 2 September 2026. Already have an older one? Download this file again and replace it — the driver stays as it is.</span>
-              <span lang="tr">Güncel sürüm <b>1.0.2</b> (a2f0654), 2 Eylül 2026. Eskisi sende varsa bu dosyayı yeniden indirip üstüne yaz — sürücüye dokunma.</span>
-            </p>
-          </li>
-        </ol>
-      </div>
+         The build line under the host button is the only signal a returning
+         user has that a new host shipped (the file name never changes), so
+         bump it with every publish of the C#_file branch. -->
+    <div id="csharp-host" style="margin-top:30px;margin-bottom:34px">
+      <h3>
+        <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
+        <span lang="en">Helper for Windows — step by step</span>
+        <span lang="tr">Windows yardımcısı — adım adım</span>
+      </h3>
+      <p class="sub">
+        <span lang="en">Two downloads, once — the signed driver, then the helper — and your iPhone is a controller every game already understands.</span>
+        <span lang="tr">İki indirme, bir kereye mahsus — imzalı sürücü, sonra yardımcı — ve iPhone'un her oyunun zaten tanıdığı bir kumanda.</span>
+      </p>
+
+      <ol class="steps">
+        <li>
+          <strong>
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+            <span lang="en">Install the ViGEmBus driver — once</span>
+            <span lang="tr">ViGEmBus sürücüsünü kur — bir kez</span>
+          </strong>
+          <p>
+            <span lang="en">This is what lets a game believe a real controller is plugged in: your presses arrive as network traffic, so something has to present a controller to Windows — that is the only thing this driver does. It is made and signed by its own author, so Windows will not complain. Download it, double-click, answer <b>Yes</b>, then <b>Next → Install → Finish</b>. You only ever do this once — a new helper version never needs the driver again; keep the one you have.</span>
+            <span lang="tr">Oyunun gerçek bir kumanda takılı sanmasını sağlayan şey bu: bastığın tuşlar ağ trafiği olarak ulaşır, yani Windows'a bir kumanda sunacak bir şey gerekir — bu sürücünün yaptığı tek şey o. Kendi yazarı tarafından üretilip imzalanmıştır, Windows itiraz etmez. İndir, çift tıkla, <b>Evet</b> de, sonra <b>Next → Install → Finish</b>. Bunu ömründe bir kez yaparsın — yeni bir yardımcı sürümü sürücüyü yeniden istemez; olanı koru.</span>
+          </p>
+          <a class="btn btn-primary" href="https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+            <span lang="en">ViGEmBus 1.22.0 — signed</span>
+            <span lang="tr">ViGEmBus 1.22.0 — imzalı</span>
+          </a>
+        </li>
+
+        <li>
+          <strong>
+            <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
+            <span lang="en">Run V-Pad Helper and leave it open</span>
+            <span lang="tr">V-Pad Helper'ı çalıştır ve açık bırak</span>
+          </strong>
+          <p>
+            <span lang="en">Double-click <b>vpad-host.exe</b>. Windows shows a blue warning the first time because the file is not signed yet — choose <b>More info</b>, then <b>Run anyway</b>. No black console window appears; instead you get a window with a <b>QR code</b> and a <b>6-digit number</b>. Leave it open, your iPhone needs it in a moment. A small V-Pad icon also appears by the clock, bottom-right — that is the helper, and it keeps running after you close the window. <b>It has to stay running while you play.</b></span>
+            <span lang="tr"><b>vpad-host.exe</b>'ye çift tıkla. Dosya henüz imzalı olmadığı için Windows ilk seferde mavi bir uyarı gösterir — <b>Ek bilgi</b>, sonra <b>Yine de çalıştır</b>. Siyah bir komut penceresi açılmaz; onun yerine <b>QR kod</b> ve <b>6 haneli sayı</b> taşıyan bir pencere gelir. Kapatma, birazdan iPhone isteyecek. Sağ altta, saatin yanında küçük bir V-Pad simgesi de belirir — yardımcı odur ve pencereyi kapatsan da çalışmaya devam eder. <b>Oynarken çalışır durumda kalması gerekiyor.</b></span>
+          </p>
+          <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/raw/C%23_file/vpad-host.exe">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+            <span lang="en">vpad-host.exe</span>
+            <span lang="tr">vpad-host.exe</span>
+          </a>
+          <p style="margin-top:10px;font-size:13px;opacity:.72">
+            <span lang="en">Current build <b>1.0.2</b> (a2f0654), 2 September 2026. Already have an older one? Download this file again and replace it — the driver stays as it is.</span>
+            <span lang="tr">Güncel sürüm <b>1.0.2</b> (a2f0654), 2 Eylül 2026. Eskisi sende varsa bu dosyayı yeniden indirip üstüne yaz — sürücüye dokunma.</span>
+          </p>
+        </li>
+
+        <li>
+          <strong>
+            <svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg>
+            <span lang="en">Point the iPhone at it</span>
+            <span lang="tr">iPhone'u ona yönelt</span>
+          </strong>
+          <p>
+            <span lang="en">iPhone and computer on the <b>same Wi-Fi</b>. Open V-Pad and either scan that QR code or type the six digits. If Windows is blocking the way in, the helper says so and offers a one-click fix from its notification-area icon — bottom-right, behind the <b>^</b> arrow. After the first time your computer remembers the iPhone, so there is no code to type again.</span>
+            <span lang="tr">iPhone ve bilgisayar <b>aynı Wi-Fi</b>'de olsun. V-Pad'i aç ve ya QR kodu tara ya da altı haneyi yaz. Windows yolu kapatıyorsa yardımcı bunu söyler ve bildirim alanındaki simgesinden tek tıkla açmayı önerir — sağ altta, <b>^</b> okunun arkasında. İlk seferden sonra bilgisayarın iPhone'u hatırlar, bir daha kod yazmana gerek kalmaz.</span>
+          </p>
+        </li>
+      </ol>
+    </div>
+
+<div class="grid two">
       <div class="card">
         <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">Helper for macOS — for iPhone</span><span lang="tr">macOS yardımcısı — iPhone için</span></h3>
         <p style="margin-bottom:18px">
