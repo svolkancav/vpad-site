@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>V-Pad — the iPhone helper</title>
-<meta name="description" content="The free V-Pad helper for Windows and macOS, for the iPhone app over Wi-Fi: install the ViGEmBus driver once, run vpad-host.exe, scan the code. Why iPhone cannot use Bluetooth.">
+<meta name="description" content="The free V-Pad helper for the iPhone app: two choices, Windows or macOS. On Windows, install the ViGEmBus driver once, run vpad-host.exe and scan the code.">
 <link rel="icon" href="assets/icon.png">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="canonical" href="https://vpadcontroller.com/downloads-ios">
@@ -141,9 +141,42 @@
   <div class="wrap">
     <h1><span lang="en">iPhone — the helper for your computer</span><span lang="tr">iPhone — bilgisayarın için yardımcı</span></h1>
     <p class="sub">
-      <span lang="en">The iPhone reaches your computer over your own Wi-Fi, through a small free helper that runs there.</span>
-      <span lang="tr">iPhone bilgisayarına kendi Wi-Fi ağın üzerinden, orada çalışan küçük ve ücretsiz bir yardımcıyla ulaşır.</span>
+      <span lang="en">The iPhone reaches your computer over your own Wi-Fi, through a small free helper that runs there. Two of them — pick the one your computer runs.</span>
+      <span lang="tr">iPhone bilgisayarına kendi Wi-Fi ağın üzerinden, orada çalışan küçük ve ücretsiz bir yardımcıyla ulaşır. İki tane var — bilgisayarında hangisi çalışıyorsa onu seç.</span>
     </p>
+
+    <!-- TWO choices, side by side (owner, 2026-09-02) — and only ONE of
+         them carries a procedure. Windows needs the driver in BEFORE the
+         host, so its card points DOWN at the steps rather than handing
+         over a file someone would run first and then wonder why nothing
+         reaches the game. The macOS build is signed and notarised: the
+         download IS the whole procedure, so a card is the right size for
+         it. Both cards name their file; neither names the other phone. -->
+    <div class="grid two" style="margin-top:26px">
+      <div class="card">
+        <h3><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg><span lang="en">Helper for Windows</span><span lang="tr">Windows yardımcısı</span></h3>
+        <p style="margin-bottom:18px">
+          <span lang="en">Two downloads, once: the signed ViGEmBus driver, then <b>vpad-host.exe</b>. Order matters, so the steps are laid out below.</span>
+          <span lang="tr">İki indirme, bir kereye mahsus: imzalı ViGEmBus sürücüsü, sonra <b>vpad-host.exe</b>. Sıra önemli, adımlar aşağıda.</span>
+        </p>
+        <a class="btn btn-primary" href="#csharp-host">
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+          <span lang="en">Windows setup, step by step</span>
+          <span lang="tr">Windows kurulumu, adım adım</span>
+        </a>
+      </div>
+      <div class="card">
+        <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">Helper for macOS</span><span lang="tr">macOS yardımcısı</span></h3>
+        <p style="margin-bottom:18px">
+          <span lang="en">One download, no steps: a signed, notarised disk image — open it and drag the app into Applications. Note that macOS gives no app a virtual gamepad, so the pad maps onto keyboard and mouse instead.</span>
+          <span lang="tr">Tek indirme, adım yok: imzalı ve notarize edilmiş bir disk imajı — aç ve uygulamayı Applications'a sürükle. Şunu bil: macOS hiçbir uygulamaya sanal gamepad yolu vermiyor, o yüzden pad klavye ve fareye eşlenir.</span>
+        </p>
+        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/download/v0.2.1/V-Pad-Helper.dmg">
+          <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
+          <span lang="en">Download for macOS</span><span lang="tr">macOS için indir</span>
+        </a>
+      </div>
+    </div>
 
 <!-- 2026-09-02: the installer (sole-file/V-Pad-Helper-Setup.exe) is GONE
          from this page. Three engines on VirusTotal flag it — the Inno
@@ -170,17 +203,6 @@
         <span lang="en">Two downloads, once — the signed driver, then the helper — and your iPhone shows up in games as a controller they already understand. Up to four iPhones can play on one computer.</span>
         <span lang="tr">İki indirme, bir kereye mahsus — imzalı sürücü, sonra yardımcı — ve iPhone'un oyunlarda zaten tanıdıkları bir kumanda olarak görünür. Tek bilgisayarda aynı anda dört iPhone'a kadar oynanır.</span>
       </p>
-      <!-- The macOS helper stays visible ABOVE the fold (owner, 2026-09-02:
-           "macOS düğmesini geri getir"): the Windows steps are long, and the
-           macOS card below them read as gone. Same file as the card. -->
-      <p class="cta" style="margin:-8px 0 22px">
-        <a class="btn btn-ghost" href="https://github.com/svolkancav/vpad-helper/releases/download/v0.2.1/V-Pad-Helper.dmg">
-          <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
-          <span lang="en">On a Mac? Download the macOS helper</span>
-          <span lang="tr">Mac mi kullanıyorsun? macOS yardımcısını indir</span>
-        </a>
-      </p>
-
       <ol class="steps">
         <li>
           <strong>
@@ -234,30 +256,17 @@
       </ol>
     </div>
 
-<div class="grid two">
-      <div class="card">
-        <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">Helper for macOS — for iPhone</span><span lang="tr">macOS yardımcısı — iPhone için</span></h3>
-        <p style="margin-bottom:18px">
-          <span lang="en">A signed, notarised disk image: open it and drag the app into Applications. Note that macOS gives no app a virtual gamepad, so the pad maps onto keyboard and mouse instead.</span>
-          <span lang="tr">İmzalı ve notarize edilmiş bir disk imajı: aç ve uygulamayı Applications'a sürükle. Şunu bil: macOS hiçbir uygulamaya sanal gamepad yolu vermiyor, o yüzden pad klavye ve fareye eşlenir.</span>
-        </p>
-        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/download/v0.2.1/V-Pad-Helper.dmg">
-          <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
-          <span lang="en">Download for macOS</span><span lang="tr">macOS için indir</span>
-        </a>
-      </div>
-      <div class="card">
-        <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">The iPhone app</span><span lang="tr">iPhone uygulaması</span></h3>
-        <p style="margin-bottom:18px">
-          <span lang="en">On the App Store now. Install it, start the helper on your computer, and scan the code it shows.</span>
-          <span lang="tr">App Store'da yayında. Kur, bilgisayarındaki yardımcıyı başlat ve gösterdiği kodu tarat.</span>
-        </p>
-        <a class="btn btn-primary" href="https://apps.apple.com/us/app/v-pad-virtual-gamepad/id6796475673">
-          <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-          <span lang="en">Download on the App Store</span>
-          <span lang="tr">App Store'dan indir</span>
-        </a>
-      </div>
+<div class="card">
+      <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">The iPhone app</span><span lang="tr">iPhone uygulaması</span></h3>
+      <p style="margin-bottom:18px">
+        <span lang="en">On the App Store now. Install it, start the helper on your computer, and scan the code it shows.</span>
+        <span lang="tr">App Store'da yayında. Kur, bilgisayarındaki yardımcıyı başlat ve gösterdiği kodu tarat.</span>
+      </p>
+      <a class="btn btn-primary" href="https://apps.apple.com/us/app/v-pad-virtual-gamepad/id6796475673">
+        <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
+        <span lang="en">Download on the App Store</span>
+        <span lang="tr">App Store'dan indir</span>
+      </a>
     </div>
 
     <!-- 🔴 Geri konuldu (kullanici, 2026-08-31). Bu tablo iOS yolunun
@@ -291,11 +300,6 @@
       </tr>
     </table>
 
-    <p class="note" style="margin-top:22px">
-      <svg class="ico" aria-hidden="true"><use href="#i-info"/></svg>
-      <span lang="en"><strong>Why not Bluetooth on iPhone?</strong> A platform restriction, not a missing feature: iOS refuses to let third-party apps advertise the Bluetooth HID service. Every iPhone app in this category ships a desktop companion for the same reason.</span>
-      <span lang="tr"><strong>iPhone'da neden Bluetooth yok?</strong> Eksik bir özellik değil, platform kısıtı: iOS üçüncü taraf uygulamaların Bluetooth HID servisini yayınlamasına izin vermiyor. Bu kategorideki bütün iPhone uygulamalarının bilgisayara bir yardımcı program kurdurmasının sebebi de aynı.</span>
-    </p>
 
   </div>
 </section>
