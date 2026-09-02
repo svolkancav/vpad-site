@@ -184,7 +184,7 @@
           <span lang="en">Windows helper — free</span>
           <span lang="tr">Windows yardımcısı — ücretsiz</span>
         </a>
-        <a class="btn btn-ghost" href="https://github.com/svolkancav/vpad-helper/releases/download/v0.2.1/V-Pad-Helper.dmg">
+        <a class="btn btn-ghost" href="/downloads-ios">
           <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
           <span lang="en">macOS helper — for iPhone</span>
           <span lang="tr">macOS yardımcısı — iPhone için</span>
@@ -323,7 +323,7 @@
           <span lang="tr">Aynı gamepad, bu kez kendi Wi-Fi ağın üzerinden. Bilgisayarında Bluetooth yoksa &mdash; ya da oyuna birden fazla telefon sokmak istiyorsan, aynı anda dörde kadar &mdash; yol budur. Windows'ta bir kereye mahsus iki ücretsiz kurulum ister: önce <b>ViGEmBus</b> sürücüsü, sonra <b>V-Pad Helper</b>.</span>
         </p>
         <p>
-          <a class="btn btn-quiet" href="#csharp-host">
+          <a class="btn btn-quiet" href="/downloads-android">
             <span lang="en">Downloads and steps</span><span lang="tr">İndirmeler ve adımlar</span>
             <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
@@ -373,8 +373,8 @@
           <span lang="en">Install the helper on your PC</span><span lang="tr">Bilgisayarına yardımcıyı kur</span>
         </strong>
         <p>
-          <span lang="en">Download it above and run it — no installer, it lives in the system tray. Windows warns that the file is unsigned (<em>More info → Run anyway</em>), then asks about network access: allow it on <strong>private networks</strong>. On first run it offers a one-time gamepad driver — accept it, that is what makes games see a real controller.</span>
-          <span lang="tr">Yukarıdan indir ve çalıştır — kurulum sihirbazı yok, sistem tepsisinde yaşıyor. Windows dosyanın imzasız olduğunu söyleyip uyarır (<em>Daha fazla bilgi → Yine de çalıştır</em>), sonra ağ erişimini sorar: <strong>özel ağlar</strong> için izin ver. İlk açılışta bir kerelik gamepad sürücüsü önerir — kabul et, oyunların gerçek bir kumanda görmesini sağlayan şey o.</span>
+          <span lang="en">Download it from the <a href="/downloads-ios">iPhone downloads page</a> and run it — no installer, it lives in the system tray. Windows warns that the file is unsigned (<em>More info → Run anyway</em>), then asks about network access: allow it on <strong>private networks</strong>. On first run it offers a one-time gamepad driver — accept it, that is what makes games see a real controller.</span>
+          <span lang="tr"><a href="/downloads-ios">iPhone indirmeleri sayfasından</a> indir ve çalıştır — kurulum sihirbazı yok, sistem tepsisinde yaşıyor. Windows dosyanın imzasız olduğunu söyleyip uyarır (<em>Daha fazla bilgi → Yine de çalıştır</em>), sonra ağ erişimini sorar: <strong>özel ağlar</strong> için izin ver. İlk açılışta bir kerelik gamepad sürücüsü önerir — kabul et, oyunların gerçek bir kumanda görmesini sağlayan şey o.</span>
         </p>
       </li>
       <li>
@@ -458,165 +458,49 @@
 <section id="download">
   <div class="wrap">
     <h2><svg class="ico h-ico" aria-hidden="true"><use href="#i-download"/></svg><span lang="en">Downloads</span><span lang="tr">İndirmeler</span></h2>
-    <!-- 🔴 This section is the iPHONE path now (user, 2026-08-30). The App
-         Store still serves the pairing-free 1.0 build, so iPhones need the
-         old 0.2.1 helper; everything Android moved into the C# host block
-         below and no Android wording belongs up here. -->
+    <!-- 2026-09-02, owner: the landing page POINTS, it does not instruct.
+         Every download and every step lives on the two phone pages now —
+         keeping a second copy here is exactly how the two drifted apart and
+         how a stale version line survived in one place. What stays is the
+         choice, plus the icons that answer the only question a visitor has
+         before clicking: which computer does this need? -->
     <p class="sub">
-      <span lang="en">The free helper for your computer — this is the iPhone path.</span>
-      <span lang="tr">Bilgisayarın için ücretsiz yardımcı — burası iPhone yolu.</span>
+      <span lang="en">Pick your phone — its page lists every download, in order.</span>
+      <span lang="tr">Telefonunu seç — her sayfa kendi indirmelerini sırayla anlatıyor.</span>
     </p>
 
-    <!-- Tam adimlar artik kendi sayfalarinda (kullanici, 2026-08-31). Bu
-         bolum ozet olarak kaliyor; karar veren kisi asagi kaydirmadan
-         kendi yoluna gidebilsin diye baglantilar EN USTTE. -->
-    <p class="cta" style="margin-bottom:26px">
-      <a class="btn btn-quiet" href="/downloads-android">
-        <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg>
-        <span lang="en">Android setup, step by step</span>
-        <span lang="tr">Android kurulumu, adım adım</span>
-      </a>
-      <a class="btn btn-quiet" href="/downloads-ios">
-        <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
-        <span lang="en">iPhone helper page</span>
-        <span lang="tr">iPhone yardımcı sayfası</span>
-      </a>
-    </p>
-    <div class="grid three">
+    <div class="grid two">
       <div class="card">
-        <h3><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg><span lang="en">Helper for Windows — for iPhone</span><span lang="tr">Windows yardımcısı — iPhone için</span></h3>
+        <h3>
+          <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg> Android
+          <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg> Windows</span>
+          <span class="tag wifi"><svg class="ico" aria-hidden="true"><use href="#i-bluetooth"/></svg> Bluetooth</span>
+        </h3>
         <p style="margin-bottom:18px">
-          <span lang="en">Creates a standard XInput controller — an Xbox 360 pad, as far as games are concerned — so nothing needs special support.</span>
-          <span lang="tr">Standart bir XInput kumandası oluşturur — oyunlar açısından bir Xbox 360 pad'i — yani hiçbir şeyin özel desteğe ihtiyacı olmaz.</span>
+          <span lang="en">Over Wi-Fi the helper runs on <b>Windows</b>. Over <b>Bluetooth</b> there is nothing to install on the computer at all.</span>
+          <span lang="tr">Wi-Fi ile yardımcı <b>Windows</b>'ta çalışır. <b>Bluetooth</b> ile bilgisayara kurulacak hiçbir şey yok.</span>
         </p>
-        <!-- 2026-09-02: OFF the installer for good. The Inno package
-             (sole-file/V-Pad-Helper-Setup.exe) is flagged by three engines
-             on VirusTotal — the container plus the driver setup it carried —
-             while the bare host exe scans clean (owner decision). This is
-             the same single binary the Android path downloads; the driver
-             is a separate, signed, once-only install and the full steps
-             sit further down the page (#csharp-host).
-
-             The build line under the button is the only signal a returning
-             user has that a new host shipped (the file name never changes),
-             so bump it with every publish of the C#_file branch. -->
-        <p style="margin-bottom:18px;font-size:13px;opacity:.72">
-          <span lang="en">One file, no installer — the same helper the Android path uses. It is not code-signed yet, so Windows shows a blue warning the first time — choose <b>More info</b>, then <b>Run anyway</b>. It needs the ViGEmBus driver, installed once; the steps are further down this page.</span>
-          <span lang="tr">Tek dosya, kurulum programı yok — Android yolunun kullandığı yardımcının aynısı. Henüz imzalı olmadığı için Windows ilk seferde mavi bir uyarı gösteriyor — <b>Ek bilgi</b>'ye, sonra <b>Yine de çalıştır</b>'a dokun. Bir kez kurulan ViGEmBus sürücüsünü ister; adımlar bu sayfanın aşağısında.</span>
-        </p>
-        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/raw/C%23_file/vpad-host.exe">
-          <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
-          <span lang="en">Download for Windows — vpad-host.exe</span><span lang="tr">Windows için indir — vpad-host.exe</span>
+        <a class="btn btn-primary" href="/downloads-android">
+          <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg>
+          <span lang="en">Android downloads</span><span lang="tr">Android indirmeleri</span>
         </a>
-        <p style="margin-top:10px;font-size:13px;opacity:.72">
-          <span lang="en">Current build <b>1.0.2</b> (bd99028), 2 September 2026. For the best experience keep an eye on updates: when a new host is out, V-Pad's changelog in the app tells you — download the new vpad-host.exe then and run it while you play.</span>
-          <span lang="tr">Güncel sürüm <b>1.0.2</b> (bd99028), 2 Eylül 2026. En iyi deneyim için güncellemeleri takip et: yeni host çıktığında uygulamadaki V-Pad sürüm notlarında söyleriz — o zaman yeni vpad-host.exe'yi indir ve oyun oynarken çalıştır.</span>
-        </p>
       </div>
+
       <div class="card">
-        <h3><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg><span lang="en">Helper for macOS — for iPhone</span><span lang="tr">macOS yardımcısı — iPhone için</span></h3>
+        <h3>
+          <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg> iPhone
+          <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg> Windows</span>
+          <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg> macOS</span>
+        </h3>
         <p style="margin-bottom:18px">
-          <span lang="en">A signed, notarised disk image: open it and drag the app into Applications. Note that macOS gives no app a virtual gamepad, so the pad maps onto keyboard and mouse instead.</span>
-          <span lang="tr">İmzalı ve notarize edilmiş bir disk imajı: aç ve uygulamayı Applications'a sürükle. Şunu bil: macOS hiçbir uygulamaya sanal gamepad yolu vermiyor, o yüzden pad klavye ve fareye eşlenir.</span>
+          <span lang="en">The helper runs on <b>Windows</b> or on <b>macOS</b> — one of the two is always needed.</span>
+          <span lang="tr">Yardımcı <b>Windows</b>'ta ya da <b>macOS</b>'ta çalışır — ikisinden biri her zaman gerekli.</span>
         </p>
-        <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/releases/download/v0.2.1/V-Pad-Helper.dmg">
+        <a class="btn btn-primary" href="/downloads-ios">
           <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
-          <span lang="en">Download for macOS</span><span lang="tr">macOS için indir</span>
+          <span lang="en">iPhone downloads</span><span lang="tr">iPhone indirmeleri</span>
         </a>
       </div>
-    </div>
-
-    <!-- 🔴 Geri konuldu (kullanici, 2026-08-31). Bu tablo iOS yolunun
-         "nasil baglaniyor" cevabiydi ve iPhone satirini tasiyordu; Android
-         ifadelerini temizlerken tabloyu TUMUYLE silmistim. Android satirlari
-         asagidaki kendi blogunda anlatiliyor, burada islerinin olmamasi
-         dogru -- ama iPhone satirini onlarla birlikte goturmek temizlik
-         degil, kayipti. -->
-    <table class="map matrix">
-      <tr>
-        <th><span lang="en">Your phone</span><span lang="tr">Telefonun</span></th>
-        <th><span lang="en">How it reaches the computer</span><span lang="tr">Bilgisayara nasıl ulaşır</span></th>
-        <th><span lang="en">Helper needed?</span><span lang="tr">Yardımcı gerekir mi?</span></th>
-      </tr>
-      <tr>
-        <td><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg> iPhone</td>
-        <td><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</td>
-        <td><strong><span lang="en">Yes, always</span><span lang="tr">Evet, her zaman</span></strong></td>
-      </tr>
-    </table>
-
-    <!-- The NEW C# host, in its own block on purpose (user, 2026-08-30). The
-         card above stays pinned at v0.2.1 for the App Store's pairing-free
-         1.0 build; this block is the modern path — driver from its author,
-         host from the C#_file branch — and it must not disturb that card.
-         The branch name contains '#', which is a URL fragment marker, so the
-         href carries it as %23. -->
-    <!-- The Android path. Written as a SEQUENCE, not a card with a button
-         tray: each download sits inside the step that needs it, so the eye
-         reads 1 → 2 → 3 and never has to map "button 1" back onto "step 1".
-         No wrapper card either — a card holding cards is noise, and the
-         numbered rail plus whitespace already carry the structure. -->
-    <div id="csharp-host">
-      <h3>
-        <span lang="en">Android over Wi-Fi — the new host</span>
-        <span lang="tr">Wi-Fi ile Android — yeni host</span>
-      </h3>
-      <p class="sub">
-        <span lang="en">Two downloads, once. Then your phone is a controller every game already understands.</span>
-        <span lang="tr">İki indirme, bir kereye mahsus. Sonrası: telefonun, her oyunun zaten tanıdığı bir kumanda.</span>
-      </p>
-
-      <ol class="steps">
-        <li>
-          <strong>
-            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-            <span lang="en">Install the driver</span>
-            <span lang="tr">Sürücüyü kur</span>
-          </strong>
-          <p>
-            <span lang="en">This is what lets a game believe a real controller is plugged in. It is made and signed by its own author, so Windows will not complain. Download it, double-click, answer <b>Yes</b>, then <b>Next → Install → Finish</b>. You only ever do this once: ViGEmBus is built to sit in the background — install it and leave it. You never run it, never install it again and never update it.</span>
-            <span lang="tr">Oyunun gerçek bir kumanda takılı sanmasını sağlayan şey bu. Kendi yazarı tarafından üretilip imzalanmıştır, Windows itiraz etmez. İndir, çift tıkla, <b>Evet</b> de, sonra <b>Next → Install → Finish</b>. Bunu ömründe bir kez yaparsın: ViGEmBus arka planda kullanılmak için tasarlandı — kur ve bırak. Çalıştırman gerekmez; bir daha kurman ya da güncellemen de gerekmez.</span>
-          </p>
-          <a class="btn btn-primary" href="https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe">
-            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-            <span lang="en">ViGEmBus 1.22.0 — signed</span>
-            <span lang="tr">ViGEmBus 1.22.0 — imzalı</span>
-          </a>
-        </li>
-
-        <li>
-          <strong>
-            <svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>
-            <span lang="en">Run the host</span>
-            <span lang="tr">Host'u çalıştır</span>
-          </strong>
-          <p>
-            <span lang="en">Double-click <b>vpad-host.exe</b>. Windows shows a blue warning the first time because the file is not signed yet — choose <b>More info</b>, then <b>Run anyway</b>. No black console window appears; instead you get a window with a <b>QR code</b> and a <b>6-digit number</b>. Leave it open, your phone needs it in a moment. There is also a small V-Pad icon by the clock, bottom-right — that is the host, and it keeps running after you close the window.</span>
-            <span lang="tr"><b>vpad-host.exe</b>'ye çift tıkla. Dosya henüz imzalı olmadığı için Windows ilk seferde mavi bir uyarı gösterir — <b>Ek bilgi</b>, sonra <b>Yine de çalıştır</b>. Siyah bir komut penceresi açılmaz; onun yerine <b>QR kod</b> ve <b>6 haneli sayı</b> taşıyan bir pencere gelir. Kapatma, birazdan telefon isteyecek. Ayrıca sağ altta, saatin yanında küçük bir V-Pad simgesi belirir — host odur ve pencereyi kapatsan da çalışmaya devam eder.</span>
-          </p>
-          <a class="btn btn-primary" href="https://github.com/svolkancav/vpad-helper/raw/C%23_file/vpad-host.exe">
-            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>
-            <span lang="en">vpad-host.exe</span>
-            <span lang="tr">vpad-host.exe</span>
-          </a>
-<p style="margin-top:10px;font-size:13px;opacity:.72">
-  <span lang="en">Current build <b>1.0.2</b> (bd99028), 2 September 2026. For the best experience keep an eye on updates: when a new host is out, V-Pad's changelog in the app tells you — download the new vpad-host.exe then and run it while you play.</span>
-  <span lang="tr">Güncel sürüm <b>1.0.2</b> (bd99028), 2 Eylül 2026. En iyi deneyim için güncellemeleri takip et: yeni host çıktığında uygulamadaki V-Pad sürüm notlarında söyleriz — o zaman yeni vpad-host.exe'yi indir ve oyun oynarken çalıştır.</span>
-</p>
-        </li>
-
-        <li>
-          <strong>
-            <svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg>
-            <span lang="en">Point the phone at it</span>
-            <span lang="tr">Telefonu ona yönelt</span>
-          </strong>
-          <p>
-            <span lang="en">Phone and computer on the <b>same Wi-Fi</b>. Open V-Pad, choose Wi-Fi, and either scan that QR code or type the six digits. If Windows is blocking the way in, the host says so and offers a one-click fix from its notification-area icon — bottom-right, behind the <b>^</b> arrow.</span>
-            <span lang="tr">Telefon ve bilgisayar <b>aynı Wi-Fi</b>'de olsun. V-Pad'i aç, Wi-Fi'yi seç ve ya QR kodu tara ya da altı haneyi yaz. Windows yolu kapatıyorsa host bunu söyler ve bildirim alanındaki simgesinden tek tıkla açmayı önerir — sağ altta, <b>^</b> okunun arkasında.</span>
-          </p>
-        </li>
-      </ol>
     </div>
   </div>
 </section>
