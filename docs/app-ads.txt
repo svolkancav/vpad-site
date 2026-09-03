@@ -17,5 +17,18 @@
 # stray smart quote or a BOM in the comments is a needless way to upset a strict
 # parser on a file whose whole job is to be machine-read.
 
-# AdMob -- DIRECT, our own publisher account
+# AdMob -- DIRECT, our own publisher accounts
+#
+# Two lines during an account move (2026-08-31). pub-5644908570185902 is
+# the new account; the old one stays until no shipped build asks for its
+# unit ids any more. A record here is what authorises a seller for the
+# inventory an INSTALLED app requests, so removing the old line early
+# would not tidy anything -- it would make that app's requests
+# unauthorised while it is still out there being used.
+#
+# On this domain the point is verification rather than revenue: the iOS
+# build ships with no ad units at all (product decision), and this file
+# exists because vpadcontroller.com is the App Store Marketing URL that
+# AdMob crawls.
+google.com, pub-5644908570185902, DIRECT, f08c47fec0942fa0
 google.com, pub-5398027060352897, DIRECT, f08c47fec0942fa0
