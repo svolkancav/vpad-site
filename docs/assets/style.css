@@ -420,6 +420,9 @@ section .sub {
 }
 .tag.bt { background: var(--accent-soft); color: var(--accent); }
 .tag.wifi { background: var(--good-soft); color: var(--good); }
+/* A third platform chip. Neutral on purpose: the palette has one accent,
+   and a third invented hue would be the loudest thing on the page. */
+.tag.os { background: var(--surface-2); color: var(--text-soft); }
 
 /* Green emphasis inside running text or a step heading. */
 .good { color: var(--good-strong); }
@@ -677,3 +680,100 @@ article.doc code {
 #csharp-host > h3 { font-size: 22px; letter-spacing: -.01em; margin: 0 0 6px; }
 #csharp-host > .sub { margin: 0 0 26px; }
 #csharp-host ol.steps .btn { margin-top: 16px; }
+
+/* ── downloads hub ─────────────────────────────────────────── */
+/* The page the app and search both land on, so it is the one page that earns
+   a picture: a line drawing of the two halves — the computer that runs the
+   helper, the phone that becomes the pad. Drawn from the theme tokens rather
+   than shipped as an image, so it inverts with the page and costs no request. */
+
+.dl-head {
+  display: grid; grid-template-columns: 1.02fr .98fr;
+  gap: 34px; align-items: center; margin-bottom: 36px;
+}
+.dl-head h1 { font-size: clamp(38px, 6.4vw, 60px); letter-spacing: -.03em; margin: 0 0 14px; }
+.dl-head .sub { margin: 0; max-width: 44ch; }
+
+.art { display: block; width: 100%; height: auto; }
+.art .ln    { fill: none; stroke: var(--line-strong); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.art .faint { fill: none; stroke: var(--line); stroke-width: 1.4; }
+.art .face  { fill: var(--surface-2); stroke: var(--line-strong); stroke-width: 1.6; }
+.art .dot   { fill: var(--line-strong); }
+.art .gline { fill: none; stroke: var(--brand); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.art .node  { fill: var(--brand); }
+/* The one warm thing in the drawing is the signal itself. */
+.art .gold, .art .node, .art .gline {
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--brand) 42%, transparent));
+}
+.art .gold { color: var(--brand); }
+
+/* The helper card: the errand people came for, so it gets the width, the
+   picture, and the only two buttons that matter this high on the page. */
+.helper {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  gap: 30px; align-items: center; padding: 30px; margin-bottom: 26px;
+}
+.helper h2 { font-size: clamp(23px, 2.9vw, 31px); margin: 0 0 12px; }
+.helper > div > p { margin: 0 0 22px; color: var(--text-soft); font-size: 16px; max-width: 50ch; }
+.tile {
+  display: grid; place-items: center; width: 52px; height: 52px;
+  border-radius: 15px; background: var(--brand-soft);
+  border: 1px solid var(--line); margin-bottom: 18px;
+}
+.tile .ico { width: 26px; height: 26px; color: color-mix(in srgb, var(--brand) 72%, var(--text)); }
+
+/* Two ways in, equal weight, chosen by phone. The chevron parks at the right
+   edge so the pair reads as "pick one" rather than as two sentences. */
+.pick { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pick .btn { justify-content: flex-start; text-align: left; padding: 15px 17px; gap: 12px; }
+.pick .btn .lbl { flex: 1 1 auto; }
+.pick .btn .chev { width: 17px; height: 17px; opacity: .7; }
+
+/* Platform cards: glyph and chips on one line, a ruled title, the paragraph,
+   then the one strip that answers "what do I have to have?" and the store. */
+.plat { padding: 26px; }
+.plat-top { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.plat-top .glyph { width: 27px; height: 27px; color: var(--text-mute); }
+.plat-top .tags { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+.plat .tag { margin-left: 0; }
+.plat h3 {
+  display: block; font-size: 22px; letter-spacing: -.01em;
+  margin: 0 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
+}
+.plat > p { margin: 0 0 18px; }
+.needs {
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--bg-alt); padding: 14px 16px; margin-bottom: 18px;
+}
+.needs .cap {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--text-mute); margin-bottom: 10px;
+}
+.needs .row { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.needs .item { display: flex; align-items: center; gap: 8px; font-weight: 650; }
+.needs .item .ico { width: 22px; height: 22px; color: var(--text-mute); }
+/* "or", not "+": on iPhone the two helpers are a choice, not a shopping list. */
+.needs .sep { color: var(--text-mute); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.plat > .btn { width: 100%; justify-content: flex-start; gap: 12px; }
+.plat > .btn .chev { margin-left: auto; width: 17px; height: 17px; opacity: .7; }
+
+/* The price, once, at the bottom — where a visitor looks for the catch. */
+.free-bar { display: flex; align-items: center; gap: 16px; padding: 20px 24px; margin-top: 22px; }
+.free-bar .badge {
+  flex: 0 0 auto; display: grid; place-items: center;
+  width: 46px; height: 46px; border-radius: 999px;
+  background: var(--brand-soft); border: 1px solid var(--line);
+}
+.free-bar .badge .ico { width: 22px; height: 22px; color: color-mix(in srgb, var(--brand) 72%, var(--text)); }
+.free-bar p { margin: 0; color: var(--text-soft); font-size: 15.5px; }
+.free-bar strong { display: block; color: var(--text); font-weight: 650; }
+
+@media (max-width: 860px) {
+  .dl-head, .helper { grid-template-columns: 1fr; }
+  .dl-head .art, .helper .art { max-width: 420px; margin-inline: auto; }
+}
+@media (max-width: 560px) {
+  .pick { grid-template-columns: 1fr; }
+  .helper { padding: 24px 20px; }
+  .plat { padding: 22px 20px; }
+}

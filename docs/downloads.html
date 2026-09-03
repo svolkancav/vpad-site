@@ -139,74 +139,159 @@
 
 <section id="download">
   <div class="wrap">
-    <h1><span lang="en">Downloads</span><span lang="tr">İndirmeler</span></h1>
-    <p class="sub">
-      <span lang="en">The helper on your computer comes first — pick your phone for its steps. The phone apps are further down.</span>
-      <span lang="tr">Önce bilgisayarındaki yardımcı — adımları için telefonunu seç. Telefon uygulamaları aşağıda.</span>
-    </p>
+
+    <div class="dl-head">
+      <div>
+        <h1><span lang="en">Downloads</span><span lang="tr">İndirmeler</span></h1>
+        <p class="sub">
+          <span lang="en">The helper on your computer comes first — pick your phone for its steps. The phone apps are further down.</span>
+          <span lang="tr">Önce bilgisayarındaki yardımcı — adımları için telefonunu seç. Telefon uygulamaları aşağıda.</span>
+        </p>
+      </div>
+      <!-- The page in one picture: the computer holds the pad, the phone is
+           what you press, and the warm dot between them is the only thing
+           this site is actually about. Drawn from the theme tokens, so it
+           inverts with the page; decorative, so it is hidden from assistive
+           tech — every fact in it is already written beside it in words. -->
+      <svg class="art" viewBox="0 0 420 250" aria-hidden="true" focusable="false">
+        <rect class="face" x="34" y="34" width="212" height="140" rx="12"/>
+        <rect class="ln" x="46" y="46" width="188" height="116" rx="7"/>
+        <path class="ln" d="M140 174v16M112 190h56"/>
+        <use class="gold" href="#i-gamepad" x="112" y="76" width="56" height="56"/>
+        <circle class="dot" cx="258" cy="104" r="2.6"/>
+        <circle class="dot" cx="272" cy="104" r="2.6"/>
+        <circle class="node" cx="288" cy="104" r="11" opacity=".16"/>
+        <circle class="node" cx="288" cy="104" r="4.6"/>
+        <circle class="dot" cx="304" cy="104" r="2.6"/>
+        <rect class="face" x="322" y="46" width="72" height="132" rx="15"/>
+        <rect class="ln" x="330" y="54" width="56" height="116" rx="10"/>
+        <circle class="gline" cx="358" cy="112" r="15"/>
+        <path class="gline" d="m351 112 5 5 9-10"/>
+      </svg>
+    </div>
 
     <!-- Order is the point (owner, 2026-09-02): the helper path FIRST, the
          store links LAST. A visitor who lands here already has the app or
          knows where to get it; what they are missing is the computer side,
          and that used to sit below the fold inside the store cards. -->
-    <div class="card" style="margin-bottom:26px">
-      <h3>
-        <svg class="ico" aria-hidden="true"><use href="#i-gamepad"/></svg>
-        <span lang="en">The helper for your computer</span>
-        <span lang="tr">Bilgisayarın için yardımcı</span>
-      </h3>
-      <p style="margin-bottom:18px">
-        <span lang="en">Free. A small program on your computer turns the phone into a controller every game already understands. The steps differ by phone — pick yours:</span>
-        <span lang="tr">Ücretsiz. Bilgisayarındaki küçük bir program telefonu her oyunun zaten tanıdığı bir kumandaya çevirir. Adımlar telefona göre değişir — seninkini seç:</span>
-      </p>
-      <div class="cta">
-        <a class="btn btn-primary" href="/downloads-android">
-          <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg>
-          <span lang="en">Android — helper setup, step by step</span>
-          <span lang="tr">Android — yardımcı kurulumu, adım adım</span>
-        </a>
-        <a class="btn btn-primary" href="/downloads-ios">
-          <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
-          <span lang="en">iPhone — helper setup, step by step</span>
-          <span lang="tr">iPhone — yardımcı kurulumu, adım adım</span>
-        </a>
+    <div class="card helper">
+      <div>
+        <span class="tile"><svg class="ico" aria-hidden="true"><use href="#i-gamepad"/></svg></span>
+        <h2>
+          <span lang="en">The helper for your computer</span>
+          <span lang="tr">Bilgisayarın için yardımcı</span>
+        </h2>
+        <p>
+          <span lang="en">Free. A small program on your computer turns the phone into a controller every game already understands. The steps differ by phone — pick yours:</span>
+          <span lang="tr">Ücretsiz. Bilgisayarındaki küçük bir program telefonu her oyunun zaten tanıdığı bir kumandaya çevirir. Adımlar telefona göre değişir — seninkini seç:</span>
+        </p>
+        <div class="pick">
+          <a class="btn btn-primary" href="/downloads-android">
+            <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg>
+            <span class="lbl">
+              <span lang="en">Android — helper setup, step by step</span>
+              <span lang="tr">Android — yardımcı kurulumu, adım adım</span>
+            </span>
+            <svg class="ico chev" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn-primary" href="/downloads-ios">
+            <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
+            <span class="lbl">
+              <span lang="en">iPhone — helper setup, step by step</span>
+              <span lang="tr">iPhone — yardımcı kurulumu, adım adım</span>
+            </span>
+            <svg class="ico chev" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
       </div>
+      <svg class="art" viewBox="0 0 360 260" aria-hidden="true" focusable="false">
+        <circle class="faint" cx="258" cy="150" r="86"/>
+        <circle class="faint" cx="258" cy="150" r="118"/>
+        <circle class="faint" cx="258" cy="150" r="150"/>
+        <rect class="face" x="26" y="34" width="192" height="124" rx="10"/>
+        <use class="gold" href="#i-gamepad" x="94" y="68" width="56" height="56"/>
+        <path class="face" d="M20 158h204l16 18H4z"/>
+        <g transform="rotate(-9 258 150)">
+          <rect class="face" x="216" y="74" width="84" height="152" rx="18"/>
+          <rect class="ln" x="223" y="81" width="70" height="138" rx="13"/>
+          <circle class="ln" cx="245" cy="106" r="7"/>
+          <circle class="ln" cx="272" cy="106" r="7"/>
+          <circle class="gline" cx="246" cy="163" r="16"/>
+          <path class="gline" d="M246 155v16M238 163h16"/>
+          <circle class="face" cx="277" cy="170" r="12"/>
+          <path class="ln" d="M262 200h24"/>
+        </g>
+      </svg>
     </div>
 
     <div class="grid two">
-      <div class="card">
-        <h3>
-          <svg class="ico" aria-hidden="true"><use href="#i-android"/></svg> Android
-          <span class="tag wifi"><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</span>
-          <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg> Windows</span>
-        </h3>
-        <p style="margin-bottom:18px">
+      <div class="card plat">
+        <div class="plat-top">
+          <svg class="ico glyph" aria-hidden="true"><use href="#i-android"/></svg>
+          <span class="tags">
+            <span class="tag wifi"><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</span>
+            <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg> Windows</span>
+          </span>
+        </div>
+        <h3>Android</h3>
+        <p>
           <span lang="en">The helper runs on <b>Windows</b>. You install two free things there, once: the ViGEmBus driver and V-Pad Helper. The app itself is free on Google Play.</span>
           <span lang="tr">Yardımcı <b>Windows</b>'ta çalışır. Oraya bir kereye mahsus iki ücretsiz şey kurarsın: ViGEmBus sürücüsü ve V-Pad Helper. Uygulamanın kendisi Google Play'de ücretsiz.</span>
         </p>
+        <!-- The strip answers one question — which computer do I need? — and
+             nothing else. ViGEmBus is step one of the Windows setup, not a
+             second platform, so it gets no mark here (owner, 2026-09-03). -->
+        <div class="needs">
+          <span class="cap"><span lang="en">Helper runs on</span><span lang="tr">Yardımcı şurada çalışır</span></span>
+          <div class="row">
+            <span class="item"><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>Windows</span>
+          </div>
+        </div>
         <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.dfnmondo.gamepad.app">
           <svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>
           <span lang="en">Get it on Google Play</span>
           <span lang="tr">Google Play'den al</span>
+          <svg class="ico chev" aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
       </div>
 
-      <div class="card">
-        <h3>
-          <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg> iPhone
-          <span class="tag wifi"><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</span>
-          <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg> Windows &middot; <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg> macOS</span>
-        </h3>
-        <p style="margin-bottom:18px">
+      <div class="card plat">
+        <div class="plat-top">
+          <svg class="ico glyph" aria-hidden="true"><use href="#i-apple"/></svg>
+          <span class="tags">
+            <span class="tag wifi"><svg class="ico" aria-hidden="true"><use href="#i-wifi"/></svg> Wi-Fi</span>
+            <span class="tag bt"><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg> Windows</span>
+            <span class="tag os"><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg> macOS</span>
+          </span>
+        </div>
+        <h3>iPhone</h3>
+        <p>
           <span lang="en">The free helper on your computer is always needed, and there are two of it: one for <b>Windows</b>, one for <b>macOS</b>. The app is on the App Store.</span>
           <span lang="tr">Bilgisayarındaki ücretsiz yardımcı her zaman gerekli ve iki tane var: biri <b>Windows</b>, biri <b>macOS</b> için. Uygulama App Store'da yayında.</span>
         </p>
+        <div class="needs">
+          <span class="cap"><span lang="en">Helper runs on</span><span lang="tr">Yardımcı şurada çalışır</span></span>
+          <div class="row">
+            <span class="item"><svg class="ico" aria-hidden="true"><use href="#i-windows"/></svg>Windows</span>
+            <span class="sep"><span lang="en">or</span><span lang="tr">ya da</span></span>
+            <span class="item"><svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>macOS</span>
+          </div>
+        </div>
         <a class="btn btn-primary" href="https://apps.apple.com/us/app/v-pad-virtual-gamepad/id6796475673">
           <svg class="ico" aria-hidden="true"><use href="#i-apple"/></svg>
           <span lang="en">Download on the App Store</span>
           <span lang="tr">App Store'dan indir</span>
+          <svg class="ico chev" aria-hidden="true"><use href="#i-arrow"/></svg>
         </a>
       </div>
+    </div>
+
+    <div class="card free-bar">
+      <span class="badge"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg></span>
+      <p>
+        <span lang="en"><strong>Free to use</strong> Both the helper and the apps are free.</span>
+        <span lang="tr"><strong>Ücretsiz</strong> Hem yardımcı hem uygulamalar ücretsiz.</span>
+      </p>
     </div>
 
   </div>
