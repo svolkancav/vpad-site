@@ -53,6 +53,9 @@
   --brand-soft: #fff6d6;
   --accent: #2563eb;
   --accent-soft: #e8efff;
+  --accent-strong: #1d4ed8;  /* --accent clears AA on the page ground (5.2:1) but
+                                not on its own tinted chip (4.48:1); this does
+                                (5.8:1). Chip and glyph use, links stay --accent */
   --good: #16a34a;
   --good-soft: #e7f7ed;
   --good-strong: #15803d;    /* --good is the chip/dark-mode base; this is the
@@ -91,6 +94,7 @@
     --brand-soft: rgba(255, 214, 0, .12);
     --accent: #5aa9ff;
     --accent-soft: rgba(90, 169, 255, .14);
+    --accent-strong: var(--accent);   /* already clears on a dark ground */
     --good: #8bc34a;
     --good-soft: rgba(139, 195, 74, .14);
     --good-strong: var(--good);   /* already bright enough on a dark ground */
@@ -408,7 +412,7 @@ section .sub {
 /* min(290px, 100%) — a bare 290px floor is wider than the column under ~320px
    viewports and pushes the page sideways. */
 .grid.two { grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); }
-.grid.three { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.grid.three { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
 
 .card {
   background: var(--surface); border: 1px solid var(--line);
@@ -421,7 +425,7 @@ section .sub {
   letter-spacing: .05em; text-transform: uppercase;
   padding: 4px 9px; border-radius: 999px;
 }
-.tag.bt { background: var(--accent-soft); color: var(--accent); }
+.tag.bt { background: var(--accent-soft); color: var(--accent-strong); }
 .tag.wifi { background: var(--good-soft); color: var(--good-strong); }
 /* A third platform chip. Neutral on purpose: the palette has one accent,
    and a third invented hue would be the loudest thing on the page. */
