@@ -699,18 +699,22 @@ article.doc code {
    helper, the phone that becomes the pad. Drawn from the theme tokens rather
    than shipped as an image, so it inverts with the page and costs no request. */
 
+/* The hub opens with the title, the pitch and the two ways in as one block
+   beside the drawing. A full --step of top padding on top of the drawing's
+   own air pushed the buttons under the fold. */
+section.dl { padding-top: clamp(26px, 3vw, 40px); }
 .dl-head {
-  display: grid; grid-template-columns: 1.02fr .98fr;
-  gap: 34px; align-items: center; margin-bottom: 36px;
+  display: grid; grid-template-columns: 1.15fr .85fr;
+  gap: 34px; align-items: center; margin-bottom: 30px;
 }
+.dl-head .pick { margin-top: 24px; }
 .dl-head h1 { font-size: clamp(38px, 6.4vw, 60px); letter-spacing: -.03em; margin: 0 0 14px; }
-.dl-head .sub { margin: 0; max-width: 44ch; }
+.dl-head .sub { margin: 0; max-width: 56ch; }
 
 .art { display: block; width: 100%; height: auto; }
 /* Inked in --text-mute, not --line-strong: line art in the line colour is
    1.43:1 on white — legible in dark, a ghost in light. */
 .art .ln    { fill: none; stroke: var(--text-mute); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.art .faint { fill: none; stroke: var(--line-strong); stroke-width: 1.4; }
 .art .face  { fill: var(--surface-2); stroke: var(--text-mute); stroke-width: 1.6; }
 .art .dot   { fill: var(--text-mute); }
 .art .gline { fill: none; stroke: var(--brand); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -721,26 +725,12 @@ article.doc code {
 }
 .art .gold { color: var(--brand); }
 
-/* The helper card: the errand people came for, so it gets the width, the
-   picture, and the only two buttons that matter this high on the page. */
-.helper {
-  display: grid; grid-template-columns: 1.1fr .9fr;
-  gap: 30px; align-items: center; padding: 30px; margin-bottom: 26px;
-}
-.helper h2 { font-size: clamp(23px, 2.9vw, 31px); margin: 0 0 12px; }
-.helper > div > p { margin: 0 0 22px; color: var(--text-soft); font-size: 16px; max-width: 50ch; }
-.tile {
-  display: grid; place-items: center; width: 52px; height: 52px;
-  border-radius: 15px; background: var(--brand-soft);
-  border: 1px solid var(--line); margin-bottom: 18px;
-}
-.tile .ico { width: 26px; height: 26px; color: color-mix(in srgb, var(--brand) 72%, var(--text)); }
-
 /* Two ways in, equal weight, chosen by phone. The chevron parks at the right
    edge so the pair reads as "pick one" rather than as two sentences. */
-/* auto-fit, not 1fr 1fr: .helper keeps two columns down to 860px, so a fixed
-   pair here gets a ~105px label box in the 861-1050px band and wraps the two
-   main calls to action into 3-4 ragged lines. Let the pair stack instead. */
+/* auto-fit, not 1fr 1fr: .dl-head keeps two columns down to 860px, so a fixed
+   pair here gets a cramped label box in the band just above that breakpoint
+   and wraps the two main calls to action into 3-4 ragged lines. Let them
+   stack instead. */
 .pick { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
 .pick .btn { justify-content: flex-start; text-align: left; padding: 15px 17px; gap: 12px; }
 .pick .btn .lbl { flex: 1 1 auto; }
@@ -753,8 +743,8 @@ article.doc code {
 .plat-top .glyph { width: 27px; height: 27px; color: var(--text-mute); }
 .plat-top .tags { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
 .plat .tag { margin-left: 0; }
-.plat h3 {
-  display: block; font-size: 22px; letter-spacing: -.01em;
+.plat h2 {
+  font-size: 22px; letter-spacing: -.01em;
   margin: 0 0 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
 }
 .plat > p { margin: 0 0 18px; }
@@ -785,11 +775,10 @@ article.doc code {
 .free-bar strong { display: block; color: var(--text); font-weight: 650; }
 
 @media (max-width: 860px) {
-  .dl-head, .helper { grid-template-columns: 1fr; }
-  .dl-head .art, .helper .art { max-width: 420px; margin-inline: auto; }
+  .dl-head { grid-template-columns: 1fr; }
+  .dl-head .art { max-width: 420px; margin-inline: auto; }
 }
 @media (max-width: 560px) {
   .pick { grid-template-columns: 1fr; }
-  .helper { padding: 24px 20px; }
   .plat { padding: 22px 20px; }
 }
