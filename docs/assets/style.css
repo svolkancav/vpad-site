@@ -276,6 +276,17 @@ header {
 .btn[aria-disabled="true"] { opacity: .55; pointer-events: none; box-shadow: none; }
 .btn .sub { font-weight: 500; font-size: 13px; opacity: .75; }
 
+/* Phones on the left, computers on the right, an arrow between: the button
+   shows which way the helper runs before the label says it. The pairs need a
+   tighter gap than the button's own, or five icons read as one queue instead
+   of two groups. Decorative — the label alone carries the meaning, which is
+   why the phone half can drop out on a narrow screen. */
+.btn .pair { display: inline-flex; align-items: center; gap: 5px; }
+.btn .to { width: 15px; height: 15px; color: var(--text-mute); }
+@media (max-width: 460px) {
+  .btn .pair.from, .btn .to { display: none; }
+}
+
 /* ── hero ──────────────────────────────────────────────────── */
 
 .hero {
