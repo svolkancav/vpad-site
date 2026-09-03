@@ -55,6 +55,8 @@
   --accent-soft: #e8efff;
   --good: #16a34a;
   --good-soft: #e7f7ed;
+  --good-strong: #15803d;    /* --good is tuned for a chip; as text on the
+                                page ground it needs a darker step for AA */
 
   --shadow-sm: 0 1px 2px rgba(18, 20, 28, .06),
                0 4px 12px rgba(18, 20, 28, .05);
@@ -90,6 +92,7 @@
     --accent-soft: rgba(90, 169, 255, .14);
     --good: #8bc34a;
     --good-soft: rgba(139, 195, 74, .14);
+    --good-strong: var(--good);   /* already bright enough on a dark ground */
 
     --hero-glow: rgba(255, 214, 0, .09);   /* barely there; gold muddies on dark */
 
@@ -401,6 +404,9 @@ section .sub {
 }
 .tag.bt { background: var(--accent-soft); color: var(--accent); }
 .tag.wifi { background: var(--good-soft); color: var(--good); }
+
+/* Green emphasis inside running text or a step heading. */
+.good { color: var(--good-strong); }
 
 ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
 ol.steps li {
