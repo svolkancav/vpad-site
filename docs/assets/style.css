@@ -160,6 +160,22 @@ h3 .ico { color: var(--text-mute); }
 .btn .ico { width: 19px; height: 19px; }
 .tag .ico { width: 12px; height: 12px; vertical-align: -.1em; margin-right: 3px; }
 
+/* Hero signage band. Vignelli treatment (owner, 2026-09-03): a flat ink field
+   with the type reversed out of it, square corners, no shadow, one family —
+   deliberately the opposite of the .eyebrow pill beneath it. Built from
+   --text/--bg, so it reverses itself in dark mode without a second rule.
+   fit-content keeps it a label rather than a stripe, and the last span is
+   what wraps when the column gets narrow. */
+.sign {
+  display: flex; align-items: center; gap: 8px;
+  width: fit-content; max-width: 100%;
+  margin: 0 0 10px;
+  padding: 7px 13px;
+  background: var(--text); color: var(--bg);
+  font-size: 13px; font-weight: 700; letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 650; letter-spacing: .04em;
