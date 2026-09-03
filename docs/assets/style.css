@@ -55,8 +55,9 @@
   --accent-soft: #e8efff;
   --good: #16a34a;
   --good-soft: #e7f7ed;
-  --good-strong: #15803d;    /* --good is tuned for a chip; as text on the
-                                page ground it needs a darker step for AA */
+  --good-strong: #15803d;    /* --good is the chip/dark-mode base; this is the
+                                AA-safe step for every light-theme green TEXT
+                                or glyph, chip grounds included (2.97:1 -> 4.5) */
 
   --shadow-sm: 0 1px 2px rgba(18, 20, 28, .06),
                0 4px 12px rgba(18, 20, 28, .05);
@@ -404,7 +405,9 @@ section .sub {
 }
 
 .grid { display: grid; gap: 18px; }
-.grid.two { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+/* min(290px, 100%) — a bare 290px floor is wider than the column under ~320px
+   viewports and pushes the page sideways. */
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); }
 .grid.three { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 
 .card {
@@ -419,10 +422,15 @@ section .sub {
   padding: 4px 9px; border-radius: 999px;
 }
 .tag.bt { background: var(--accent-soft); color: var(--accent); }
-.tag.wifi { background: var(--good-soft); color: var(--good); }
+.tag.wifi { background: var(--good-soft); color: var(--good-strong); }
 /* A third platform chip. Neutral on purpose: the palette has one accent,
    and a third invented hue would be the loudest thing on the page. */
-.tag.os { background: var(--surface-2); color: var(--text-soft); }
+.tag.os {
+  background: var(--surface-2); color: var(--text-soft);
+  box-shadow: inset 0 0 0 1px var(--line);   /* its ground alone is ~1.1:1 on
+                                                the card — the ring is what
+                                                makes it read as a chip */
+}
 
 /* Green emphasis inside running text or a step heading. */
 .good { color: var(--good-strong); }
@@ -695,10 +703,12 @@ article.doc code {
 .dl-head .sub { margin: 0; max-width: 44ch; }
 
 .art { display: block; width: 100%; height: auto; }
-.art .ln    { fill: none; stroke: var(--line-strong); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.art .faint { fill: none; stroke: var(--line); stroke-width: 1.4; }
-.art .face  { fill: var(--surface-2); stroke: var(--line-strong); stroke-width: 1.6; }
-.art .dot   { fill: var(--line-strong); }
+/* Inked in --text-mute, not --line-strong: line art in the line colour is
+   1.43:1 on white — legible in dark, a ghost in light. */
+.art .ln    { fill: none; stroke: var(--text-mute); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.art .faint { fill: none; stroke: var(--line-strong); stroke-width: 1.4; }
+.art .face  { fill: var(--surface-2); stroke: var(--text-mute); stroke-width: 1.6; }
+.art .dot   { fill: var(--text-mute); }
 .art .gline { fill: none; stroke: var(--brand); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .art .node  { fill: var(--brand); }
 /* The one warm thing in the drawing is the signal itself. */
@@ -724,7 +734,10 @@ article.doc code {
 
 /* Two ways in, equal weight, chosen by phone. The chevron parks at the right
    edge so the pair reads as "pick one" rather than as two sentences. */
-.pick { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* auto-fit, not 1fr 1fr: .helper keeps two columns down to 860px, so a fixed
+   pair here gets a ~105px label box in the 861-1050px band and wraps the two
+   main calls to action into 3-4 ragged lines. Let the pair stack instead. */
+.pick { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
 .pick .btn { justify-content: flex-start; text-align: left; padding: 15px 17px; gap: 12px; }
 .pick .btn .lbl { flex: 1 1 auto; }
 .pick .btn .chev { width: 17px; height: 17px; opacity: .7; }
@@ -754,7 +767,7 @@ article.doc code {
 .needs .item .ico { width: 22px; height: 22px; color: var(--text-mute); }
 /* "or", not "+": on iPhone the two helpers are a choice, not a shopping list. */
 .needs .sep { color: var(--text-mute); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
-.plat > .btn { width: 100%; justify-content: flex-start; gap: 12px; }
+.plat > .btn { width: 100%; justify-content: flex-start; text-align: left; gap: 12px; }
 .plat > .btn .chev { margin-left: auto; width: 17px; height: 17px; opacity: .7; }
 
 /* The price, once, at the bottom — where a visitor looks for the catch. */
@@ -765,7 +778,6 @@ article.doc code {
   background: var(--brand-soft); border: 1px solid var(--line);
 }
 .free-bar .badge .ico { width: 22px; height: 22px; color: color-mix(in srgb, var(--brand) 72%, var(--text)); }
-.free-bar p { margin: 0; color: var(--text-soft); font-size: 15.5px; }
 .free-bar strong { display: block; color: var(--text); font-weight: 650; }
 
 @media (max-width: 860px) {
