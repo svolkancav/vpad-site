@@ -1,2 +1,5 @@
 node_modules/
 .wrangler/
+
+# Python araclarinin onbellegi (tools/)
+__pycache__/

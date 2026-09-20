@@ -1,34 +1,140 @@
-// Language switch. The page renders correctly with JS disabled — both
-// languages are in the DOM and CSS hides one based on <html data-lang>.
-// This only flips that attribute, remembers the choice, and keeps the URL
-// shareable via ?lang=.
+// Language switch, twelve languages — the same list the app ships.
+//
+// English and Turkish live in the DOM as <span lang="en"> / <span lang="tr">
+// pairs, so those two are correct before any script runs and both are visible
+// to crawlers. The other ten are fetched from i18n/<code>.json and written
+// into the English slot; if the fetch fails or a string is missing, that slot
+// simply keeps its English, which is why nothing here has an error path that
+// leaves the page blank.
+//
+// The key of a translation IS its English text (whitespace-collapsed). That
+// keeps the pages free of data-i18n attributes — they are edited by hand, and
+// two of them must stay word-for-word identical — at the price of a copy edit
+// silently dropping a translation. tools/i18n-check.py exists to catch that.
 (function () {
   var KEY = "vpad-lang";
+  // Order matters only for the picker; it matches the app's language list.
+  var SUPPORTED = ["en", "tr", "de", "es", "fr", "id", "ja", "ko", "pt", "ru",
+                   "zh", "ar"];
+  var IN_DOM = { en: 1, tr: 1 };
   var root = document.documentElement;
+  var slots = null;
+  var cache = {};
+  var inflight = {};
+  // Bu sayfanın metni çevrilmiyor mu (gizlilik metni bilerek yalnız EN + TR).
+  var textFixed = document.documentElement.getAttribute("data-i18n") === "off";
+
+  // `?lang=TR`, `?lang=pt-BR`, `?lang=zh-Hant` de kabul edilir — tarayıcı
+  // tespitiyle aynı hoşgörü.
+  function supported(code) {
+    if (!code) return null;
+    var tag = String(code).toLowerCase();
+    if (SUPPORTED.indexOf(tag) !== -1) return tag;
+    var base = tag.split("-")[0];
+    return SUPPORTED.indexOf(base) === -1 ? null : base;
+  }
+
+  // The English slots and their original markup, captured before anything is
+  // overwritten so switching back is exact.
+  function snapshot() {
+    if (slots) return slots;
+    slots = [];
+    // 🚨 `document.querySelectorAll` DEĞİL: her sayfa `<html lang="en">` ile
+    // başlıyor, yani kök düğüm de eşleşiyordu ve ilk yuva BELGENİN TAMAMI
+    // oluyordu. Sonraki her boyamada o yuvanın anahtarı sözlükte
+    // bulunamayınca `documentElement.innerHTML` baştan yazılıyor, belge
+    // yeniden ayrıştırılıyor, script'ler bir daha çalışmıyor ve önbelleğe
+    // alınmış bütün yuvalar belgeden KOPUYORDU — on dil sessizce ölüyor,
+    // EN/TR salt CSS olduğu için çalışıyormuş gibi görünüyordu
+    // (denetim, 2026-09-20).
+    var nodes = document.body.querySelectorAll('[lang="en"]');
+    for (var i = 0; i < nodes.length; i++) {
+      slots.push({ el: nodes[i], en: nodes[i].innerHTML });
+    }
+    return slots;
+  }
+
+  function keyOf(html) { return html.replace(/\s+/g, " ").trim(); }
+
+  function paint(lang, dict) {
+    var list = snapshot();
+    for (var i = 0; i < list.length; i++) {
+      var slot = list[i];
+      var text = dict ? dict[keyOf(slot.en)] : null;
+      var next = text || slot.en;
+      if (slot.el.innerHTML !== next) slot.el.innerHTML = next;
+      // An untranslated slot stays English and says so, so a screen reader
+      // does not read English with a German voice.
+      slot.el.setAttribute("lang", text ? lang : "en");
+    }
+  }
+
+  function load(lang) {
+    // Başarısızlık da önbelleğe girer (`in` ile sorulduğu için `null` da
+    // sayılır): çevrimdışı bir ziyaretçi her dil değişiminde aynı isteği
+    // yeniden yapmasın.
+    if (lang in cache) return Promise.resolve(cache[lang]);
+    if (inflight[lang]) return inflight[lang];
+    if (!window.fetch) return Promise.resolve(null);
+    // Yol KÖKTEN: `404.html` Cloudflare tarafından herhangi bir adreste
+    // sunuluyor (`not_found_handling`), belgeye göreli bir yol orada
+    // `/foo/i18n/de.json` olur ve sessizce İngilizce kalırdı.
+    inflight[lang] = fetch("/i18n/" + lang + ".json", { credentials: "omit" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; })
+      .then(function (d) {
+        cache[lang] = d;
+        delete inflight[lang];
+        return d;
+      });
+    return inflight[lang];
+  }
 
   function apply(lang) {
-    lang = lang === "tr" ? "tr" : "en";
+    lang = supported(lang) || "en";
+    // Gizlilik metni yalnız EN + TR. Orada başka bir dil seçilirse sayfa
+    // İNGİLİZCE kalır — yarısı çevrilmiş bir hukuk metninden iyidir — ve
+    // Arapça'da da SAĞDAN SOLA ÇEVRİLMEZ: İngilizce bir metni ters yöne
+    // akıtmak onu okunmaz yapardı (denetim, 2026-09-20). Seçim yine de
+    // hatırlanır, diğer sayfalar o dilde açılır.
+    var textLang = (textFixed && !IN_DOM[lang]) ? "en" : lang;
     root.setAttribute("data-lang", lang);
-    root.setAttribute("lang", lang);
-    var buttons = document.querySelectorAll(".langs button");
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].setAttribute(
-        "aria-pressed", buttons[i].dataset.lang === lang ? "true" : "false");
-    }
+    root.setAttribute("lang", textLang);
+    // Arabic is the only right-to-left language in the list.
+    if (textLang === "ar") root.setAttribute("dir", "rtl");
+    else root.removeAttribute("dir");
+
+    var select = document.querySelector(".langs select");
+    if (select && select.value !== lang) select.value = lang;
     try { localStorage.setItem(KEY, lang); } catch (e) { /* private mode */ }
+
+    if (IN_DOM[textLang]) { paint(textLang, null); return; }
+    load(lang).then(function (dict) {
+      // A slower answer for a language the visitor has already switched away
+      // from must not repaint the page.
+      if (root.getAttribute("data-lang") === lang) paint(lang, dict);
+    });
+  }
+
+  // Closest supported language for this visitor, e.g. pt-BR → pt, zh-Hant → zh.
+  function fromBrowser() {
+    var list = navigator.languages || [navigator.language || ""];
+    for (var i = 0; i < list.length; i++) {
+      var hit = supported(list[i]);
+      if (hit) return hit;
+    }
+    return null;
   }
 
   // Precedence: explicit ?lang= → previous choice → browser language.
   var url = new URLSearchParams(location.search).get("lang");
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) { /* private mode */ }
-  var guess = (navigator.language || "").toLowerCase().indexOf("tr") === 0
-    ? "tr" : "en";
-  apply(url || saved || guess);
+  apply(supported(url) || supported(saved) || fromBrowser() || "en");
 
-  document.addEventListener("click", function (event) {
-    var button = event.target.closest(".langs button");
-    if (button) apply(button.dataset.lang);
+  document.addEventListener("change", function (event) {
+    var select = event.target.closest && event.target.closest(".langs select");
+    if (select) apply(select.value);
   });
 })();
 

@@ -1,0 +1,5 @@
+# vpadcontroller.com
+User-agent: *
+Allow: /
+
+Sitemap: https://vpadcontroller.com/sitemap.xml

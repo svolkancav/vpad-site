@@ -3,19 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>V-Pad — turn your phone into a gamepad</title>
-<meta name="description" content="V-Pad turns your phone into a gamepad for your PC. On Android it pairs over Bluetooth; on iPhone it connects over Wi-Fi with a free helper app for your computer.">
+<title>V-Pad — turn your phone into a virtual gamepad for your PC</title>
+<meta name="description" content="V-Pad turns your phone into a virtual gamepad for your PC. On Android it pairs over Bluetooth; on iPhone it connects over Wi-Fi with a free helper app.">
 <link rel="icon" href="assets/icon.png">
 <link rel="preload" href="assets/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="canonical" href="https://vpadcontroller.com/">
 <meta property="og:url" content="https://vpadcontroller.com/">
-<meta property="og:title" content="V-Pad — turn your phone into a gamepad">
-<meta property="og:description" content="Your phone becomes a gamepad for your PC. Free helper app for Windows.">
-<meta property="og:image" content="https://vpadcontroller.com/assets/icon.png">
-<meta property="og:type" content="website">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b0f1a" media="(prefers-color-scheme: dark)">
+<!-- SEO:BEGIN -->
+<!-- Makineler için: sosyal kart ve yapısal veri. Bu blok
+     tools/seo-update.py tarafından üretiliyor — elle düzenlemeyin,
+     aracı çalıştırın. -->
+<meta property="og:title" content="V-Pad — turn your phone into a virtual gamepad for your PC">
+<meta property="og:description" content="Your phone becomes a gamepad for your PC. Free helper app for Windows.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="V-Pad">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:image" content="https://vpadcontroller.com/assets/customise-banner.jpg">
+<meta property="og:image:width" content="2200">
+<meta property="og:image:height" content="1016">
+<meta property="og:image:alt" content="A phone with the V-Pad customise sheet open, beside its layouts">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="V-Pad — turn your phone into a virtual gamepad for your PC">
+<meta name="twitter:description" content="Your phone becomes a gamepad for your PC. Free helper app for Windows.">
+<meta name="twitter:image" content="https://vpadcontroller.com/assets/customise-banner.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "V-Pad: Virtual Gamepad",
+  "alternateName": "V-Pad",
+  "description": "V-Pad turns your phone into a virtual gamepad for your PC. On Android it pairs over Bluetooth; on iPhone it connects over Wi-Fi with a free helper app.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Android 12+, iOS",
+  "url": "https://vpadcontroller.com/",
+  "image": "https://vpadcontroller.com/assets/customise-banner.jpg",
+  "installUrl": [
+    "https://play.google.com/store/apps/details?id=com.dfnmondo.gamepad.app",
+    "https://apps.apple.com/us/app/v-pad-virtual-gamepad/id6796475673"
+  ],
+  "sameAs": [
+    "https://play.google.com/store/apps/details?id=com.dfnmondo.gamepad.app",
+    "https://apps.apple.com/us/app/v-pad-virtual-gamepad/id6796475673"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+<!-- SEO:END -->
 </head>
 <body>
 
@@ -137,8 +188,20 @@
       <a href="/downloads"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span lang="en">Downloads</span><span lang="tr">İndirmeler</span></a>
       <a href="/support"><svg class="ico" aria-hidden="true"><use href="#i-help"/></svg><span lang="en">Support</span><span lang="tr">Destek</span></a>
       <div class="langs">
-        <button data-lang="en" aria-pressed="true">EN</button>
-        <button data-lang="tr" aria-pressed="false">TR</button>
+        <select aria-label="Language">
+          <option value="en">English</option>
+          <option value="tr">Türkçe</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt">Português</option>
+          <option value="ru">Русский</option>
+          <option value="zh">中文</option>
+          <option value="ar">العربية</option>
+        </select>
       </div>
     </nav>
   </div>
