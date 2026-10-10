@@ -60,7 +60,7 @@
   "Download V-Pad Helper — run it when you want to play games",
   "Double-click <b>vpad-host.exe</b>. Windows shows a blue warning the first time because the file is not signed yet — choose <b>More info</b>, then <b>Run anyway</b>. No black console window appears; instead you get a window with a <b>QR code</b> and a <b>6-digit number</b>. Leave it open, your phone needs it in a moment. A small V-Pad icon also appears by the clock, bottom-right — that is the helper, and it keeps running after you close the window. <b>It has to stay running while you play.</b>",
   "vpad-host.exe",
-  "Current build <b>1.0.3</b> (e0e3dd9), 17 September 2026. For the best experience keep an eye on updates: when a new host is out, V-Pad's changelog in the app tells you — download the new vpad-host.exe then and run it while you play.",
+  "Current build <b>1.0.4</b> (f21dc35), 10 October 2026. For the best experience keep an eye on updates: when a new host is out, V-Pad's changelog in the app tells you — download the new vpad-host.exe then and run it while you play.",
   "Point the phone at it",
   "Phone and computer on the <b>same Wi-Fi</b>. Open V-Pad, choose Wi-Fi, and either scan that QR code or type the six digits. If Windows is blocking the way in, the helper says so and offers a one-click fix from its notification-area icon — bottom-right, behind the <b>^</b> arrow. After the first time, your computer remembers the phone, so there is no code to type again.",
   "The Android app",
