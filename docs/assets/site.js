@@ -214,3 +214,124 @@
   // much, but there is no reason to keep it.
   dialog.addEventListener('close', function () { img.removeAttribute('src'); });
 })();
+
+// AdSense slots: two desktop rails and a strip above the footer.
+//
+// OFF until `client` is filled in. With it empty nothing is injected, no
+// script is fetched and the page is byte-for-byte what it was — not an empty
+// reserved box, not a collapsed container. That matters because this page's
+// job is getting someone to the helper download, and a half-configured ad
+// layout that leaves holes in it costs more than the ads earn.
+//
+// ⚠️ TURNING THIS ON IS TWO EDITS, NOT ONE. Filling in `client` without also
+// publishing /ads.txt means Google treats this domain's inventory as
+// unauthorised and serves nothing — silently, with the markup looking
+// perfectly correct. The file is deliberately NOT in the repo yet, so it
+// cannot sit there half-written: an ads.txt that omits the publisher is worse
+// than no ads.txt at all. Once the AdSense account is approved, add
+// `docs/ads.txt` containing:
+//
+//     google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+//
+// That is ads.txt, a DIFFERENT file from the app-ads.txt already at the root:
+// app-ads.txt authorises the iOS app's inventory, ads.txt authorises this
+// website's. Both belong at the domain root and neither replaces the other.
+var ADSENSE = {
+  // From AdSense, shaped `ca-pub-` + 16 digits. NOT the AdMob publisher id —
+  // AdMob and AdSense are separate products, and this site has to be added to
+  // AdSense and pass its review before anything serves here.
+  client: '',
+  // Ad unit ids from AdSense (Ads → By ad unit). An empty slot is skipped, so
+  // the rails can go live before the strip or the other way round.
+  slots: { left: '', right: '', bottom: '' },
+};
+
+(function () {
+  if (!ADSENSE.client) return;
+  // No ads on 404: the page has no content of its own and AdSense's policies
+  // are explicit that such pages must not carry them.
+  if (document.body.dataset.ads === 'off') return;
+
+  var loaded = false;
+  function loadOnce() {
+    if (loaded) return;
+    loaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.crossOrigin = 'anonymous';
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='
+          + encodeURIComponent(ADSENSE.client);
+    document.head.appendChild(s);
+  }
+
+  // One <ins>, with a label above it. The label is deliberate: readers are
+  // entitled to know which part of the page was paid for, and AdSense's own
+  // policy forbids presenting ads as anything else.
+  //
+  // It carries lang="en" so the translator above can pick it up — but only if
+  // "Advertisement" is added to the i18n files by hand. `i18n-extract.py`
+  // reads the HTML, and this element is built in JS, so the extractor will
+  // never see it. Until then it stays English, which is the same fallback any
+  // untranslated slot gets. Deliberately NOT routed through the translator's
+  // internals: `snapshot()` caches its slot list once, and the 🚨 note up
+  // there records what reaching into that already cost once.
+  function unit(slot, format, responsive) {
+    var box = document.createElement('div');
+    box.className = 'ad-box';
+    var label = document.createElement('span');
+    label.className = 'ad-label';
+    label.setAttribute('lang', 'en');
+    label.textContent = 'Advertisement';
+    var ins = document.createElement('ins');
+    ins.className = 'adsbygoogle';
+    ins.style.display = 'block';
+    ins.setAttribute('data-ad-client', ADSENSE.client);
+    ins.setAttribute('data-ad-slot', slot);
+    if (format) ins.setAttribute('data-ad-format', format);
+    if (responsive) ins.setAttribute('data-full-width-responsive', 'true');
+    box.appendChild(label);
+    box.appendChild(ins);
+    return box;
+  }
+
+  function push() {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      // A blocked or failed ad script must never take the page's own JS down.
+    }
+  }
+
+  // Rails. Built for every viewport but revealed by CSS only above 1500px:
+  // the content column is 1100px, so anything narrower has no gutter to put a
+  // 160px tower in without crowding what people came for.
+  ['left', 'right'].forEach(function (side) {
+    var id = ADSENSE.slots[side];
+    if (!id) return;
+    var rail = document.createElement('aside');
+    rail.className = 'ad-rail ad-rail-' + side;
+    rail.setAttribute('aria-hidden', 'true');
+    rail.appendChild(unit(id, 'vertical', false));
+    document.body.appendChild(rail);
+    loadOnce();
+    push();
+  });
+
+  // Strip directly above the footer, in normal flow. Not pinned to the
+  // viewport: a sticky bar earns more per impression and is also the thing
+  // most likely to sit on top of the download button on a short page. If that
+  // trade is ever worth making it is a CSS change here, not a new unit.
+  if (ADSENSE.slots.bottom) {
+    var strip = document.createElement('div');
+    strip.className = 'ad-strip';
+    strip.appendChild(unit(ADSENSE.slots.bottom, 'auto', true));
+    var footer = document.querySelector('footer');
+    if (footer && footer.parentNode) {
+      footer.parentNode.insertBefore(strip, footer);
+    } else {
+      document.body.appendChild(strip);
+    }
+    loadOnce();
+    push();
+  }
+})();

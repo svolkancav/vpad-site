@@ -810,3 +810,59 @@ section.dl { padding-top: clamp(26px, 3vw, 40px); }
   .pick { grid-template-columns: 1fr; }
   .plat { padding: 22px 20px; }
 }
+
+/* ── Ad slots ──────────────────────────────────────────────────────
+   Markup is injected by site.js, and only when a publisher id is set — with
+   ads off none of this matches anything.
+
+   Nothing here reserves height. An unfilled AdSense unit collapses itself; a
+   min-height would leave a visible hole on every no-fill, which on a short
+   download page is most of the page. */
+.ad-box { display: block; }
+
+.ad-label {
+  display: block;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--muted, #6b7280);
+  margin-bottom: 6px;
+}
+/* On a no-fill the label must not be the only thing left behind. */
+.ad-box:not(:has(iframe)) .ad-label { display: none; }
+
+.ad-strip {
+  max-width: var(--wrap);
+  margin: 40px auto 0;
+  padding: 0 22px;
+}
+
+/* Rails: off by default, which includes every phone and most laptops. */
+.ad-rail { display: none; }
+
+/* 1500px is the first width with room for a 160px tower beside the 1100px
+   column without crowding it: 1100 + 2*(160 + 24 gap) = 1468, plus an edge
+   margin. Below this the rails stay off rather than overlap the page. */
+@media (min-width: 1500px) {
+  .ad-rail {
+    display: block;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 160px;
+    z-index: 1;      /* below the screenshot <dialog>, which uses the top layer */
+  }
+  .ad-rail-left  { left:  calc(50% - 550px - 24px - 160px); }
+  .ad-rail-right { right: calc(50% - 550px - 24px - 160px); }
+}
+
+/* A fixed element too tall for the window would be clipped with no way to
+   scroll it; at that point the rails are not worth showing. */
+@media (max-height: 640px) {
+  .ad-rail { display: none; }
+}
+
+@media print {
+  .ad-rail, .ad-strip { display: none; }
+}
