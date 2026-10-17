@@ -43,6 +43,7 @@ PAGES = {
                                "downloads.html"),
     "downloads-ios.html": ("/downloads-ios", "iPhone downloads",
                            "downloads.html"),
+    "about.html": ("/about", "About", None),
     "support.html": ("/support", "Support", None),
     "privacy.html": ("/privacy", "Privacy", None),
 }

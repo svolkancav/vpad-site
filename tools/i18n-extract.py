@@ -25,6 +25,7 @@ PAGES = [
     "downloads-android.html",
     "downloads-ios.html",
     "support.html",
+    "about.html",
     "404.html",
 ]
 
