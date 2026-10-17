@@ -240,9 +240,11 @@ var ADSENSE = {
   // From AdSense, shaped `ca-pub-` + 16 digits. NOT the AdMob publisher id —
   // AdMob and AdSense are separate products, and this site has to be added to
   // AdSense and pass its review before anything serves here.
-  client: '',
+  client: 'ca-pub-5644908570185902',
   // Ad unit ids from AdSense (Ads → By ad unit). An empty slot is skipped, so
-  // the rails can go live before the strip or the other way round.
+  // the rails can go live before the strip or the other way round. All three
+  // are still empty: the account was upgraded on 2026-10-18 and the site is
+  // awaiting review, which has to pass before ad units exist to point at.
   slots: { left: '', right: '', bottom: '' },
 };
 
@@ -253,6 +255,12 @@ var ADSENSE = {
   if (document.body.dataset.ads === 'off') return;
 
   var loaded = false;
+  // The loader is ALSO the verification snippet. AdSense reviews a site by
+  // fetching its pages and looking for this script; without it the site sits
+  // at "Requires review" for ever, however correct the rest is. So it loads
+  // as soon as a client id exists, with or without any ad units — which is
+  // exactly the state between the account upgrade and the first unit being
+  // created. With no units it fetches the script and renders nothing.
   function loadOnce() {
     if (loaded) return;
     loaded = true;
@@ -301,6 +309,9 @@ var ADSENSE = {
       // A blocked or failed ad script must never take the page's own JS down.
     }
   }
+
+  // Verification first, units after: see the note on loadOnce.
+  loadOnce();
 
   // Rails. Built for every viewport but revealed by CSS only above 1500px:
   // the content column is 1100px, so anything narrower has no gutter to put a

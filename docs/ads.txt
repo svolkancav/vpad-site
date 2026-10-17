@@ -1,0 +1,29 @@
+# ads.txt -- vpadcontroller.com
+#
+# IAB Tech Lab Authorized Digital Sellers (ads.txt v1.0). Declares who may sell
+# THIS WEBSITE's ad inventory. A network that finds no matching line treats the
+# requests as unauthorised and stops bidding, so a missing or wrong file shows
+# up as "no ads are serving" with markup that looks perfectly correct.
+#
+# NOT the same file as app-ads.txt, which sits beside it at this root:
+#
+#   ads.txt      -> this website's inventory (AdSense for content)
+#   app-ads.txt  -> the V-Pad iOS/Android app's inventory (AdMob)
+#
+# Both belong here and neither replaces the other. AdSense reported
+# "Ads.txt status: Not found" for this domain until this file existed.
+#
+# ONE line, unlike app-ads.txt's two. The second line there
+# (pub-5398027060352897) is an old AdMob account kept alive for app builds
+# still in the field that request its unit ids. No shipped web page has ever
+# asked for that account's inventory, so authorising it here would widen who
+# may sell this domain for no reason.
+#
+# ASCII only, on purpose: a stray smart quote or a BOM in the comments is a
+# needless way to upset a strict parser on a file whose whole job is to be
+# machine-read.
+
+# AdSense -- DIRECT, our own publisher account. Same publisher id as AdMob,
+# because an AdMob account is built on AdSense; the website simply had to be
+# added to it and reviewed (done 2026-10-18).
+google.com, pub-5644908570185902, DIRECT, f08c47fec0942fa0
